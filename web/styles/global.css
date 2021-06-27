@@ -1,0 +1,42 @@
+/* ./styles/globals.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background-color: rgb(249, 252, 255);
+}
+
+
+li {
+  @apply font-bold;
+}
+
+progress {
+  @apply bg-blue-300;
+}
+
+button:focus, button:active {
+  outline: 0px dotted;
+}
+
+.photo{
+    @apply border-vibrant-blue border-8;
+}
+
+.display-override{
+  display: block !important;
+}
+
+.btn{
+    @apply text-center text-txt-white font-bold hover:bg-vibrant-blue-dk bg-vibrant-blue rounded-3xl p-2;
+}
+
+.btn-secondary{
+  @apply border-2 border-vibrant-blue text-center text-vibrant-blue font-bold hover:bg-vibrant-blue hover:text-txt-white  self-center rounded-full p-2;
+}
+
+.icon-btn{
+  @apply p-4 text-2xl;
+}
