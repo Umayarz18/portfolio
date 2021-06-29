@@ -44,7 +44,7 @@ export default function Home() {
           </svg>
         </section>
 
-        <div className="grid justify-items-center">
+        <div className="grid justify-items-center items-center">
           {/** About Me Section */}
           <section className="md:m-24 my-12 mx-3 grid justify-center text-center">
             <h2 className="font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
@@ -60,9 +60,9 @@ export default function Home() {
           </section>
 
           {/** My Skills Section */}
-          <section className="shadow rounded bg-purple-200 p-20 flex items-center flex-wrap justify-between flex-col-reverse lg:flex-row md:flex-row w-screen">
+          <section className=" p-20 flex items-center flex-wrap justify-between flex-col-reverse lg:flex-row md:flex-row w-screen">
             {/** Skill Stats */}
-            <div className="flex-1 bg-txt-white lg:m-10 p-10 rounded-3xl self-start shadow-md">
+            <div className="flex-1 bg-gray-200 lg:m-10 p-10 rounded-3xl self-start shadow-md">
               <ul className="grid gap-2 items-center justify-around grid-col-1 lg:gap-x-0 lg:grid-cols-2 ">
                 <li className=" text-sm lg:text-base">CSS </li>
                 <ProgressBar width="50%" />
@@ -94,11 +94,11 @@ export default function Home() {
                 my skills. But if you do need mine, you can check it out{" "}
                 <a href="#">here</a>.
               </p>
-              <ul className="grid gap-2 items-center justify-left grid-col-3 lg:gap-x-0 lg:grid-cols-3">
-                <li>Team Player🏈</li>
-                <li>Self-starter✍️</li>
-                <li>Adaptable⏰</li>
-                <li>Empathetic🤗</li>
+              <ul className="flex flex-row flex-wrap">
+                <li className="badge flex-initial w-1/4">Team Player 🏈</li>
+                <li className="badge flex-initial w-1/4">Self-starter ✍️</li>
+                <li className="badge flex-initial w-1/4">Adaptable ⏰</li>
+                <li className="badge flex-initial w-1/4">Empathetic 🤗</li>
               </ul>
             </div>
           </section>
@@ -118,17 +118,28 @@ export default function Home() {
           </section>
 
           {/** My Projects section */}
-          <section className="grid justify-center content-center">
+          <section className="grid justify-center content-center my-24 ">
             <h2 className="font-bold justify-self-center  m-5 text-gray-900 text-2xl md:text-3xl lg:text-4xl">
               My Recent Projects
             </h2>
-            <p className="font-normal mx-5 justify-self-center text-gray-800 text-lg md:text-xl lg:text-2xl"> You can check out a full list here</p>
-            <div className="grid grid-cols-1 grid-rows-2">
+            <p className="font-normal mx-5 justify-self-center text-gray-800 text-lg md:text-xl lg:text-2xl"> You can check out a full list <a  className=" font-semibold text-vibrant-purple hover:font-bold hover:text-vibrant-purple-dk " href="/projects">here</a></p>
+            <div className="grid grid-cols-1 grid-rows-1">
               <div className="flex flex-col md:flex-row flew-wrap w-full block">
                 <Card
                   title="Sprout"
                   description="An e-learning platform designed to teach high school students personal finance through short articles, quizzes, and activites to better prepare them for adulthood."
                   color="#2FC06B"
+                  logo="/logos/sprout-logo.svg"
+                  type="vertical"
+                />
+
+                <Card
+                  title="DEISphere"
+                  description="An event conference website set for the University of Washington Bothell Beta Alpha Psi meant to bring attention to diversity and inclusion in the accounting field."
+                  color="#4B2E83"
+                  link="https://www.deisphere.com/"
+                  logo="/logos/DEISphere.svg"
+                  type="vertical"
                 />
 
                 <Card
@@ -136,27 +147,12 @@ export default function Home() {
                   description="A Django website made for a group Database Systems course that allows users to see titles of anime, manga, and light novels as well as reviews."
                   color="#0E87A1"
                   link="https://our-anime-rec.herokuapp.com/"
+                  logo="/logos/Our Anime Rec.svg"
+                  type="vertical"
                 />
               </div>
-
-              <div className="flex flex-col md:flex-row flew-wrap w-full block">
-                <Card
-                  title="DEISphere"
-                  description="A Wix website set as for the DEISphere conference meant to bring attention to diversity and inclusion in the accounting field. A website for the University of Washington Bothell Beta Alpha Psi Mu Psi chapter. "
-                  color="#4B2E83"
-                  link="https://www.deisphere.com/"
-                />
-
-                
-              </div>
+              {/** <div className="flex flex-col md:flex-row flew-wrap w-full block"></div> */}
             </div>
-          </section>
-
-          {/** Contact Form */}
-          <section className="shadow rounded bg-purple-200 p-20">
-            <h2 className="font-bold text-gray-900 text-2xl lg:text-3xl text-left">
-              Want to Chat?💬
-            </h2>
           </section>
         </div>
       </Layout>

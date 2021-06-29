@@ -40,3 +40,7 @@ button:focus, button:active {
 .icon-btn{
   @apply p-4 text-2xl;
 }
+
+.badge{
+  @apply rounded-xl  py-2 text-vibrant-blue bg-blue-300 grid justify-center m-2;
+}

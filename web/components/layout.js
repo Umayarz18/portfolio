@@ -35,12 +35,12 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <div className={`${styles.flexContainer} overflow-x-hidden`}>
+      <div className={`${styles.flexContainer} overflow-x-hidden relative`}>
         <header>
           <NavBar />
         </header>
-        <main className="grid justify-items-center w-screen">{children}</main>
-        <footer className="mt-10 p-8 flex flex-col md:flex-row bg-purple-200 items-center justify-around">
+        <main className="grid justify-items-center w-screen ">{children}</main>
+        <footer className=" p-8 flex flex-col md:flex-row   relative w-screen  items-center justify-around">
           <small className="text-base md:text-md lg:text-lg">
             {" "}
             Roewyn Umayam &copy;<time>2021</time>. All rights reserved.
