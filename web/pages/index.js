@@ -122,9 +122,9 @@ export default function Home() {
             <h2 className="font-bold justify-self-center  m-5 text-gray-900 text-2xl md:text-3xl lg:text-4xl">
               My Recent Projects
             </h2>
-            <p className="font-normal mx-5 justify-self-center text-gray-800 text-lg md:text-xl lg:text-2xl"> You can check out a full list <a  className=" font-semibold text-vibrant-purple hover:font-bold hover:text-vibrant-purple-dk " href="/projects">here</a></p>
+            <p className="font-normal mx-5 justify-self-center text-gray-800 text-lg md:text-xl lg:text-2xl"> You can check out a full list <a  className=" font-semibold text-vibrant-purple hover:font-bold hover:text-vibrant-purple-dk hover:underline" href="/projects">here</a></p>
             <div className="grid grid-cols-1 grid-rows-1">
-              <div className="flex flex-col md:flex-row flew-wrap w-full block">
+              <div className="flex flex-col lg:flex-row flew-wrap w-full block ">
                 <Card
                   title="Sprout"
                   description="An e-learning platform designed to teach high school students personal finance through short articles, quizzes, and activites to better prepare them for adulthood."

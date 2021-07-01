@@ -23,7 +23,7 @@ export default function NavBar() {
             aria-expanded="false"
             onClick={handleClick}
           >
-            <span class="sr-only">Open main menu</span>
+            <span className="sr-only">Open main menu</span>
             {/** When Closed */}
             <FiMenu className="text-3xl  m-2 " />
 

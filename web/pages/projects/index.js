@@ -6,8 +6,8 @@ export default function ProjectList() {
     <Layout home>
       <h1>Project List</h1>
 
-      <div className="grid grid-cols-1">
-        <div className="flex flex-col  flew-wrap w-full block justify-between">
+      <div className="grid grid-cols-1 m-0 justify-center items-center">
+        <div className="flex flex-col  flew-wrap block items-center">
           <Card
             title="Sprout"
             description="An e-learning platform designed to teach high school students personal finance through short articles, quizzes, and activites to better prepare them for adulthood."

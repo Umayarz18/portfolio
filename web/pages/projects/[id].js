@@ -1,37 +1,13 @@
 import Layout from '../../components/layout'
-/**
- * import { getAllPostIds, getPostData } from '../../lib/posts'
+import { useRouter } from 'next/router';
 
-export async function getStaticPaths(){
-    //Retun a list of possible value for id
-}
-
-export async function getStaticProps({ params }) {
-    const postData = getPostData(params.id)
-    return {
-      props: {
-        postData
-      }
-    }
-}
-
-export default function Post({ postData }) {
-    return (
-      <Layout>
-        {postData.title}
-        <br />
-        {postData.id}
-        <br />
-        {postData.date}
-      </Layout>
-    )
-  }
- */
 
   export default function Post() {
+    const router = useRouter();
+    let {id} = router.query;
     return (
       <Layout>
-        huh
+        <h1>{id}</h1>
       </Layout>
     )
   }
