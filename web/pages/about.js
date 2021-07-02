@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <Layout home>
+    <Layout home pageTitle="About me | Roewyn Umayam | Full-Stack Developer & Taekwondo Instructor">
       <section className="flex  flex-col md:flex-row  mx-20">
         <div className="photo m-8 rounded">
           <Image

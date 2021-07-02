@@ -16,7 +16,7 @@ const name = "Roewyn Umayam";
 export const siteTitle =
   "Roewyn Umayam | Full-Stack Developer & Taekwondo Instructor";
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home , pageTitle}) {
   return (
     <>
       <Head>
@@ -32,6 +32,7 @@ export default function Layout({ children, home }) {
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
         <meta name="og:title" content={siteTitle} />
+        <title>{pageTitle ? pageTitle : siteTitle}</title>
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
@@ -39,7 +40,8 @@ export default function Layout({ children, home }) {
         <header>
           <NavBar />
         </header>
-        <main className="grid justify-items-center w-screen ">{children}</main>
+        <main className="grid justify-items-center w-screen justify-center">{children}</main>
+        
         <footer className=" p-8 flex flex-col md:flex-row   relative w-screen  items-center justify-around">
           <small className="text-base md:text-md lg:text-lg">
             {" "}

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
+import Layout from "../components/layout";
 import ProgressBar from "../components/progressbar";
 import Image from "next/image";
 import HeroSVG from "../public/ComputerSVG";
@@ -13,9 +13,6 @@ export default function Home() {
   return (
     <>
       <Layout home>
-        <Head>
-          <title>{siteTitle}</title>
-        </Head>
         <section className="">
           <div className="flex items-center flex-wrap items-center justify-center md:flex-row  lg:pt-44 bg-vibrant-blue pt-10 ">
             <div className="grid justify-items-start  flex-initial  self-center  mx-10">
