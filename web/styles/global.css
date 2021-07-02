@@ -8,11 +8,6 @@ body{
   background-color: rgb(249, 252, 255);
 }
 
-
-li {
-  @apply font-bold;
-}
-
 progress {
   @apply bg-blue-300;
 }

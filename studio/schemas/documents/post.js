@@ -18,6 +18,11 @@ export default {
       },
     },
     {
+      name: 'imageSource',
+      title: 'Image Source',
+      type: 'string'
+    },
+    {
       name: 'author',
       title: 'Author',
       type: 'reference',

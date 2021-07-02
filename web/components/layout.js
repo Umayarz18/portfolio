@@ -36,13 +36,13 @@ export default function Layout({ children, home , pageTitle}) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <div className={`${styles.flexContainer} overflow-x-hidden relative`}>
-        <header>
+      <div className={`flex flex-col overflow-x-hidden relative`}>
+        <header className="order-first">
           <NavBar />
         </header>
-        <main className="grid justify-items-center w-screen justify-center">{children}</main>
+        <main className="flex-auto block justify-items-center  justify-center">{children}</main>
         
-        <footer className=" p-8 flex flex-col md:flex-row   relative w-screen  items-center justify-around">
+        <footer className=" block order-last p-8 flex flex-col flex-initial md:flex-row  block w-screen  items-center justify-around">
           <small className="text-base md:text-md lg:text-lg">
             {" "}
             Roewyn Umayam &copy;<time>2021</time>. All rights reserved.

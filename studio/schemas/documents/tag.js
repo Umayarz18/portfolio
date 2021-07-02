@@ -14,5 +14,13 @@ export default {
       title: 'Color',
       type: 'color',
     },
+
+    {
+      name: "related_posts",
+      title: "related_posts",
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'post'}}],
+      
+    }
   ],
 }
