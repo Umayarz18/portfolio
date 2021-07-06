@@ -29,7 +29,7 @@ export default function Card({ title, color, description, link, logo, type }) {
 
 function VerticalCard({ title, color, description, link, logo, logoStyles }) {
   return (
-    <div className="overflow-hidden rounded bg-txt-white shadow-md max-w-sm m-5 content-center grid items-center grid-cols-1 grid-rows-3">
+    <div className="overflow-hidden rounded bg-white shadow-md max-w-sm my-3 md:m-5 content-center grid items-center grid-cols-1 grid-rows-3">
       <div className=" flex justify-center items-center pt-2 col-span-3 row-span-2">
         <img
           src={logo}
@@ -89,9 +89,9 @@ function HorizontalCard({ title, color, description, link, logo, logoStyles }) {
           />
         </div>
         <div className="p-8">
-          <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+          {/**<div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
             Cat News
-          </div>
+          </div> */}
           <h2
             style={{ color: color }}
             className="block mt-1 text-lg leading-tight font-medium font-bold"

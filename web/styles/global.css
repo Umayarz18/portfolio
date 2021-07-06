@@ -29,11 +29,11 @@ button:focus, button:active {
 }
 
 .btn-secondary{
-  @apply border-2 border-vibrant-blue text-center text-vibrant-blue font-bold hover:bg-vibrant-blue hover:text-txt-white  self-center rounded-full p-2;
+  @apply border-2 border-vibrant-blue text-center text-vibrant-blue font-bold hover:bg-vibrant-blue hover:text-txt-white  self-center rounded-full py-2 px-3 transition duration-300 ease-in-out;
 }
 
 .icon-btn{
-  @apply p-4 text-2xl;
+  @apply  ml-3 px-2 text-xl;
 }
 
 .badge{

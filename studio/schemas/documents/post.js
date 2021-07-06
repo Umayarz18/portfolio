@@ -9,6 +9,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'color',
+      title: 'Color',
+      type: 'color',
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -16,6 +21,11 @@ export default {
         source: 'title',
         maxLength: 96,
       },
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "blockContent",
     },
     {
       name: 'imageSource',

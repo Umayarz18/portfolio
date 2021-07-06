@@ -47,7 +47,7 @@ export default function Home() {
             <h2 className="font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
               Tech-driven Problem Solver
             </h2>
-            <p className="width-3/6 p-5 text-gray-700 text-lg md:text-xl lg:text-2xl xl:px-24">
+            <p className="justify-self-center xl:w-1/2 p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl   ">
               I’m a recent graduate of University of Washington Bothell. I was a
               business student studying in MIS. I shifted from leading tech
               projects to becoming their lead developer. I use my love of
@@ -59,7 +59,7 @@ export default function Home() {
           {/** My Skills Section */}
           <section className=" p-20 flex items-center flex-wrap justify-between flex-col-reverse lg:flex-row md:flex-row w-screen">
             {/** Skill Stats */}
-            <div className="flex-1 bg-gray-200 lg:m-10 p-10 rounded-3xl self-start shadow-md">
+            <div className="flex-1 bg-white lg:mx-10 p-10 rounded-xl self-start shadow-md">
               <ul className="grid gap-2 items-center justify-around grid-col-1 lg:gap-x-0 lg:grid-cols-2 ">
                 <li className=" text-sm lg:text-base">CSS </li>
                 <ProgressBar width="50%" />
@@ -92,7 +92,7 @@ export default function Home() {
                 <a href="#">here</a>.
               </p>
               <ul className="flex flex-row flex-wrap">
-                <li className="badge flex-initial w-1/4">Team Player 🏈</li>
+                <li className="badge flex-initial w-1/4 inline">Team Player 🏈</li>
                 <li className="badge flex-initial w-1/4">Self-starter ✍️</li>
                 <li className="badge flex-initial w-1/4">Adaptable ⏰</li>
                 <li className="badge flex-initial w-1/4">Empathetic 🤗</li>
@@ -101,15 +101,18 @@ export default function Home() {
           </section>
 
           {/** Push to contact me */}
-          <section className="grid text-center m-24 justify-center">
+          <section className="grid text-center m-12 md:m-24 justify-center">
             <h2 className="font-bold text-gray-900 text-2xl md:text-3xl lg:text-4xl">
-              Need a Developer?👨🏾‍💻
+              Need a Developer? 👨🏾‍💻
             </h2>
-            <p className="my-2">
+            <p className="my-2 justify-self-center  md:p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl xl:px-24">
               I’m always open to hearing about collaboration and work
               opportunities.
             </p>
-            <a href="/contact" className="my-2 btn-secondary w-48 justify-self-center">
+            <a
+              href="/contact"
+              className="my-2 btn-secondary w-48 justify-self-center"
+            >
               Slide into my DMs
             </a>
           </section>
@@ -119,9 +122,18 @@ export default function Home() {
             <h2 className="font-bold justify-self-center  m-5 text-gray-900 text-2xl md:text-3xl lg:text-4xl">
               My Recent Projects
             </h2>
-            <p className="font-normal mx-5 justify-self-center text-gray-800 text-lg md:text-xl lg:text-2xl"> You can check out a full list <a  className=" font-semibold text-vibrant-purple hover:font-bold hover:text-vibrant-purple-dk hover:underline" href="/projects">here</a></p>
-            <div className="grid grid-cols-1 grid-rows-1">
-              <div className="flex flex-col lg:flex-row flew-wrap w-full block ">
+            <p className="font-normal mx-5 justify-self-center text-gray-800 text-lg md:text-xl lg:text-2xl">
+              {" "}
+              You can check out a full list{" "}
+              <a
+                className=" font-semibold text-vibrant-purple hover:font-bold hover:text-vibrant-purple-dk hover:underline"
+                href="/projects"
+              >
+                here
+              </a>. 
+            </p>
+            <div className="grid grid-cols-1 grid-rows-1 justify-center">
+              <div className="flex flex-col lg:flex-row flew-wrap w-full block items-center">
                 <Card
                   title="Sprout"
                   description="An e-learning platform designed to teach high school students personal finance through short articles, quizzes, and activites to better prepare them for adulthood."

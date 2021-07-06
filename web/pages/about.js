@@ -5,8 +5,11 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <Layout home pageTitle="About me | Roewyn Umayam | Full-Stack Developer & Taekwondo Instructor">
-      <section className="flex  flex-col md:flex-row  mx-20">
+    <Layout
+      home
+      pageTitle="About me | Roewyn Umayam | Full-Stack Developer & Taekwondo Instructor"
+    >
+      <section className="flex  flex-col md:flex-row  mx-20 justify-center">
         <div className="photo m-8 rounded">
           <Image
             className=""
@@ -22,10 +25,10 @@ export default function About() {
           <p className=" my-5 ">
             Recent MIS graduate from the University of Washington Bothell
             Aspiring full-stack developer. Lead Developer @Sprout 🌱. Instructor
-            @UWTA Taekwondo Center Lynnwood 🥋 Web Developer for @DEIsphere.
+            @UWTA Taekwondo Center Lynnwood 🥋. Web Developer for @DEIsphere.
           </p>
-          <div className="flex">
-            <button className="btn">Check Resume</button>
+          <div className="flex  mt-12">
+            <button className="btn-secondary px-5 ">Check Resume</button>
             <a
               className="btn-secondary icon-btn"
               target="_blank"
@@ -40,7 +43,11 @@ export default function About() {
             >
               <GrInstagram />
             </a>
-            <a className="btn-secondary icon-btn" target="_blank">
+            <a
+              className="btn-secondary icon-btn"
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=100009905313992"
+            >
               <FaFacebookF />
             </a>
           </div>
@@ -48,7 +55,7 @@ export default function About() {
       </section>
 
       {/** Recent Activities */}
-      <section>This is a test item</section>
+
     </Layout>
   );
 }
