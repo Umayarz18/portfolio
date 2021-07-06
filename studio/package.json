@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "@sanity/base": "^2.12.2",
+    "@sanity/cli": "^2.12.2",
     "@sanity/color-input": "^2.11.0",
     "@sanity/components": "^2.2.6",
     "@sanity/core": "^2.12.2",
@@ -26,7 +27,6 @@
     "react": "^17.0",
     "react-dom": "^17.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/Umayarz18/portfolio.git"
