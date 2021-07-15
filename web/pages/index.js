@@ -4,6 +4,10 @@ import ProgressBar from "../components/progressbar";
 import Image from "next/image";
 import HeroSVG from "../public/ComputerSVG";
 import Card from "../components/card";
+import { FiPhone, FiMail } from "react-icons/fi";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { GrInstagram } from "react-icons/gr";
+import { CgFacebook } from "react-icons/cg";
 
 const myLoader = ({ src, width, quality }) => {
   return `https://localhost:3000/${src}?w=${width}&q=${quality || 75}`;
@@ -92,7 +96,9 @@ export default function Home() {
                 <a href="#">here</a>.
               </p>
               <ul className="flex flex-row flex-wrap">
-                <li className="badge flex-initial w-1/4 inline">Team Player 🏈</li>
+                <li className="badge flex-initial w-1/4 inline">
+                  Team Player 🏈
+                </li>
                 <li className="badge flex-initial w-1/4">Self-starter ✍️</li>
                 <li className="badge flex-initial w-1/4">Adaptable ⏰</li>
                 <li className="badge flex-initial w-1/4">Empathetic 🤗</li>
@@ -111,7 +117,7 @@ export default function Home() {
             </p>
             <a
               href="/contact"
-              className="my-2 btn-secondary w-48 justify-self-center"
+              className="btn-secondary mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
             >
               Slide into my DMs
             </a>
@@ -130,7 +136,8 @@ export default function Home() {
                 href="/projects"
               >
                 here
-              </a>. 
+              </a>
+              .
             </p>
             <div className="grid grid-cols-1 grid-rows-1 justify-center">
               <div className="flex flex-col lg:flex-row flew-wrap w-full block items-center">
@@ -162,6 +169,81 @@ export default function Home() {
               </div>
               {/** <div className="flex flex-col md:flex-row flew-wrap w-full block"></div> */}
             </div>
+          </section>
+
+          {/** Contact CTA */}
+          <section className="bg-indigo-100 flex flex-col md:flex-row rounded-3xl p-5 w-2/3 content-center">
+            <div className="flex-grow mt-3 mx-5 w-full">
+              <h1 className="text-gray-900 font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+                Want to work Together?
+              </h1>
+              <p className="text-gray-700 font-normal text-md md:text-lg lg:text-xl xl:text-2xl mt-3 mb-4">
+                Feel free to reach out and let's connect.
+              </p>
+
+              <div className="grid justify-center">
+                <FiPhone />
+                <a
+                  href="mailto:roewyn.e.umayam@gmail.com"
+                  className="mr-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
+                >
+                  <FiMail />
+                  roewyn.e.umayam@gmail.com
+                </a>
+                <a
+                  className=" mr-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
+                  target="_blank"
+                  href="https://www.linkedin.com/in/roewyn-umayam/"
+                >
+                  <FaLinkedinIn />
+                  Roewyn Umayam
+                </a>
+                <a
+                  className="text-base md:text-md lg:text-lg hover:text-vibrant-purple"
+                  target="_blank"
+                  href="https://github.com/Umayarz18"
+                >
+                  <FaGithub />
+                  Umayarz18
+                </a>
+              </div>
+            </div>
+
+            <form name="contact" method="POST" data-netlify="true" className="grid items-center justify-center">
+              <p className="m-2.5 ">
+                <label htmlFor="name">Name</label> <br />
+                <input
+                  className="w-60 rounded-xl"
+                  type="text"
+                  id="name"
+                  name="name"
+                />
+              </p>
+              <p className="m-2.5">
+                <label htmlFor="email">Email</label> <br />
+                <input
+                  className="w-60 rounded-xl"
+                  type="text"
+                  id="email"
+                  name="email"
+                />
+              </p>
+              <p className="m-2.5">
+                <label htmlFor="message">Message</label> <br />
+                <textarea
+                  className="w-60 rounded-xl"
+                  id="message"
+                  name="message"
+                ></textarea>
+              </p>
+
+              <button
+                className="m-2.5  w-60 justify-self-center btn-secondary"
+                type="submit"
+              >
+                Say Hey👋
+              </button>
+            </form>
           </section>
         </div>
       </Layout>

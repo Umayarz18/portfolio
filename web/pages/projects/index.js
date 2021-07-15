@@ -4,7 +4,6 @@ import Card from "../../components/card";
 export default function ProjectList() {
   return (
     <Layout home pageTitle="My Projects | Roewyn Umayam | Full-Stack Developer & Taekwondo Instructor">
-      <h1>Project List</h1>
 
       <div className="grid grid-cols-1 m-0 justify-center items-center">
         <div className="flex flex-col  flew-wrap block items-center">

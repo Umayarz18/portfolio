@@ -2,12 +2,10 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "./layout.module.css";
 import {
-  FaInstagram,
   FaLinkedinIn,
-  FaFacebookF,
   FaGithub,
 } from "react-icons/fa";
-import { GrInstagram, GrGithub } from "react-icons/gr";
+import { GrInstagram} from "react-icons/gr";
 import { CgFacebook } from "react-icons/cg";
 import Link from "next/link";
 import NavBar from "./navbar";

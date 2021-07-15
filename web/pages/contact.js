@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <Layout pageTitle="Contact | Roewyn Umayam | Full-Stack Developer & Taekwondo Instructor">
       {/** Contact Form */}
-      <section className="shadow rounded bg-purple-200 p-20">
+      <section className="self-center justify-center m-24 w-1/2 grid justify-self-center shadow rounded bg-purple-200 p-20">
         <h2 className="font-bold text-gray-900 text-2xl lg:text-3xl text-left">
           Want to Chat?💬
         </h2>
