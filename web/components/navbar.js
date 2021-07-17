@@ -49,11 +49,6 @@ export default function NavBar() {
                   My Projects
                 </a>
               </Link>
-              <Link href="/contact">
-                <a className="ml-5 font-bold lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-txt-white font-bold items-center justify-center hover:bg-vibrant-purple hover:text-txt-white">
-                  Say Hey
-                </a>
-              </Link>
             </div>
           </div>
         </div>

@@ -61,27 +61,31 @@ export default function Home() {
           </section>
 
           {/** My Skills Section */}
-          <section className=" p-20 flex items-center flex-wrap justify-between flex-col-reverse lg:flex-row md:flex-row w-screen">
+          <section className="p-20 px-44 flex items-center flex-wrap justify-between flex-col-reverse lg:flex-row md:flex-row w-screen">
             {/** Skill Stats */}
-            <div className="flex-1 bg-white lg:mx-10 p-10 rounded-xl self-start shadow-md">
-              <ul className="grid gap-2 items-center justify-around grid-col-1 lg:gap-x-0 lg:grid-cols-2 ">
-                <li className=" text-sm lg:text-base">CSS </li>
+            <div className="flex-1 bg-white lg:mx-10 p-24 lg:p-10 rounded-xl self-start shadow-md lg:py-16 min-w-full md:min-w-max md:mr-10">
+              <ul className="grid gap-2 items-center  grid-col-1 lg:gap-x-0 lg:grid-cols-2 ">
+
+                <li className=" text-sm lg:text-base font-bold ">CSS</li>
                 <ProgressBar width="50%" />
 
-                <li className=" text-sm lg:text-base lg:w-50">HTML</li>
+                <li className=" text-sm lg:text-base lg:w-50 font-bold">HTML</li>
                 <ProgressBar width="60%" />
 
-                <li className=" text-sm lg:text-base">Javascript</li>
+                <li className=" text-sm lg:text-base font-bold">Javascript</li>
                 <ProgressBar width="60%" />
 
-                <li className=" text-sm lg:text-base">React</li>
+                <li className=" text-sm lg:text-base font-bold">React</li>
                 <ProgressBar width="75%" />
 
-                <li className=" text-sm lg:text-base">Design</li>
+                <li className=" text-sm lg:text-base font-bold">Design</li>
                 <ProgressBar width="50%" />
 
-                <li className=" text-sm lg:text-base">Django</li>
+                {/**
+                <li className=" text-sm lg:text-base font-bold">Django</li>
                 <ProgressBar width="40%" />
+                 */
+                }
               </ul>
             </div>
 
@@ -92,8 +96,8 @@ export default function Home() {
               </h2>
               <p className="my-5 text-gray-800 text-lg md:text-xl lg:text-2xl">
                 Resumes are boring to read. Instead, here's a quick rundown on
-                my skills. But if you do need mine, you can check it out{" "}
-                <a href="#">here</a>.
+                my skills. But if you do need mine, here's {" "}
+                <a href="#">my resume</a>.
               </p>
               <ul className="flex flex-row flex-wrap">
                 <li className="badge flex-initial w-1/4 inline">
@@ -116,137 +120,158 @@ export default function Home() {
               opportunities.
             </p>
             <a
-              href="/contact"
+              href="#contact"
               className="btn-secondary mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
             >
               Slide into my DMs
             </a>
           </section>
-
-          {/** My Projects section */}
-          <section className="grid justify-center content-center my-24 ">
-            <h2 className="font-bold justify-self-center  m-5 text-gray-900 text-2xl md:text-3xl lg:text-4xl">
-              My Recent Projects
-            </h2>
-            <p className="font-normal mx-5 justify-self-center text-gray-800 text-lg md:text-xl lg:text-2xl">
-              {" "}
-              You can check out a full list{" "}
-              <a
-                className=" font-semibold text-vibrant-purple hover:font-bold hover:text-vibrant-purple-dk hover:underline"
-                href="/projects"
-              >
-                here
-              </a>
-              .
-            </p>
-            <div className="grid grid-cols-1 grid-rows-1 justify-center">
-              <div className="flex flex-col lg:flex-row flew-wrap w-full block items-center">
-                <Card
-                  title="Sprout"
-                  description="An e-learning platform designed to teach high school students personal finance through short articles, quizzes, and activites to better prepare them for adulthood."
-                  color="#2FC06B"
-                  logo="/logos/sprout-logo.svg"
-                  type="vertical"
-                />
-
-                <Card
-                  title="DEISphere"
-                  description="An event conference website set for the University of Washington Bothell Beta Alpha Psi meant to bring attention to diversity and inclusion in the accounting field."
-                  color="#4B2E83"
-                  link="https://www.deisphere.com/"
-                  logo="/logos/DEISphere.svg"
-                  type="vertical"
-                />
-
-                <Card
-                  title="Our-Anime-Rec"
-                  description="A Django website made for a group Database Systems course that allows users to see titles of anime, manga, and light novels as well as reviews."
-                  color="#0E87A1"
-                  link="https://our-anime-rec.herokuapp.com/"
-                  logo="/logos/Our Anime Rec.svg"
-                  type="vertical"
-                />
-              </div>
-              {/** <div className="flex flex-col md:flex-row flew-wrap w-full block"></div> */}
-            </div>
-          </section>
-
-          {/** Contact CTA */}
-          <section className="bg-indigo-100 flex flex-col md:flex-row rounded-3xl p-5 w-2/3 content-center">
-            <div className="flex-grow mt-3 mx-5 w-full">
-              <h1 className="text-gray-900 font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">
-                Want to work Together?
-              </h1>
-              <p className="text-gray-700 font-normal text-md md:text-lg lg:text-xl xl:text-2xl mt-3 mb-4">
-                Feel free to reach out and let's connect.
-              </p>
-
-              <div className="grid justify-center">
-                <FiPhone />
-                <a
-                  href="mailto:roewyn.e.umayam@gmail.com"
-                  className="mr-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
-                >
-                  <FiMail />
-                  roewyn.e.umayam@gmail.com
-                </a>
-                <a
-                  className=" mr-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
-                  target="_blank"
-                  href="https://www.linkedin.com/in/roewyn-umayam/"
-                >
-                  <FaLinkedinIn />
-                  Roewyn Umayam
-                </a>
-                <a
-                  className="text-base md:text-md lg:text-lg hover:text-vibrant-purple"
-                  target="_blank"
-                  href="https://github.com/Umayarz18"
-                >
-                  <FaGithub />
-                  Umayarz18
-                </a>
-              </div>
-            </div>
-
-            <form name="contact" method="POST" data-netlify="true" className="grid items-center justify-center">
-              <p className="m-2.5 ">
-                <label htmlFor="name">Name</label> <br />
-                <input
-                  className="w-60 rounded-xl"
-                  type="text"
-                  id="name"
-                  name="name"
-                />
-              </p>
-              <p className="m-2.5">
-                <label htmlFor="email">Email</label> <br />
-                <input
-                  className="w-60 rounded-xl"
-                  type="text"
-                  id="email"
-                  name="email"
-                />
-              </p>
-              <p className="m-2.5">
-                <label htmlFor="message">Message</label> <br />
-                <textarea
-                  className="w-60 rounded-xl"
-                  id="message"
-                  name="message"
-                ></textarea>
-              </p>
-
-              <button
-                className="m-2.5  w-60 justify-self-center btn-secondary"
-                type="submit"
-              >
-                Say Hey👋
-              </button>
-            </form>
-          </section>
+          <ProjectSection/>
+          <ContactSection />
         </div>
       </Layout>
+    </>
+  );
+}
+
+function ProjectSection() {
+  return (
+    <>
+      {/** My Projects section */}
+      <section className="grid justify-center content-center my-24 ">
+        <h2 className="font-bold justify-self-center  m-5 text-gray-900 text-2xl md:text-3xl lg:text-4xl">
+          My Recent Projects
+        </h2>
+        <p className="font-normal mx-5 justify-self-center text-gray-800 text-lg md:text-xl lg:text-2xl">
+          {" "}
+          If you need more samples, you can always view{" "}
+          <a
+            className=" font-semibold text-vibrant-purple hover:font-bold hover:text-vibrant-purple-dk hover:underline"
+            href="/projects"
+          >
+            my project list
+          </a>
+          .
+        </p>
+        <div className="grid grid-cols-1 grid-rows-1 justify-center">
+          <div className="flex flex-col lg:flex-row flew-wrap w-full block items-center">
+            <Card
+              title="Sprout"
+              description="An e-learning platform designed to teach high school students personal finance through short articles, quizzes, and activites to better prepare them for adulthood."
+              color="#2FC06B"
+              logo="/logos/sprout-logo.svg"
+              type="vertical"
+            />
+
+            <Card
+              title="DEISphere"
+              description="An event conference website set for the University of Washington Bothell Beta Alpha Psi meant to bring attention to diversity and inclusion in the accounting field."
+              color="#4B2E83"
+              link="https://www.deisphere.com/"
+              logo="/logos/DEISphere.svg"
+              type="vertical"
+            />
+
+            <Card
+              title="Our-Anime-Rec"
+              description="A Django website made for a group Database Systems course that allows users to see titles of anime, manga, and light novels as well as reviews."
+              color="#0E87A1"
+              link="https://our-anime-rec.herokuapp.com/"
+              logo="/logos/Our Anime Rec.svg"
+              type="vertical"
+            />
+          </div>
+          {/** <div className="flex flex-col md:flex-row flew-wrap w-full block"></div> */}
+        </div>
+      </section>
+    </>
+  );
+}
+
+function ContactSection() {
+  return (
+    <>
+      {/** Contact CTA */}
+      <section id="contact" className="bg-indigo-100 flex flex-col md:flex-row rounded-3xl p-5  content-center justify-between">
+        <div className="flex-grow mt-3 mx-5 w-full">
+          <h1 className="text-gray-900 font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+            Want to work Together?
+          </h1>
+          <p className="text-gray-700 font-normal text-md md:text-lg lg:text-xl xl:text-2xl mt-3 mb-4">
+            Feel free to reach out and let's connect.
+          </p>
+
+          <div className="flex flex-col">
+            <p className="text-gray-700 mr-3 mb-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"><FiPhone className="inline mr-2 "/>425-908-9152</p>
+            <a
+              href="mailto:roewyn.e.umayam@gmail.com"
+              className="text-gray-700 mr-3 mb-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
+            >
+              <FiMail className="inline mr-2"/>
+              roewyn.e.umayam@gmail.com
+            </a>
+            <a
+              className="text-gray-700 mr-3 mb-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
+              target="_blank"
+              href="https://www.linkedin.com/in/roewyn-umayam/" rel="noopener"
+            >
+              <FaLinkedinIn className="inline mr-2"/>
+              Roewyn Umayam
+            </a>
+            <a
+              className="text-gray-700 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
+              target="_blank"
+              href="https://github.com/Umayarz18" rel="noopener"
+            >
+              <FaGithub className="inline mr-2"/>
+              Umayarz18
+            </a>
+          </div>
+        </div>
+
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          className="grid items-center justify-center"
+        >
+          <div className="m-2.5 ">
+            <label htmlFor="name">Name</label> <br />
+            <input
+              className="w-60 rounded-xl"
+              type="text"
+              id="name"
+              name="name"
+            />
+          </div>
+          <div className="m-2.5">
+            <label htmlFor="email">Email</label> <br />
+            <input
+              className="w-60 rounded-xl"
+              type="text"
+              id="email"
+              name="email"
+            />
+          </div>
+          <div className="m-2.5">
+            <label htmlFor="message">Message</label> <br />
+            <textarea
+              className="w-60 rounded-xl"
+              id="message"
+              name="message"
+            ></textarea>
+          </div>
+          <div className="m-2.5">
+            <div data-netlify-captchat="true"></div>
+          </div>
+          <button
+            className="m-2.5  w-60 justify-self-center btn-secondary"
+            type="submit"
+          >
+            Say Hey👋
+          </button>
+        </form>
+      </section>{" "}
     </>
   );
 }

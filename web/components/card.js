@@ -34,6 +34,7 @@ function VerticalCard({ title, color, description, link, logo, logoStyles }) {
         <img
           src={logo}
           className={`self-center ${logoStyles} max-width-full w-9/12`}
+          alt={`Logo for ${title}`}
         />
       </div>
       <div
@@ -51,7 +52,7 @@ function VerticalCard({ title, color, description, link, logo, logoStyles }) {
         {link ? (
           <>
             <span className=" text-sm lg:text-md font-semibold text-gray-500 mr-2 mb-2 hover:text-gray-700 ">
-              <a href={link} target="_blank" className="inline-block">
+              <a href={link} target="_blank" className="inline-block" rel="noopener">
                 Website
               </a>
             </span>
@@ -105,7 +106,7 @@ function HorizontalCard({ title, color, description, link, logo, logoStyles }) {
             {link ? (
               <>
                 <span className=" text-sm lg:text-md font-semibold text-gray-500 mr-2 mb-2 hover:text-gray-700 ">
-                  <a href={link} target="_blank" className="inline-block">
+                  <a href={link? link : "#"} target="_blank" className="inline-block" rel="noopener">
                     Website
                   </a>
                 </span>

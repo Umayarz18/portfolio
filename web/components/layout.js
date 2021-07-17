@@ -50,6 +50,7 @@ export default function Layout({ children, home , pageTitle}) {
               className=" mr-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
               target="_blank"
               href="https://www.linkedin.com/in/roewyn-umayam/"
+              rel="noopener"
             >
               <FaLinkedinIn />
             </a>
@@ -57,12 +58,14 @@ export default function Layout({ children, home , pageTitle}) {
               className=" mr-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple "
               target="_blank"
               href="https://www.instagram.com/roewynaboat_tkd/"
+              rel="noopener"
             >
               <GrInstagram />
             </a>
             <a
               className="mr-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
               target="_blank"
+              rel="noopener"
             >
               <CgFacebook />
             </a>
@@ -70,6 +73,7 @@ export default function Layout({ children, home , pageTitle}) {
               className="text-base md:text-md lg:text-lg hover:text-vibrant-purple"
               target="_blank"
               href="https://github.com/Umayarz18"
+              rel="noopener"
             >
               <FaGithub />
             </a>
