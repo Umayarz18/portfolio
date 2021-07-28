@@ -4,11 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        "vibrant-blue": "#00008b",
-        "vibrant-blue-dk": "#01015e",
-        "vibrant-purple":"#7e20bc",
-        "vibrant-purple-dk":"#68199e",
-        "txt-white": "rgb(249, 252, 255)"
+        "primary": "#7D72C3",
+        "primary-dark": "#5141B4",
       }
     },
   },

@@ -18,36 +18,28 @@ export default function Home() {
     <>
       <Layout home>
         <section className="">
-          <div className="flex items-center flex-wrap items-center justify-center md:flex-row  lg:pt-44 bg-vibrant-blue pt-10 ">
+          <div className="flex items-center flex-wrap items-center justify-center md:flex-row  lg:pt-44  pt-10 ">
             <div className="grid justify-items-start  flex-initial  self-center  mx-10">
-              <h1 className="text-txt-white text-3xl  font-bold lg:text-7xl md:text-5xl">
+              <h1 className="text-gray-800 text-3xl  font-bold lg:text-7xl md:text-5xl">
                 Howdy, I'm Roewyn
               </h1>
-              <p className="text-gray-200 text-lg lg:text-3xl my-4 md:text-2xl">
-                Aspiring Full-Stack Developer
+              <p className="text-gray-700 text-lg lg:text-3xl my-4 md:text-2xl">
+                Full-Stack Developer
               </p>
+              <div>
+                <a href="#projects">View Projects </a>
+                <button>Say Hi</button>
+              </div>
             </div>
             <div className="self-center hidden lg:mt-12 lg:block">
               <HeroSVG />
             </div>
           </div>
-
-          <svg
-            className="w-screen  m-0 flex-shrink overflow-y-auto"
-            viewBox={`0 0 1000 205`}
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 96L48 90.7C96 85 192 75 288 101.3C384 128 480 192 576 202.7C672 213 768 171 864 165.3C960 160 1056 192 1152 186.7C1248 181 1344 139 1392 117.3L1440 96V0H1392C1344 0 1248 0 1152 0C1056 0 960 0 864 0C768 0 672 0 576 0C480 0 384 0 288 0C192 0 96 0 48 0H0V96Z"
-              fill="#00008b"
-            />
-          </svg>
         </section>
 
         <div className="grid justify-items-center items-center">
           {/** About Me Section */}
-          <section className="md:m-24 my-12 mx-3 grid justify-center text-center">
+          <section id="about" className="md:m-24 my-12 mx-3 grid justify-center text-center">
             <h2 className="font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
               Tech-driven Problem Solver
             </h2>
@@ -138,7 +130,7 @@ function ProjectSection() {
   return (
     <>
       {/** My Projects section */}
-      <section className="grid justify-center content-center my-24 ">
+      <section id="projects" className="grid justify-center content-center my-24 ">
         <h2 className="font-bold justify-self-center  m-5 text-gray-900 text-2xl md:text-3xl lg:text-4xl">
           My Recent Projects
         </h2>
