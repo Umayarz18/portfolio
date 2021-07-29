@@ -5,7 +5,7 @@ import client from "../../sanity";
 import Tag from "../../components/tag";
 import BlockContent from "../../components/BlockContent";
 
-export default function Post(props) {
+ export default function Post(props) {
   const router = useRouter();
   let { slug } = router.query;
   const {
@@ -101,9 +101,29 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
     }
   }`;
 
-Post.getInitialProps = async function(context) {
-  const { slug = "" } = context.query;
-  return await client.fetch(query, { slug }).catch((error) => {
-    console.log(error);
+export async function getStaticProps({params, preview = false}) {
+  const slug = await client.fetch(query, {
+    slug: params.slug,
   });
+
+  return {
+    props: slug,
+  }
+
 };
+
+export async function getStaticPaths() {
+  // Call an external API endpoint to get posts
+  const posts = await client.fetch(groq`*[_type=="post"]{
+    slug
+  }`)
+
+  // Get the paths we want to pre-render based on posts
+  const paths = posts.map((post) => ({
+    params: { slug: post.slug.current },
+  }))
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: false }
+}

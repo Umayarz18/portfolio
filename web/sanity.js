@@ -5,6 +5,7 @@ import sanityClient from '@sanity/client';
 const client = sanityClient({
   projectId: 'fjx7sz34',
   dataset: 'production',
+  apiVersion: '2021-07-29', // use a UTC date string
   useCdn: true, // `false` if you want to ensure fresh data
   ignoreBrowserTokenWarning: true,
 });

@@ -41,17 +41,17 @@ export default function NavBar() {
           <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto' mr-5">
             <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
               <Link href="#about">
-                <a className="font-bold ml-5 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-txt-white font-bold items-center justify-center hover:bg-vibrant-purple hover:text-txt-white">
+                <a className="font-bold ml-5 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-txt-white font-bold items-center justify-center ">
                   About Me
                 </a>
               </Link>
               <Link href="#projects">
-                <a className="font-bold ml-5 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-txt-white font-bold items-center justify-center hover:bg-vibrant-purple hover:text-txt-white">
+                <a className="font-bold ml-5 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-txt-white font-bold items-center justify-center">
                   My Projects
                 </a>
               </Link>
               <Link href="#contact">
-                <a className="font-bold ml-5 bg-primary rounded-full lg:inline-flex lg:w-auto w-full px-5 py-3 rounded text-white font-bold items-center justify-center hover:bg-vibrant-purple hover:text-txt-white">
+                <a className="btn-secondary font-bold ml-5 lg:inline-flex lg:w-auto w-full px-5 py-3 rounded text-white font-bold items-center justify-center ">
                   Say Hi
                 </a>
               </Link>

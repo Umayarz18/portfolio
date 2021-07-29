@@ -35,6 +35,7 @@ function VerticalCard({ title, color, description, link, logo, logoStyles }) {
           src={logo}
           className={`self-center ${logoStyles} max-width-full w-9/12`}
           alt={`Logo for ${title}`}
+          style={{maxHeight: "200px", maxWidth: "200px"}}
         />
       </div>
       <div

@@ -1,11 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "./layout.module.css";
-import {
-  FaLinkedinIn,
-  FaGithub,
-} from "react-icons/fa";
-import { GrInstagram} from "react-icons/gr";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { GrInstagram } from "react-icons/gr";
 import { CgFacebook } from "react-icons/cg";
 import Link from "next/link";
 import NavBar from "./navbar";
@@ -14,7 +10,7 @@ const name = "Roewyn Umayam";
 export const siteTitle =
   "Roewyn Umayam | Full-Stack Developer & Taekwondo Instructor";
 
-export default function Layout({ children, home , pageTitle}) {
+export default function Layout({ children, home, pageTitle }) {
   return (
     <>
       <Head>
@@ -32,14 +28,32 @@ export default function Layout({ children, home , pageTitle}) {
         <meta name="og:title" content={siteTitle} />
         <title>{pageTitle ? pageTitle : siteTitle}</title>
         <meta name="twitter:card" content="summary_large_image" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
       <div className={`flex flex-col overflow-x-hidden relative`}>
-        <header className="order-first">
-          <NavBar />
-        </header>
-        <main className="flex-auto block justify-items-center  justify-center">{children}</main>
-        
+        <NavBar className="order-first"/>
+        <main className="flex-auto block justify-items-center  justify-center">
+          {children}
+        </main>
+
         <footer className=" block order-last p-8 flex flex-col flex-initial md:flex-row  block w-screen  items-center justify-around">
           <small className="text-base md:text-md lg:text-lg">
             {" "}
@@ -52,7 +66,7 @@ export default function Layout({ children, home , pageTitle}) {
               href="https://www.linkedin.com/in/roewyn-umayam/"
               rel="noopener"
             >
-              <FaLinkedinIn />
+              <FaLinkedinIn /><span className="sr-only">Link to LinkedIn account</span>
             </a>
             <a
               className=" mr-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple "
@@ -60,14 +74,15 @@ export default function Layout({ children, home , pageTitle}) {
               href="https://www.instagram.com/roewynaboat_tkd/"
               rel="noopener"
             >
-              <GrInstagram />
+              <GrInstagram/><span className="sr-only">Link to Instagram account</span>
             </a>
             <a
               className="mr-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
               target="_blank"
               rel="noopener"
+              href="https://www.facebook.com/profile.php?id=100009905313992"
             >
-              <CgFacebook />
+              <CgFacebook /><span className="sr-only">Link to Facebook account</span>
             </a>
             <a
               className="text-base md:text-md lg:text-lg hover:text-vibrant-purple"
@@ -75,7 +90,7 @@ export default function Layout({ children, home , pageTitle}) {
               href="https://github.com/Umayarz18"
               rel="noopener"
             >
-              <FaGithub />
+              <FaGithub /><span className="sr-only">Link to Github account</span>
             </a>
           </div>
         </footer>

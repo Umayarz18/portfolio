@@ -1,18 +1,22 @@
-export default function ProgressBar({ width }) {
+export default function ProgressBar({ width, color }) {
   return (
-    <div className="h-3 relative max-w-xl rounded-full overflow-hidden">
-      <div className="w-full h-full bg-purple-200 absolute"></div>
-      {width ? (
-        <div
-          className="h-full bg-blue-500 absolute"
-          style={{ width: width }}
-        ></div>
-      ) : (
-        <div
-          className="h-full bg-blue-500 absolute"
-          style={{ width: "50%" }}
-        ></div>
-      )}
-    </div>
+    <div className="circular">
+            <div className="inner"></div>
+            <div className="outer"></div>
+            <div className="numb">
+               0%
+            </div>
+            <div className="circle">
+               <div className="dot">
+                  <span></span>
+               </div>
+               <div className="bar left">
+                  <div className="progress"></div>
+               </div>
+               <div className="bar right">
+                  <div className="progress"></div>
+               </div>
+            </div>
+         </div>
   );
 }
