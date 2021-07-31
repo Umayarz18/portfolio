@@ -1,9 +1,9 @@
-import Layout from "../../components/layout";
+import Layout from "../components/layout";
 import { useRouter } from "next/router";
 import groq from "groq";
-import client from "../../sanity";
-import Tag from "../../components/tag";
-import BlockContent from "../../components/BlockContent";
+import client from "../sanity";
+import Tag from "../components/tag";
+import BlockContent from "../components/BlockContent";
 
  export default function Post(props) {
   const router = useRouter();

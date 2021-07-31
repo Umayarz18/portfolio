@@ -67,7 +67,11 @@ function VerticalCard({ title, color, description, link, logo, logoStyles }) {
         ) : (
           <span className=" text-sm lg:text-md font-semibold text-gray-600 mr-2 mb-2">
             In Development
-            <VscTools className="inline-block ml-1" />
+            <VscTools className="inline-block mr-1" />
+            <a href={`/projects/${title.toLowerCase()}`}>
+                Project Details
+                <GoNote className="inline-block ml-1" />
+              </a>
           </span>
         )}
       </div>

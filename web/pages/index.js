@@ -9,6 +9,7 @@ import { GrInstagram } from "react-icons/gr";
 import { CgFacebook } from "react-icons/cg";
 import useInView from "react-cool-inview";
 import dynamic from "next/dynamic";
+
 const Card = dynamic(() => import('../components/card'),
   { loading: () => <p>...</p> })
 
