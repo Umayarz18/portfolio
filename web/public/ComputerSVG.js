@@ -1,4 +1,4 @@
-export default function Computer() {
+export default function Computer({classes}) {
   return (
     <svg
       width="507"
@@ -6,6 +6,7 @@ export default function Computer() {
       viewBox="0 0 507 270"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={classes}
     >
       <g clipPath="url(#clip0)">
         <path

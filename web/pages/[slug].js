@@ -5,7 +5,7 @@ import client from "../sanity";
 import Tag from "../components/tag";
 import BlockContent from "../components/BlockContent";
 
- export default function Post(props) {
+export default function Post(props) {
   const router = useRouter();
   let { slug } = router.query;
   const {
@@ -21,25 +21,36 @@ import BlockContent from "../components/BlockContent";
     <Layout
       pageTitle={`${title} | Roewyn Umayam | Full-Stack Developer & Taekwondo Instructor`}
     >
-      <div className=" flex flex-auto flex-col md:flex-row  m-0 md:mt-10 md:mx-44  min-h-screen min-w-screen justify-center">
+      <div className=" flex flex-auto flex-col md:flex-row  m-0 md:mt-10 md:mx-44  ">
         {/** Article Section */}
-        <article className="flex-grow  md:mx-10 object-contain min-h-full min-w-max ">
+        <article className="flex-grow  mx-0 md:mx-10  ">
           <div
-            className="grid  justify-center px-10  md:mt-3"
+            className="flex flex-col content-end md:mt-3 pt-10 rounded-t-xl "
             style={{
               backgroundImage: `linear-gradient(to bottom right, ${color}, white)`,
             }}
           >
-            <div className="m-10 py-5 px-8 rounded-xl bg-white">
+            <div className="mx-18 mt-20  px-8 rounded-t-xl bg-color w-screen md:w-9/12 self-center relative ">
               <img
-                className="opacity-100 justify-self-center"
+                className="opacity-100 justify-self-center border-4 bg-color absolute bottom-9  md:inset-x-8  md:bottom-3 rounded-full"
                 src={imageSource}
                 alt={
                   imageSource ? `Image for the ${title} project` : "No image"
                 }
-                style={{ width: "100px", height: "100px" }}
+                style={{ width: "200px", height: "200px", borderColor: color }}
               />
-              <p className="font-bold text-gray-700 text-center mt-2">{title}</p>
+              <div className="flex flex-row ml-52">
+                <div className="flex flex-wrap lg:flex-col">
+                  <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-gray-700 ">{title}</h1>
+                  <p className="mt-2 ">Subtitle here</p>
+                  <div className="mt-2 flex flex-wrap md:flex-row ">
+                    {stack.map(({ color, title, _id }) => (
+                      <Tag key={_id} color={color} title={title} />
+                    ))}
+                  </div>
+                </div>
+                <button className="justify-self-end"><a>Visit Website</a></button>
+              </div>
             </div>
           </div>
 
@@ -48,7 +59,7 @@ import BlockContent from "../components/BlockContent";
           </div>
         </article>
 
-        {/** Tags and other info */}
+        {/** Tags and other info 
         <aside className=" md:block mx-5   hidden flex-stretch sticky m-width-screen">
           <div className="mb-5  flex flex-col">
             <h2 className="text-lg font-bold  text-gray-700 my-3 ">
@@ -62,7 +73,7 @@ import BlockContent from "../components/BlockContent";
           </div>
 
           <div className=" ">
-            {/** Suggested projects details */}
+            
             <h2 className="text-lg font-bold  text-gray-700">
               Suggested Projects
             </h2>
@@ -79,7 +90,7 @@ import BlockContent from "../components/BlockContent";
               ))}
             </div>
           </div>
-        </aside>
+        </aside> */}
       </div>
     </Layout>
   );
@@ -101,29 +112,28 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
     }
   }`;
 
-export async function getStaticProps({params, preview = false}) {
+export async function getStaticProps({ params, preview = false }) {
   const slug = await client.fetch(query, {
     slug: params.slug,
   });
 
   return {
     props: slug,
-  }
-
-};
+  };
+}
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
   const posts = await client.fetch(groq`*[_type=="post"]{
     slug
-  }`)
+  }`);
 
   // Get the paths we want to pre-render based on posts
   const paths = posts.map((post) => ({
     params: { slug: post.slug.current },
-  }))
+  }));
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
+  return { paths, fallback: false };
 }

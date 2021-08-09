@@ -10,8 +10,9 @@ import { CgFacebook } from "react-icons/cg";
 import useInView from "react-cool-inview";
 import dynamic from "next/dynamic";
 
-const Card = dynamic(() => import('../components/card'),
-  { loading: () => <p>...</p> })
+const Card = dynamic(() => import("../components/card"), {
+  loading: () => <p>...</p>,
+});
 
 const myLoader = ({ src, width, quality }) => {
   return `https://localhost:3000/${src}?w=${width}&q=${quality || 75}`;
@@ -26,30 +27,77 @@ export default function Home() {
     <>
       <Layout home>
         <HeroSection />
-        <div
-          className="grid justify-items-center items-center min-h-screen"
-          
-        >
+        <div className="grid justify-items-center items-center min-h-screen">
           {/** About Me Section */}
-          <section
-            ref={observe}
-            id="about"
-            className="md:m-24 my-12 mx-3 grid justify-center text-center"
-          >
-            <h2 className="font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
-              Tech-driven Problem Solver
-            </h2>
-            <p className="justify-self-center xl:w-1/2 p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl   ">
-              I’m a recent graduate of University of Washington Bothell. I was a
-              business student studying in MIS. I shifted from leading tech
-              projects to becoming their lead developer. I use my love of
-              programming and my knowledge of business to create solutions that
-              help others.
-            </p>
-          </section>
+          <AboutSection observe={observe} />
 
           {/** My Skills Section */}
+          <SkillSection observe={observe}/>
+          
+
+          {/** Push to contact me */}
           <section
+            ref={observe}
+            className="grid text-center m-12 md:m-24 justify-center"
+          >
+            <h2 className="font-bold text-gray-900 text-2xl md:text-3xl lg:text-4xl">
+              Need a Developer? 👨🏾‍💻
+            </h2>
+            <p className="my-2 justify-self-center  md:p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl xl:px-24">
+              I’m always open to hearing about collaboration and work
+              opportunities.
+            </p>
+            <a
+              href="#contact"
+              className="btn mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
+            >
+              Slide into my DMs
+            </a>
+          </section>
+          <ProjectSection observe={observe} />
+          <ContactSection observe={observe} />
+        </div>
+      </Layout>
+    </>
+  );
+}
+
+function HeroSection() {
+  return (
+    <header className="">
+      <div className="flex items-center flex-col-reverse md:flex-row items-center justify-center   lg:pt-44  py-10 ">
+        <div className="grid justify-items-start  flex-initial  self-center  mx-10">
+          <h1 className="text-gray-800 text-3xl  font-bold lg:text-7xl md:text-5xl">
+            Howdy, I'm Roewyn
+          </h1>
+          <p className="text-gray-700 text-lg lg:text-3xl my-4 md:text-2xl">
+            Full-Stack Developer
+          </p>
+          <div className="flex flex-row space-x-5  md:space-y-0 items-center">
+          <button className="btn px-12  text-md md:text-lg lg:text-xl xl:text-2xl">
+              <a href="#contact" alt="contact link" className="mx-5">
+                Say hello 👋
+              </a>
+            </button>
+            
+            <button className="btn-secondary px-12  text-md md:text-lg lg:text-xl xl:text-2xl">
+              <a href="#projects" className="mx-5">
+                My Work&#8594;
+              </a>
+            </button>
+          </div>
+        </div>
+        <div className="self-center ">
+          <HeroSVG />
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function SkillSection({observe}){
+  return(
+    <section
             ref={observe}
             className="p-20 px-44 flex items-center flex-wrap justify-between flex-col-reverse lg:flex-row md:flex-row w-screen"
           >
@@ -59,9 +107,7 @@ export default function Home() {
                 <p className=" text-sm lg:text-base font-bold ">CSS</p>
                 <ProgressBar width="50%" />
 
-                <p className=" text-sm lg:text-base lg:w-50 font-bold">
-                  HTML
-                </p>
+                <p className=" text-sm lg:text-base lg:w-50 font-bold">HTML</p>
                 <ProgressBar width="60%" />
 
                 <p className=" text-sm lg:text-base font-bold">Javascript</p>
@@ -92,57 +138,28 @@ export default function Home() {
               </p>
             </div>
           </section>
-
-          {/** Push to contact me */}
-          <section
-            ref={observe}
-            className="grid text-center m-12 md:m-24 justify-center"
-          >
-            <h2 className="font-bold text-gray-900 text-2xl md:text-3xl lg:text-4xl">
-              Need a Developer? 👨🏾‍💻
-            </h2>
-            <p className="my-2 justify-self-center  md:p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl xl:px-24">
-              I’m always open to hearing about collaboration and work
-              opportunities.
-            </p>
-            <a
-              href="#contact"
-              className="btn-secondary mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
-            >
-              Slide into my DMs
-            </a>
-          </section>
-          <ProjectSection observe={observe} />
-          <ContactSection observe={observe} />
-        </div>
-      </Layout>
-    </>
-  );
+  )
 }
-
-function HeroSection() {
+function AboutSection({ observe }) {
   return (
-    <header className="">
-      <div className="flex items-center flex-wrap items-center justify-center md:flex-row  lg:pt-44  py-10 ">
-        <div className="grid justify-items-start  flex-initial  self-center  mx-10">
-          <h1 className="text-gray-800 text-3xl  font-bold lg:text-7xl md:text-5xl">
-            Howdy, I'm Roewyn
-          </h1>
-          <p className="text-gray-700 text-lg lg:text-3xl my-4 md:text-2xl">
-            Full-Stack Developer
-          </p>
-          <div className="flex flex-row space-x-5 items-center">
-            <a href="#projects" className="text-md md:text-lg lg:text-xl xl:text-2xl">View Projects&#8594;</a>
-            <button className="btn-secondary px-12 text-md md:text-lg lg:text-xl xl:text-2xl"><a href="#contact" alt="contact link" className="mx-5">Say Hi</a></button>
-          </div>
-        </div>
-        <div className="self-center hidden lg:mt-12 lg:block">
-          <HeroSVG />
-        </div>
-      </div>
-    </header>
+    <section
+      ref={observe}
+      id="about"
+      className="md:m-24 my-12 mx-3 grid justify-center text-center"
+    >
+      <h2 className="font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
+        Tech-driven Problem Solver
+      </h2>
+      <p className="justify-self-center xl:w-1/2 p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl   ">
+        I’m a recent graduate of University of Washington Bothell. I was a
+        business student studying in MIS. I shifted from leading tech projects
+        to becoming their lead developer. I use my love of programming and my
+        knowledge of business to create solutions that help others.
+      </p>
+    </section>
   );
 }
+
 function ProjectSection({ observe }) {
   return (
     <>
@@ -286,10 +303,7 @@ function ContactSection({ observe }) {
           <div className="m-2.5">
             <div data-netlify-captchat="true"></div>
           </div>
-          <button
-            className="m-2.5  w-60 justify-self-center btn-secondary"
-            type="submit"
-          >
+          <button className="m-2.5  w-60 justify-self-center btn" type="submit">
             Say Hey👋
           </button>
         </form>

@@ -12,12 +12,12 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className=" mx-24 flex items-center flex-wrap justify-between p-3 bg-vibrant-blue">
+      <nav className="w-screen flex items-center flex-wrap justify-between p-3 md:px-24 lg:px-36 xl:px-44 ">
         <a href="/" className=" inline-flex items-center p-2  ml-5 mr-4">
           <Icon/>
           <span className="sr-only">Roewyn Umayam</span>
         </a>
-        <div className=" ">
+        <div className="">
           <button
             className="inline-flex p-3 hover:bg-vibrant-purple rounded lg:hidden text-txt-white ml-auto hover:text-txt-white outline-none"
             aria-controls="mobile-menu"
@@ -38,7 +38,7 @@ export default function NavBar() {
             active ? "" : "hidden"
           }   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
         >
-          <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto' mr-5">
+          <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto' mr-16">
             <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
               <Link href="#about">
                 <a className="font-bold ml-5 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-txt-white font-bold items-center justify-center ">
@@ -51,7 +51,7 @@ export default function NavBar() {
                 </a>
               </Link>
               <Link href="#contact">
-                <a className="btn-secondary font-bold ml-5 lg:inline-flex lg:w-auto w-full px-5 py-3 rounded text-white font-bold items-center justify-center ">
+                <a className="btn font-bold ml-5 lg:inline-flex lg:w-auto w-full px-5 py-3 rounded text-white font-bold items-center justify-center ">
                   Say Hi
                 </a>
               </Link>
