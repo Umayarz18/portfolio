@@ -32,8 +32,7 @@ export default function Home() {
           <AboutSection observe={observe} />
 
           {/** My Skills Section */}
-          <SkillSection observe={observe}/>
-          
+          <SkillSection observe={observe} />
 
           {/** Push to contact me */}
           <section
@@ -70,16 +69,16 @@ function HeroSection() {
           <h1 className="text-gray-800 text-3xl  font-bold lg:text-7xl md:text-5xl">
             Howdy, I'm Roewyn
           </h1>
-          <p className="text-gray-700 text-lg lg:text-3xl my-4 md:text-2xl">
+          <p className="text-gray-700 text-lg lg:text-3xl my-4 md:text-2xl my-5">
             Full-Stack Developer
           </p>
-          <div className="flex flex-row space-x-5  md:space-y-0 items-center">
-          <button className="btn px-12  text-md md:text-lg lg:text-xl xl:text-2xl">
+          <div className=" mt-2 flex flex-row space-x-5  md:space-y-0 items-center">
+            <button className="btn px-12  text-md md:text-lg lg:text-xl xl:text-2xl">
               <a href="#contact" alt="contact link" className="mx-5">
                 Say hello 👋
               </a>
             </button>
-            
+
             <button className="btn-secondary px-12  text-md md:text-lg lg:text-xl xl:text-2xl">
               <a href="#projects" className="mx-5">
                 My Work&#8594;
@@ -95,67 +94,76 @@ function HeroSection() {
   );
 }
 
-function SkillSection({observe}){
-  return(
-    <section
-            ref={observe}
-            className="p-20 px-44 flex items-center flex-wrap justify-between flex-col-reverse lg:flex-row md:flex-row w-screen"
-          >
-            {/** Skill Stats */}
-            <div className="flex-1 bg-white lg:mx-10 p-24 lg:p-10 rounded-xl self-start shadow-md lg:py-16 min-w-full md:min-w-max md:mr-10">
-              <div className="grid gap-2 items-center  grid-col-1 lg:gap-x-0 lg:grid-cols-2 ">
-                <p className=" text-sm lg:text-base font-bold ">CSS</p>
-                <ProgressBar width="50%" />
-
-                <p className=" text-sm lg:text-base lg:w-50 font-bold">HTML</p>
-                <ProgressBar width="60%" />
-
-                <p className=" text-sm lg:text-base font-bold">Javascript</p>
-                <ProgressBar width="60%" />
-
-                <p className=" text-sm lg:text-base font-bold">React</p>
-                <ProgressBar width="75%" />
-
-                <p className=" text-sm lg:text-base font-bold">Design</p>
-                <ProgressBar width="50%" />
-
-                {/**
-                <li className=" text-sm lg:text-base font-bold">Django</li>
-                <ProgressBar width="40%" />
-                 */}
-              </div>
-            </div>
-
-            {/** Soft skills + description */}
-            <div className="flex-1 self-start">
-              <h2 className="font-bold text-gray-900 text-2xl md:text-3xl lg:text-4xl">
-                Fast Stats
-              </h2>
-              <p className="my-5 text-gray-800 text-lg md:text-xl lg:text-2xl">
-                Resumes are boring to read. Instead, here's a quick rundown on
-                my skills. But if you do need mine, here's{" "}
-                <a href="#">my resume</a>.
-              </p>
-            </div>
-          </section>
-  )
-}
 function AboutSection({ observe }) {
   return (
     <section
       ref={observe}
       id="about"
-      className="md:m-24 my-12 mx-3 grid justify-center text-center"
+      className=" bg-green-500  flex flex-col md:flex-row  space-x-2"
     >
-      <h2 className="font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
-        Tech-driven Problem Solver
-      </h2>
-      <p className="justify-self-center xl:w-1/2 p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl   ">
-        I’m a recent graduate of University of Washington Bothell. I was a
-        business student studying in MIS. I shifted from leading tech projects
-        to becoming their lead developer. I use my love of programming and my
-        knowledge of business to create solutions that help others.
-      </p>
+      <img
+        src={"/images/profile-dark.jpg"}
+        width={250}
+        height={250}
+        alt={"My profile picture"}
+        className="w-max-12 border-primary border-4 rounded-full justify-self-center"
+      />
+      <div className="justify-self-center md:justify-items-start self-start mt-10">
+        <h2 className="font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
+          Tech-driven Problem Solver
+        </h2>
+        <p className=" xl:w-1/2 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl   ">
+          I’m a recent graduate of University of Washington Bothell. I was a
+          business student studying in MIS. I shifted from leading tech projects
+          to becoming their lead developer. I use my love of programming and my
+          knowledge of business to create solutions that help others.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function SkillSection({ observe }) {
+  return (
+    <section
+      ref={observe}
+      className="p-20 px-44 flex items-center flex-wrap justify-between flex-col-reverse lg:flex-row md:flex-row w-screen"
+    >
+      {/** Skill Stats */}
+      <div className="flex-1 bg-white lg:mx-10 p-24 lg:p-10 rounded-xl self-start shadow-md lg:py-16 min-w-full md:min-w-max md:mr-10">
+        <div className="grid gap-2 items-center  grid-col-1 lg:gap-x-0 lg:grid-cols-2 ">
+          <p className=" text-sm lg:text-base font-bold ">CSS</p>
+          <ProgressBar width="50%" />
+
+          <p className=" text-sm lg:text-base lg:w-50 font-bold">HTML</p>
+          <ProgressBar width="60%" />
+
+          <p className=" text-sm lg:text-base font-bold">Javascript</p>
+          <ProgressBar width="60%" />
+
+          <p className=" text-sm lg:text-base font-bold">React</p>
+          <ProgressBar width="75%" />
+
+          <p className=" text-sm lg:text-base font-bold">Design</p>
+          <ProgressBar width="50%" />
+
+          {/**
+                <li className=" text-sm lg:text-base font-bold">Django</li>
+                <ProgressBar width="40%" />
+                 */}
+        </div>
+      </div>
+
+      {/** Soft skills + description */}
+      <div className="flex-1 self-start">
+        <h2 className="font-bold text-gray-900 text-2xl md:text-3xl lg:text-4xl">
+          Fast Stats
+        </h2>
+        <p className="my-5 text-gray-800 text-lg md:text-xl lg:text-2xl">
+          Resumes are boring to read. Instead, here's a quick rundown on my
+          skills. But if you do need mine, here's <a href="#">my resume</a>.
+        </p>
+      </div>
     </section>
   );
 }
@@ -184,7 +192,7 @@ function ProjectSection({ observe }) {
           .
         </p>
         <div className="grid grid-cols-1 grid-rows-1 justify-center">
-          <div className="flex flex-col lg:flex-row flew-wrap w-full block items-center">
+          <div className="flex flex-row  w-full block items-center justify-center">
             <Card
               title="Sprout"
               description="An e-learning platform designed to teach high school students personal finance through short articles, quizzes, and activites to better prepare them for adulthood."
@@ -192,7 +200,15 @@ function ProjectSection({ observe }) {
               logo="/logos/sprout-logo.svg"
               type="vertical"
             />
-
+            <Card
+              title="Sprout"
+              description="An e-learning platform designed to teach high school students personal finance through short articles, quizzes, and activites to better prepare them for adulthood."
+              color="#2FC06B"
+              logo="/logos/naild.svg"
+              type="vertical"
+            />
+          </div>
+          <div className="flex flex-row  w-full block items-center justify-center">
             <Card
               title="DEISphere"
               description="An event conference website set for the University of Washington Bothell Beta Alpha Psi meant to bring attention to diversity and inclusion in the accounting field."
@@ -211,7 +227,6 @@ function ProjectSection({ observe }) {
               type="vertical"
             />
           </div>
-          {/** <div className="flex flex-col md:flex-row flew-wrap w-full block"></div> */}
         </div>
       </section>
     </>

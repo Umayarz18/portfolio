@@ -14,7 +14,7 @@ export default function NavBar() {
     <>
       <nav className="w-screen flex items-center flex-wrap justify-between p-3 md:px-24 lg:px-36 xl:px-44 ">
         <a href="/" className=" inline-flex items-center p-2  ml-5 mr-4">
-          <Icon/>
+          <Icon />
           <span className="sr-only">Roewyn Umayam</span>
         </a>
         <div className="">
