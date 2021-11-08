@@ -31,28 +31,24 @@ export default function Card({ title, color, description, link, logo, type }) {
 function VerticalCard({ title, color, description, link, logo, logoStyles }) {
   const [opened, isOpened] = useState(false);
 
-  
-  
-
   return (
     <div className="overflow-hidden rounded  max-w-sm my-3 md:m-5 justify-center flex flex-row items-center   ">
       <div className={opened ? "hidden" : "block"}>
-        <div
-          className=" flex justify-center items-center h-56 w-56 "
-        >
+        <div className=" flex justify-center items-center h-56 w-56 ">
           <img
-          src={logo}
-          className={` ${logoStyles} hover:transform hover:scale-50 `}
-          alt={`Logo for ${title}`}
-          style={{ maxHeight: "200px", maxWidth: "200px" }}
-        />
+            src={logo}
+            className={` ${logoStyles} hover:transform hover:scale-50 `}
+            alt={`Logo for ${title}`}
+            style={{ maxHeight: "200px", maxWidth: "200px" }}
+          />
         </div>
-        
       </div>
       <div
-        className={['hidden px-6  font-bold text-gray-700 text-lg md:text-xl lg:text-2xl mt-3  row-span-1 col-span-3', opened? 'block' : ''].join('')}
+        className={[
+          "hidden px-6  font-bold text-gray-700 text-lg md:text-xl lg:text-2xl mt-3  row-span-1 col-span-3",
+          opened ? "block" : "",
+        ].join("")}
         style={{ color: color }}
-        
       >
         <h3 className="my-3 text-2xl">{title}</h3>
         {/** Display only on hover, takes up the whole container */}

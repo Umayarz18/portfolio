@@ -11,7 +11,7 @@ import useInView from "react-cool-inview";
 import dynamic from "next/dynamic";
 
 const Card = dynamic(() => import("../components/card"), {
-  loading: () => <p>...</p>,
+  loading: () => <p>...</p>
 });
 
 const myLoader = ({ src, width, quality }) => {
@@ -20,106 +20,83 @@ const myLoader = ({ src, width, quality }) => {
 
 export default function Home() {
   const { observe, inView } = useInView({
-    onEnter: ({ unobserve }) => unobserve(), // only run once
+    onEnter: ({ unobserve }) => unobserve() // only run once
   });
 
   return (
-    <>
-      <Layout home>
-        <HeroSection />
-        <div className="grid justify-items-center items-center min-h-screen">
-          {/** About Me Section */}
-          <AboutSection observe={observe} />
+    <Layout>
+      <HeroSection />
 
-          {/** My Skills Section */}
-          <SkillSection observe={observe} />
-
-          {/** Push to contact me */}
-          <section
-            ref={observe}
-            className="grid text-center m-12 md:m-24 justify-center"
-          >
-            <h2 className="font-bold text-gray-900 text-2xl md:text-3xl lg:text-4xl">
-              Need a Developer? 👨🏾‍💻
-            </h2>
-            <p className="my-2 justify-self-center  md:p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl xl:px-24">
-              I’m always open to hearing about collaboration and work
-              opportunities.
-            </p>
-            <a
-              href="#contact"
-              className="btn mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
-            >
-              Slide into my DMs
-            </a>
-          </section>
-          <ProjectSection observe={observe} />
-          <ContactSection observe={observe} />
-        </div>
-      </Layout>
-    </>
+      <SkillSection observe={observe} />
+      {/** Push to contact me */}
+      <section
+        ref={observe}
+        className="grid text-center mx-auto my-24 lg:my-44 justify-center"
+      >
+        <h2 className="dark:text-gray-200 font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
+          Need a Developer? 👨🏾‍💻
+        </h2>
+        <p className="dark:text-gray-200 my-2 justify-self-center  md:p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl xl:mx-24">
+          I’m always open to hearing about collabs and work opportunities.
+        </p>
+        <a
+          href="#contact"
+          className="btn mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
+        >
+          Slide into my DMs
+        </a>
+      </section>
+    </Layout>
   );
 }
 
 function HeroSection() {
+  const titles = [
+    "Full Stack Developer",
+    "Frontend Developer",
+    "Taekwondo Instructor 🥋",
+    "MIS Grad 👨🏾‍🎓",
+    "Tech-driven Problem Solver 🕵🏾",
+    "Certified Clown 🤡",
+    "Comic Nerd 🦸‍♂️"
+  ];
   return (
-    <header className="">
-      <div className="flex items-center flex-col-reverse md:flex-row items-center justify-center   lg:pt-44  py-10 ">
-        <div className="grid justify-items-start  flex-initial  self-center  mx-10">
-          <h1 className="text-gray-800 text-3xl  font-bold lg:text-7xl md:text-5xl">
-            Howdy, I'm Roewyn
-          </h1>
-          <p className="text-gray-700 text-lg lg:text-3xl my-4 md:text-2xl my-5">
-            Full-Stack Developer
-          </p>
-          <div className=" mt-2 flex flex-row space-x-5  md:space-y-0 items-center">
-            <button className="btn px-12  text-md md:text-lg lg:text-xl xl:text-2xl">
-              <a href="#contact" alt="contact link" className="mx-5">
-                Say hello 👋
-              </a>
-            </button>
-
-            <button className="btn-secondary px-12  text-md md:text-lg lg:text-xl xl:text-2xl">
-              <a href="#projects" className="mx-5">
-                My Work&#8594;
-              </a>
-            </button>
-          </div>
-        </div>
-        <div className="self-center ">
-          <HeroSVG />
-        </div>
-      </div>
-    </header>
-  );
-}
-
-function AboutSection({ observe }) {
-  return (
-    <section
-      ref={observe}
-      id="about"
-      className=" bg-green-500  flex flex-col md:flex-row  space-x-2"
-    >
-      <img
-        src={"/images/profile-dark.jpg"}
-        width={250}
-        height={250}
-        alt={"My profile picture"}
-        className="w-max-12 border-primary border-4 rounded-full justify-self-center"
-      />
-      <div className="justify-self-center md:justify-items-start self-start mt-10">
-        <h2 className="font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
-          Tech-driven Problem Solver
+    <div className="flex flex-col-reverse md:flex-row justify-center items-center space-x-3 mt-5">
+      <div className="grid justify-items-center md:justify-items-start  self-center max-w-lg m-5">
+        <h1 className="text-gray-800 text-3xl  dark:text-primary filter dark:blur-lg font-bold lg:text-5xl md:text-4xl">
+          Howdy, I'm Roewyn
+        </h1>
+        <h2 className="dark:text-gray-100 text-gray-700 font-medium text-lg lg:text-3xl md:text-2xl my-5 truncate">
+          {titles[Math.floor(Math.random() * titles.length)]}
         </h2>
-        <p className=" xl:w-1/2 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl   ">
-          I’m a recent graduate of University of Washington Bothell. I was a
-          business student studying in MIS. I shifted from leading tech projects
-          to becoming their lead developer. I use my love of programming and my
-          knowledge of business to create solutions that help others.
+        <p className="dark:text-gray-200 text-gray-700 font-normal text-center md:text-left text-md lg:text-lg">
+          A simple guy looking to develop projects with{" "}
+          <strong>big impact</strong>.
         </p>
+        <div className=" mt-2 flex flex-row space-x-5  md:space-y-0 items-center">
+          <button className="btn text-sm md:text-lg lg:text-xl xl:text-2xl">
+            <a href="#contact" alt="contact link" className="mx-5 ">
+              Say hello 👋
+            </a>
+          </button>
+
+          <button className="btn-secondary px-12  text-sm md:text-lg lg:text-xl xl:text-2xl">
+            <a href="/projects" className="mx-5">
+              My Work&#8594;
+            </a>
+          </button>
+        </div>
       </div>
-    </section>
+      <div className="self-center ">
+        <img
+          src={"/images/profile-dark.jpg"}
+          width={250}
+          height={250}
+          alt={"My profile picture"}
+          className=" max-w-12  border-primary border-4 rounded-full"
+        />
+      </div>
+    </div>
   );
 }
 
@@ -127,25 +104,25 @@ function SkillSection({ observe }) {
   return (
     <section
       ref={observe}
-      className="p-20 px-44 flex items-center flex-wrap justify-between flex-col-reverse lg:flex-row md:flex-row w-screen"
+      className=" flex items-center justify-center   flex-col-reverse max-w-2xl  lg:mx-auto m-5 mt-10 lg:my-24"
     >
       {/** Skill Stats */}
-      <div className="flex-1 bg-white lg:mx-10 p-24 lg:p-10 rounded-xl self-start shadow-md lg:py-16 min-w-full md:min-w-max md:mr-10">
+      <div className="flex-1 dark:bg-gray-900 bg-gray-200 w-full p-6 rounded  border-gray-400 border-2 dark:border-gray-700 self-center">
         <div className="grid gap-2 items-center  grid-col-1 lg:gap-x-0 lg:grid-cols-2 ">
           <p className=" text-sm lg:text-base font-bold ">CSS</p>
-          <ProgressBar width="50%" />
+          <ProgressBar width="50%" color="red" />
 
           <p className=" text-sm lg:text-base lg:w-50 font-bold">HTML</p>
-          <ProgressBar width="60%" />
+          <ProgressBar width="60%" color="green" />
 
           <p className=" text-sm lg:text-base font-bold">Javascript</p>
-          <ProgressBar width="60%" />
+          <ProgressBar width="60%" color="yellow" />
 
           <p className=" text-sm lg:text-base font-bold">React</p>
-          <ProgressBar width="75%" />
+          <ProgressBar width="75%" color="blue" />
 
           <p className=" text-sm lg:text-base font-bold">Design</p>
-          <ProgressBar width="50%" />
+          <ProgressBar width="50%" color="indigo" />
 
           {/**
                 <li className=" text-sm lg:text-base font-bold">Django</li>
@@ -155,11 +132,11 @@ function SkillSection({ observe }) {
       </div>
 
       {/** Soft skills + description */}
-      <div className="flex-1 self-start">
-        <h2 className="font-bold text-gray-900 text-2xl md:text-3xl lg:text-4xl">
+      <div className="">
+        <h2 className="font-bold dark:text-gray-100 text-gray-900 text-2xl md:text-3xl lg:text-4xl">
           Fast Stats
         </h2>
-        <p className="my-5 text-gray-800 text-lg md:text-xl lg:text-2xl">
+        <p className="my-5 dark:text-gray-200 text-gray-800 text-lg md:text-xl lg:text-2xl">
           Resumes are boring to read. Instead, here's a quick rundown on my
           skills. But if you do need mine, here's <a href="#">my resume</a>.
         </p>
@@ -175,16 +152,16 @@ function ProjectSection({ observe }) {
       <section
         ref={observe}
         id="projects"
-        className="grid justify-center content-center my-24 "
+        className="grid justify-center content-center my-24 mx-auto"
       >
-        <h2 className="font-bold justify-self-center  m-5 text-gray-900 text-2xl md:text-3xl lg:text-4xl">
+        <h2 className="font-bold justify-self-center  m-5 dark:text-gray-100  text-gray-900 text-2xl md:text-3xl lg:text-4xl">
           My Recent Projects
         </h2>
-        <p className="font-normal mx-5 justify-self-center text-gray-800 text-lg md:text-xl lg:text-2xl">
+        <p className="font-normal mx-5 justify-self-center dark:text-gray-200 text-gray-800 text-lg md:text-xl lg:text-2xl">
           {" "}
           If you need more samples, you can always view{" "}
           <a
-            className=" font-semibold text-vibrant-purple hover:font-bold hover:text-vibrant-purple-dk hover:underline"
+            className=" font-semibold text-primary hover:font-bold hover:text-vibrant-purple-dk hover:underline"
             href="/projects"
           >
             my project list
@@ -192,7 +169,7 @@ function ProjectSection({ observe }) {
           .
         </p>
         <div className="grid grid-cols-1 grid-rows-1 justify-center">
-          <div className="flex flex-row  w-full block items-center justify-center">
+          <div className="flex flex-row  w-full items-center justify-center">
             <Card
               title="Sprout"
               description="An e-learning platform designed to teach high school students personal finance through short articles, quizzes, and activites to better prepare them for adulthood."
@@ -208,7 +185,7 @@ function ProjectSection({ observe }) {
               type="vertical"
             />
           </div>
-          <div className="flex flex-row  w-full block items-center justify-center">
+          <div className="flex flex-row  w-full k items-center justify-center">
             <Card
               title="DEISphere"
               description="An event conference website set for the University of Washington Bothell Beta Alpha Psi meant to bring attention to diversity and inclusion in the accounting field."
@@ -240,7 +217,7 @@ function ContactSection({ observe }) {
       <section
         ref={observe}
         id="contact"
-        className="bg-indigo-100 flex flex-col md:flex-row rounded-3xl p-5  content-center justify-between"
+        className="bg-indigo-100 flex flex-col md:flex-row rounded-3xl p-5  content-center  "
       >
         <div className="flex-grow mt-3 mx-5 w-full">
           <h1 className="text-gray-900 font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">

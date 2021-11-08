@@ -41,7 +41,9 @@ export default function Post(props) {
               />
               <div className="flex flex-row ml-52">
                 <div className="flex flex-wrap lg:flex-col">
-                  <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-gray-700 ">{title}</h1>
+                  <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-gray-700 ">
+                    {title}
+                  </h1>
                   <p className="mt-2 ">Subtitle here</p>
                   <div className="mt-2 flex flex-wrap md:flex-row ">
                     {stack.map(({ color, title, _id }) => (
@@ -49,7 +51,9 @@ export default function Post(props) {
                     ))}
                   </div>
                 </div>
-                <button className="justify-self-end"><a>Visit Website</a></button>
+                <button className="justify-self-end">
+                  <a>Visit Website</a>
+                </button>
               </div>
             </div>
           </div>

@@ -4,13 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: rgb(249, 252, 255);
-}
-
-.bg-color{
-  background-color: rgb(249, 252, 255);
-}
 progress {
   @apply bg-blue-300;
 }
@@ -31,7 +24,7 @@ button:active {
 .btn {
   @apply text-center text-white border-4 border-primary;
   @apply font-bold hover:bg-primary-dark hover:border-primary-dark;
-  @apply bg-primary rounded-2xl py-2 px-3 self-center;
+  @apply bg-primary rounded-lg py-2 px-3 self-center;
   @apply transition duration-300 ease-in-out;
   @apply focus:border-primary-dark;
 }
@@ -39,7 +32,7 @@ button:active {
 .btn-secondary {
   @apply border-4 border-primary text-center text-primary;
   @apply font-bold hover:bg-primary hover:text-white;
-  @apply rounded-2xl self-center  py-2 px-3 transition duration-300 ease-in-out;
+  @apply rounded-lg self-center  py-2 px-3 transition duration-300 ease-in-out;
 }
 
 .icon-btn {
@@ -49,7 +42,9 @@ button:active {
 .badge {
   @apply rounded-xl  py-2 text-primary bg-blue-300 grid justify-center m-2;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .circular {
   height: 100px;
   width: 100px;

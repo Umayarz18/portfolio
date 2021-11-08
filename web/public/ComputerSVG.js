@@ -1,4 +1,4 @@
-export default function Computer({classes}) {
+export default function Computer({ classes }) {
   return (
     <svg
       width="507"

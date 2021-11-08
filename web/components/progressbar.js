@@ -1,22 +1,20 @@
 export default function ProgressBar({ width, color }) {
   return (
-    <div className="circular">
-            <div className="inner"></div>
-            <div className="outer"></div>
-            <div className="numb">
-               0%
-            </div>
-            <div className="circle">
-               <div className="dot">
-                  <span></span>
-               </div>
-               <div className="bar left">
-                  <div className="progress"></div>
-               </div>
-               <div className="bar right">
-                  <div className="progress"></div>
-               </div>
-            </div>
-         </div>
+    <div class="relative pt-1">
+      <div class={`overflow-hidden h-2 text-xs flex rounded bg-${color}-200`}>
+        <div
+          style={{ width: width }}
+          class={`
+         shadow-none
+         flex flex-col
+         text-center
+         whitespace-nowrap
+         text-white
+         justify-center
+         bg-${color}-400
+       `}
+        ></div>
+      </div>
+    </div>
   );
 }
