@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import Layout from "../../components/Layout";
+import Layout from "../../components/layout";
 import React from "react";
 import PropTypes from "prop-types";
 import { groq } from "next-sanity";
