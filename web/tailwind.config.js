@@ -1,5 +1,4 @@
 module.exports = {
-  future: {},
   jit: true,
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
@@ -83,10 +82,5 @@ module.exports = {
   variants: {
     typography: ["dark"],
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/line-clamp"),
-    require("@tailwindcss/aspect-ratio"),
-  ],
+  plugins: [require("@tailwindcss/typography")],
 };
