@@ -15,7 +15,8 @@
     "@sanity/desk-tool",
     "@sanity/color-input",
     "@sanity/dashboard",
-    "dashboard-widget-netlify"
+    "dashboard-widget-netlify",
+    "asset-source-unsplash"
   ],
   "env": {
     "development": {

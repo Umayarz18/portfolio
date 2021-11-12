@@ -25,27 +25,29 @@ export default function Home() {
 
   return (
     <Layout>
-      <HeroSection />
+      <div className="mx-auto max-w-2xl">
+        <HeroSection />
 
-      <SkillSection observe={observe} />
-      {/** Push to contact me */}
-      <section
-        ref={observe}
-        className="grid text-center mx-auto my-24 lg:my-44 justify-center"
-      >
-        <h2 className="dark:text-gray-200 font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
-          Need a Developer? 👨🏾‍💻
-        </h2>
-        <p className="dark:text-gray-200 my-2 justify-self-center  md:p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl xl:mx-24">
-          I’m always open to hearing about collabs and work opportunities.
-        </p>
-        <a
-          href="#contact"
-          className="btn mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
+        <SkillSection observe={observe} />
+        {/** Push to contact me */}
+        <section
+          ref={observe}
+          className="grid text-center m-5 my-24 lg:my-44 justify-center"
         >
-          Slide into my DMs
-        </a>
-      </section>
+          <h2 className="dark:text-gray-200 font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
+            Need a Developer? 👨🏾‍💻
+          </h2>
+          <p className="dark:text-gray-200 my-2 justify-self-center  md:p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl xl:mx-24">
+            I’m always open to hearing about collabs and work opportunities.
+          </p>
+          <a
+            href="#contact"
+            className="btn mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
+          >
+            Say Howdy 🤠
+          </a>
+        </section>
+      </div>
     </Layout>
   );
 }
@@ -62,32 +64,37 @@ function HeroSection() {
   ];
   return (
     <div className="flex flex-col-reverse md:flex-row justify-center items-center space-x-3 mt-5">
-      <div className="grid justify-items-center md:justify-items-start  self-center max-w-lg m-5">
+      <div className="grid justify-items-center md:justify-items-start  self-center max-w-lg ">
         <h1 className="text-gray-800 text-3xl  dark:text-primary filter dark:blur-lg font-bold lg:text-5xl md:text-4xl">
-          Howdy, I'm Roewyn
+          Howdy, <br className="hidden lg:block" /> I'm Roewyn
         </h1>
         <h2 className="dark:text-gray-100 text-gray-700 font-medium text-lg lg:text-3xl md:text-2xl my-5 truncate">
           {titles[Math.floor(Math.random() * titles.length)]}
         </h2>
         <p className="dark:text-gray-200 text-gray-700 font-normal text-center md:text-left text-md lg:text-lg">
-          A simple guy looking to develop projects with{" "}
+          A simple guy looking to develop and maintain projects with{" "}
           <strong>big impact</strong>.
         </p>
-        <div className=" mt-2 flex flex-row space-x-5  md:space-y-0 items-center">
-          <button className="btn text-sm md:text-lg lg:text-xl xl:text-2xl">
-            <a href="#contact" alt="contact link" className="mx-5 ">
-              Say hello 👋
-            </a>
-          </button>
 
-          <button className="btn-secondary px-12  text-sm md:text-lg lg:text-xl xl:text-2xl">
-            <a href="/projects" className="mx-5">
-              My Work&#8594;
-            </a>
-          </button>
+        <div className=" mt-5 flex flex-row space-x-5  md:space-y-0 items-center">
+          <a
+            href="mailto:roewyn.e.umayam@gmail.com?subject=Contact%20From%20Website"
+            alt="contact link"
+            className="btn text-sm md:text-lg lg:text-xl xl:text-2xl px-5"
+            target="_blank"
+          >
+            Say hello 👋
+          </a>
+
+          <a
+            href="/projects"
+            className="btn-secondary px-12  text-sm md:text-lg lg:text-xl xl:text-2xl"
+          >
+            My Work&#8594;
+          </a>
         </div>
       </div>
-      <div className="self-center ">
+      <div className="self-center md:self-start">
         <img
           src={"/images/profile-dark.jpg"}
           width={250}
@@ -138,7 +145,15 @@ function SkillSection({ observe }) {
         </h2>
         <p className="my-5 dark:text-gray-200 text-gray-800 text-lg md:text-xl lg:text-2xl">
           Resumes are boring to read. Instead, here's a quick rundown on my
-          skills. But if you do need mine, here's <a href="#">my resume</a>.
+          skills. But if you do need mine, here's{" "}
+          <a
+            href="#"
+            className="text-primary font-semibold mb-2 
+          group-hover:text-primary-dark transition duration-300 ease-in-out"
+          >
+            my resume
+          </a>
+          .
         </p>
       </div>
     </section>

@@ -11,9 +11,16 @@ import { useState, useEffect } from "react";
 import Icon from "../public/Icon";
 import { FiMenu } from "react-icons/fi";
 
-const name = "Roewyn Umayam";
-export const siteTitle =
-  "Roewyn Umayam | Full-Stack Developer & Taekwondo Instructor";
+const NavItem = ({ link, title }) => (
+  <Link href={link}>
+    <a
+      className=" lg:ml-5 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded 
+    text-gray-700 dark:text-gray-200 font-bold items-center justify-center "
+    >
+      {title}
+    </a>
+  </Link>
+);
 
 export default function Layout(props) {
   const [mounted, setMounted] = useState(false);
@@ -82,10 +89,11 @@ export default function Layout(props) {
       </Head>
 
       <div
-        className={`flex flex-col min-h-screen justify-start items-center  w-screen bg-gray-100 dark:bg-gray-800 `}
+        role="main"
+        className={`flex flex-col min-h-screen justify-start items-center  w-screen bg-gray-100 dark:bg-gray-900 `}
       >
         <div className="flex flex-row p-3 ">
-          <nav className="w-screen lg:w-full lg:max-w-7xl flex items-center flex-wrap lg:flex-row justify-around px-10 md:px-44 :px-0 lg:space-x-60 ">
+          <div className="w-screen lg:w-full lg:max-w-7xl flex items-center flex-wrap lg:flex-row justify-around px-5 md:px-44 :px-0 lg:space-x-60 ">
             <a href="/" className=" inline-flex items-center  ">
               <Icon />
               <span className="sr-only">Roewyn Umayam</span>
@@ -112,25 +120,12 @@ export default function Layout(props) {
             >
               <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto' ">
                 <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
-                  <Link href="/about">
-                    <a className=" lg:ml-5 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 dark:text-gray-200 font-bold items-center justify-center ">
-                      About Me
-                    </a>
-                  </Link>
-                  <Link href="/projects">
-                    <a className=" lg:ml-5 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 dark:text-gray-200 font-bold items-center justify-center">
-                      My Projects
-                    </a>
-                  </Link>
-                  <Link href="/contact">
-                    <a className=" lg:ml-5 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 dark:text-gray-200 font-bold items-center justify-center ">
-                      Say Hi
-                    </a>
-                  </Link>
+                  <NavBar />
                   <button
                     aria-label="Toggle Dark Mode"
                     type="button"
-                    className="lg:inline-flex w-full lg:ml-5 mx-3 lg:w-9 h-9 bg-gray-300 rounded-lg dark:bg-gray-600 flex items-center justify-center hover:ring-2 ring-gray-300 dark:ring-primary transition-all"
+                    className="lg:inline-flex w-full lg:ml-5 mx-3 lg:w-9 h-9 bg-gray-300 rounded-lg dark:bg-gray-600 flex items-center justify-center  
+                    hover:ring-2 ring-gray-300 transition-all"
                     onClick={() =>
                       setTheme(resolvedTheme === "dark" ? "light" : "dark")
                     }
@@ -164,9 +159,9 @@ export default function Layout(props) {
                 </div>
               </div>
             </div>
-          </nav>
+          </div>
         </div>
-        <main className="">{children}</main>
+        <main>{children}</main>
         <div className="border-t-2 self-center flex flex-col md:px-52   justify-center items-center">
           <footer className=" p-8 flex flex-col  items-center space-y-3 w-full">
             <small className="text-base md:text-md lg:text-lg">

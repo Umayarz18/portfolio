@@ -1,19 +1,25 @@
 export default function ProgressBar({ width, color }) {
   return (
-    <div class="relative pt-1">
-      <div class={`overflow-hidden h-2 text-xs flex rounded bg-${color}-200`}>
+    <div className="relative py-1">
+      <div
+        role="progress"
+        className={`overflow-hidden min-h-full text-xs flex rounded bg-${color}-200`}
+      >
         <div
           style={{ width: width }}
-          class={`
+          className={`
          shadow-none
          flex flex-col
          text-center
          whitespace-nowrap
          text-white
          justify-center
+         font-bold
          bg-${color}-400
        `}
-        ></div>
+        >
+          {width}
+        </div>
       </div>
     </div>
   );

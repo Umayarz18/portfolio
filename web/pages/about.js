@@ -27,13 +27,15 @@ export default function About() {
           <a
             href="https://sprout-learning.vercel.app/"
             target="_blank"
-            className="text-primary font-medium"
+            className="text-primary font-medium hover:text-primary-dark 
+            transition duration-300 ease-in-out"
           >
             financial literacy project
           </a>{" "}
           I worked on will continue with{" "}
           <a
-            className="text-primary font-medium"
+            className="text-primary font-medium hover:text-primary-dark 
+            transition duration-300 ease-in-out"
             href="https://www.linkedin.com/company/working-for-wealth/"
             target="_blank"
           >
