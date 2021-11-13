@@ -9,14 +9,11 @@ import { GrInstagram } from "react-icons/gr";
 import { CgFacebook } from "react-icons/cg";
 import useInView from "react-cool-inview";
 import dynamic from "next/dynamic";
+import { ProjectCard } from "../components/ProjectCard";
 
 const Card = dynamic(() => import("../components/card"), {
   loading: () => <p>...</p>
 });
-
-const myLoader = ({ src, width, quality }) => {
-  return `https://localhost:3000/${src}?w=${width}&q=${quality || 75}`;
-};
 
 export default function Home() {
   const { observe, inView } = useInView({
@@ -29,24 +26,8 @@ export default function Home() {
         <HeroSection />
 
         <SkillSection observe={observe} />
-        {/** Push to contact me */}
-        <section
-          ref={observe}
-          className="grid text-center m-5 my-24 lg:my-44 justify-center"
-        >
-          <h2 className="dark:text-gray-200 font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
-            Need a Developer? 👨🏾‍💻
-          </h2>
-          <p className="dark:text-gray-200 my-2 justify-self-center  md:p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl xl:mx-24">
-            I’m always open to hearing about collabs and work opportunities.
-          </p>
-          <a
-            href="#contact"
-            className="btn mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
-          >
-            Say Howdy 🤠
-          </a>
-        </section>
+        <ProjectSection />
+        <CTASection observe={observe} />
       </div>
     </Layout>
   );
@@ -147,9 +128,11 @@ function SkillSection({ observe }) {
           Resumes are boring to read. Instead, here's a quick rundown on my
           skills. But if you do need mine, here's{" "}
           <a
-            href="#"
-            className="text-primary font-semibold mb-2 
-          group-hover:text-primary-dark transition duration-300 ease-in-out"
+            href="https://drive.google.com/file/d/18QHgjzhHJ23sHLL4lsLvc2_PlaMxznpJ/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary font-medium hover:text-primary-dark 
+            transition duration-300 ease-in-out"
           >
             my resume
           </a>
@@ -162,69 +145,76 @@ function SkillSection({ observe }) {
 
 function ProjectSection({ observe }) {
   return (
+    <section>
+      <h2 className="font-bold text-center dark:text-gray-100  text-gray-900 text-2xl md:text-3xl lg:text-4xl">
+        My Recent Projects
+      </h2>
+      <p className="text-center my-5 font-normal  dark:text-gray-200 text-gray-800 text-lg md:text-xl lg:text-2xl">
+        {" "}
+        If you need more samples, you can always view{" "}
+        <a
+          className=" text-primary font-medium hover:text-primary-dark 
+          transition duration-300 ease-in-out"
+          href="/projects"
+        >
+          my project list
+        </a>
+        .
+      </p>
+      <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-3 justify-center gap-3">
+        <ProjectCard
+          title="Sprout"
+          description="An e-learning platform designed to teach high school students personal finance through short articles, quizzes, and activites to better prepare them for adulthood."
+          color="#2FC06B"
+          logo="/logos/sprout-logo.svg"
+          link="https://sprout-learning.vercel.app/"
+        />
+
+        <ProjectCard
+          title="DEISphere"
+          description="An event conference website set for the University of Washington Bothell Beta Alpha Psi meant to bring attention to diversity and inclusion in the accounting field."
+          color="#4B2E83"
+          link="https://www.deisphere.com/"
+          logo="/logos/DEISphere.svg"
+        />
+
+        <ProjectCard
+          title="Our-Anime-Rec"
+          description="A Django website made for a group Database Systems course that allows users to see titles of anime, manga, and light novels as well as reviews."
+          color="#0E87A1"
+          link="https://our-anime-rec.herokuapp.com/"
+          logo="/logos/Our Anime Rec.svg"
+        />
+      </div>
+    </section>
+  );
+}
+
+function CTASection({ observe }) {
+  return (
     <>
-      {/** My Projects section */}
+      {/** Push to contact me */}
       <section
         ref={observe}
-        id="projects"
-        className="grid justify-center content-center my-24 mx-auto"
+        className="grid text-center m-5 my-24 lg:my-44 justify-center"
       >
-        <h2 className="font-bold justify-self-center  m-5 dark:text-gray-100  text-gray-900 text-2xl md:text-3xl lg:text-4xl">
-          My Recent Projects
+        <h2 className="dark:text-gray-200 font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
+          Need a Developer? 👨🏾‍💻
         </h2>
-        <p className="font-normal mx-5 justify-self-center dark:text-gray-200 text-gray-800 text-lg md:text-xl lg:text-2xl">
-          {" "}
-          If you need more samples, you can always view{" "}
-          <a
-            className=" font-semibold text-primary hover:font-bold hover:text-vibrant-purple-dk hover:underline"
-            href="/projects"
-          >
-            my project list
-          </a>
-          .
+        <p className="dark:text-gray-200 my-2 justify-self-center  md:p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl xl:mx-24">
+          I’m always open to hearing about collabs and work opportunities.
         </p>
-        <div className="grid grid-cols-1 grid-rows-1 justify-center">
-          <div className="flex flex-row  w-full items-center justify-center">
-            <Card
-              title="Sprout"
-              description="An e-learning platform designed to teach high school students personal finance through short articles, quizzes, and activites to better prepare them for adulthood."
-              color="#2FC06B"
-              logo="/logos/sprout-logo.svg"
-              type="vertical"
-            />
-            <Card
-              title="Sprout"
-              description="An e-learning platform designed to teach high school students personal finance through short articles, quizzes, and activites to better prepare them for adulthood."
-              color="#2FC06B"
-              logo="/logos/naild.svg"
-              type="vertical"
-            />
-          </div>
-          <div className="flex flex-row  w-full k items-center justify-center">
-            <Card
-              title="DEISphere"
-              description="An event conference website set for the University of Washington Bothell Beta Alpha Psi meant to bring attention to diversity and inclusion in the accounting field."
-              color="#4B2E83"
-              link="https://www.deisphere.com/"
-              logo="/logos/DEISphere.svg"
-              type="vertical"
-            />
-
-            <Card
-              title="Our-Anime-Rec"
-              description="A Django website made for a group Database Systems course that allows users to see titles of anime, manga, and light novels as well as reviews."
-              color="#0E87A1"
-              link="https://our-anime-rec.herokuapp.com/"
-              logo="/logos/Our Anime Rec.svg"
-              type="vertical"
-            />
-          </div>
-        </div>
+        <a
+          href="mailto:roewyn.e.umayam@gmail.com?subject=Contact%20From%20Website"
+          target="_blank"
+          className="btn mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
+        >
+          Say Howdy 🤠
+        </a>
       </section>
     </>
   );
 }
-
 function ContactSection({ observe }) {
   return (
     <>

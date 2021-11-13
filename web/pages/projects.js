@@ -2,7 +2,7 @@ import Layout from "../components/layout";
 
 export default function Projects() {
   return (
-    <Layout>
+    <Layout title="My Projects - Roewyn Umayam">
       <div className="max-w-2xl text-gray-600 dark:text-gray-300 m-5">
         <section className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5">
           <h2 className="text-3xl font-bold dark:text-gray-100 text-gray-900">
@@ -15,6 +15,24 @@ export default function Projects() {
             they exist only to meme around with a new technology or concept 🤡.
           </p>
           <ul className="my-5 grid grid-cols-1 gap-y-3 text-md md:text-lg">
+            <li>
+              <a
+                className="text-primary font-medium hover:text-primary-dark 
+                transition duration-300 ease-in-out"
+                href={"/"}
+              >
+                <strong>This Site</strong>
+              </a>{" "}
+              - My portfolio site was made with inspiration and coding
+              techniques learned from a breakdown of Lee Robinson's website and
+              Julia Tan's personal site. I wanted to learn how to make a site
+              with Nextjs to act as a blog and document about my work. I used
+              Lee's site as a reference to how to set up dark mode and also how
+              to structure SEO for each web page. Made with Sanity, TailwindCSS,
+              Next.js, group + individual designs from Figma, and deployed on
+              Netlify. <em>[solo Oct 2021 - ]</em>
+            </li>
+
             <li>
               <a
                 className="text-primary font-medium hover:text-primary-dark 

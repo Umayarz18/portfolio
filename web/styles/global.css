@@ -47,7 +47,7 @@ html {
 }
 
 .progress-outer {
-  @apply overflow-hidden min-h-full text-xs flex rounded bg-purple-100;
+  @apply overflow-hidden min-h-full text-xs flex rounded bg-purple-200;
 }
 .progress-inner {
   @apply flex flex-col text-center whitespace-nowrap

@@ -38,7 +38,7 @@ export default function Layout(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: "Roewyn Umayam - Full-Stack Developer & Taekwondo Instructor",
+    title: "Roewyn Umayam - Full-Stack Developer",
     description: `Simple guy building small ideas for big impact.`,
     image: `'${domain}/images/banner.png'`,
     type: "website",
@@ -162,7 +162,7 @@ export default function Layout(props) {
           </div>
         </div>
         <main>{children}</main>
-        <div className="border-t-2 self-center flex flex-col md:px-52   justify-center items-center">
+        <div className="border-t-2 self-center flex flex-col md:mx-auto px-5  lg:px-32  justify-center items-center">
           <footer className=" p-8 flex flex-col  items-center space-y-3 w-full">
             <small className="text-base md:text-md lg:text-lg">
               Roewyn Umayam &copy;<time>2021</time>. All rights reserved.

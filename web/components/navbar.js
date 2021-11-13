@@ -8,7 +8,7 @@ const links = [
   { link: "/projects", title: "Projects" },
   { link: "/blog", title: "Blog" },
   {
-    link: "mailto:roewyn.e.umayam@gmail.com?subject=Contact%20From%20Website",
+    link: "/contact",
     title: "Contact"
   }
 ];

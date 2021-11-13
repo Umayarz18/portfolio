@@ -34,11 +34,11 @@ export default function Post(props) {
           alt={`post picture`}
         />
         <div className="flex flex-row items-center justify-between">
-          <h1 className="text-3xl font-bold dark:text-gray-100 text-gray-900 my-4">
+          <h1 className="text-4xl font-bold dark:text-gray-100 text-gray-900 my-4">
             {title}
           </h1>
         </div>
-        <div className="prose md:prose-md lg:prose-lg xl:prose-2xl dark:prose-dark">
+        <div className="prose-2xl dark:prose-dark">
           <div className=" flex flex-wrap  ">
             {stack.map(({ color, title, _id }) => (
               <Tag key={_id} color={color} title={title} />
