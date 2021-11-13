@@ -77,7 +77,7 @@ function HeroSection() {
       </div>
       <div className="self-center md:self-start">
         <img
-          src={"/images/profile-dark.jpg"}
+          src={"/images/profile.jpg"}
           width={250}
           height={250}
           alt={"My profile picture"}

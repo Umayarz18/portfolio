@@ -21,17 +21,30 @@ export default function Blog({ posts }) {
           >
             I'm trying to document my experiences around software development
             with case studies, tutorials, and notes that might help other
-            upcoming developers on your journey.
+            upcoming developers on your journey. Check back later for some posts
+            and in the mean time, you can take a look at some of my{" "}
+            <a
+              href="/projects"
+              target="_blank"
+              className="text-primary font-medium hover:text-primary-dark 
+            transition duration-300 ease-in-out"
+            >
+              past projects
+            </a>
+            .
           </p>
         </section>
-        <section>
-          <h1 className="text-3xl font-bold dark:text-gray-100 text-gray-900 mb-4 ">
+
+        {/**
+         * <section>
+          <h2 className="text-3xl font-bold dark:text-gray-100 text-gray-900 mb-4 ">
             All Posts
-          </h1>
+          </h2>
           {posts.map((post) => (
             <SlugCard key={post.id} data={post} />
           ))}
         </section>
+         */}
       </div>
     </Layout>
   );

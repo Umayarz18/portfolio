@@ -7,10 +7,7 @@ const links = [
   { link: "/about", title: "About" },
   { link: "/projects", title: "Projects" },
   { link: "/blog", title: "Blog" },
-  {
-    link: "/contact",
-    title: "Contact"
-  }
+  { link: "/contact", title: "Contact" }
 ];
 const NavItem = ({ link, title }) => (
   <Link href={link} key={`${title}-link`}>

@@ -3,6 +3,15 @@ module.exports = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  async redirects() {
+    return [
+      {
+        source: "/blog/[slug]",
+        destination: "/404", // Matched parameters can be used in the destination
+        permanent: false,
+      },
+    ];
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.pdf$/,

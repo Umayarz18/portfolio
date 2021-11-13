@@ -12,10 +12,7 @@ export default function Custom404() {
         <p className="justify-self-center text-lg md:text-xl lg:text-2xl text-center">
           Oops! Looks like the page you're looking for is no longer here. <br />
           Shoot a message to{" "}
-          <a
-            href="/#contact"
-            className="text-primary hover:underline font-bold"
-          >
+          <a href="/contact" className="text-primary hover:underline font-bold">
             @me
           </a>{" "}
           or head back to my{" "}

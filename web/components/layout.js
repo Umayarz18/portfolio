@@ -34,7 +34,10 @@ export default function Layout(props) {
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
 
-  const domain = "localhost:3000"; //Change to match your domain
+  const domain =
+    process.env.NODE_ENV === "production"
+      ? "https://roewyn-umayam.netlify.app"
+      : "localhost3000"; //Change to match your domain
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
