@@ -4,6 +4,7 @@ export const ProjectCard = ({ key, link, color, title, logo, description, code }
       key={key}
       href={link}
       target="_blank"
+      rel="noopener"
       style={{ borderColor: color }}
       className={`dark:bg-gray-900 bg-gray-200  
       border-gray-400 border-2  rounded p-6
@@ -18,7 +19,7 @@ export const ProjectCard = ({ key, link, color, title, logo, description, code }
       <div className="flex flex-row justify-between mt-2">
         <p
           target="_blank"
-          rel="noopener"
+
           className="text-gray-800 dark:text-gray-100 font-medium "
         >
           View Project

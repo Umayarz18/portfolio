@@ -55,7 +55,7 @@ export default function Contact() {
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs 
               font-bold mb-2 dark:text-gray-300"
-              for="grid-password"
+              for="email"
             >
               E-mail
             </label>
@@ -73,7 +73,7 @@ export default function Contact() {
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs 
               font-bold mb-2 dark:text-gray-300"
-              for="grid-password"
+              for="message"
             >
               Message
             </label>

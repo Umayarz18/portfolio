@@ -5,6 +5,7 @@ module.exports = withPWA({
     register: true,
     scope: '/app',
     sw: '/sw.js',
+    publicExcludes: ['!robots.txt'],
   },
   i18n: {
     locales: ["en"],

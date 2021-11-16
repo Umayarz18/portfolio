@@ -85,6 +85,7 @@ export default function Layout(props) {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
+        <link rel="canonical" href={`${domain}/${meta.title}`} />
         <link rel="icon" href="/favicon.ico" />
         {meta.date && (
           <meta property="article:published_time" content={meta.date} />
@@ -92,7 +93,6 @@ export default function Layout(props) {
       </Head>
 
       <div
-        role="main"
         className={`flex flex-col min-h-screen justify-start items-center  w-screen bg-gray-100 dark:bg-gray-900 `}
       >
         <div className="flex flex-row p-3 ">
