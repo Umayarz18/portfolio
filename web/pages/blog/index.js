@@ -26,6 +26,7 @@ export default function Blog({ posts }) {
             <a
               href="/projects"
               target="_blank"
+              rel="noopener"
               className="text-primary font-medium hover:text-primary-dark 
             transition duration-300 ease-in-out"
             >

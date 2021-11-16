@@ -9,19 +9,17 @@ const links = [
   { link: "/blog", title: "Blog" },
   { link: "/contact", title: "Contact" }
 ];
-const NavItem = ({ link, title }) => (
-  <Link href={link} key={`${title}-link`}>
-    <a
-      key={`${title}-link`}
-      className=" lg:inline-flex lg:w-auto w-full px-3 py-1 rounded 
+const NavItem = ({ link, title, id }) => (
+  <a
+    href={link}
+    className=" lg:inline-flex lg:w-auto w-full px-3 py-1 rounded 
       hover:text-primary
     text-gray-700 dark:text-gray-200 dark:hover:text-primary 
       dark:hover:bg-opacity-90 font-bold items-center justify-center
     hover:bg-purple-200 "
-    >
-      {title}
-    </a>
-  </Link>
+  >
+    {title}
+  </a>
 );
 
 export default function NavBar() {
@@ -30,8 +28,8 @@ export default function NavBar() {
       className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full 
     lg:items-center items-start  flex flex-col lg:h-auto"
     >
-      {links.map(item => (
-        <NavItem link={item.link} title={item.title} />
+      {links.map((item, index) => (
+        <NavItem link={item.link} title={item.title} key={`${item.title}-navlink`} />
       ))}
     </nav>
   );

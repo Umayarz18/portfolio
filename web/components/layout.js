@@ -96,7 +96,7 @@ export default function Layout(props) {
         className={`flex flex-col min-h-screen justify-start items-center  w-screen bg-gray-100 dark:bg-gray-900 `}
       >
         <div className="flex flex-row p-3 ">
-          <div className="w-screen lg:w-full lg:max-w-7xl flex items-center flex-wrap lg:flex-row justify-around px-5 md:px-44 :px-0 lg:space-x-60 ">
+          <div className="w-screen lg:w-full lg:max-w-7xl flex items-center flex-wrap lg:flex-row justify-around px-5 md:px-44 lg:px-0 lg:space-x-60 ">
             <a href="/" className=" inline-flex items-center  ">
               <Icon />
               <span className="sr-only">Roewyn Umayam</span>
@@ -117,13 +117,12 @@ export default function Layout(props) {
 
             {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
             <div
-              className={`${
-                active ? "" : "hidden"
-              }   w-full lg:inline-flex lg:flex-grow lg:w-auto `}
+              className={`${active ? "" : "hidden"
+                }   w-full lg:inline-flex lg:flex-grow lg:w-auto `}
             >
               <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto' ">
                 <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
-                  <NavBar />
+                  <NavBar router={router} />
                   <button
                     aria-label="Toggle Dark Mode"
                     type="button"

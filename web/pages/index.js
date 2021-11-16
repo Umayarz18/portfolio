@@ -10,12 +10,13 @@ import { CgFacebook } from "react-icons/cg";
 import useInView from "react-cool-inview";
 import dynamic from "next/dynamic";
 import { ProjectCard } from "../components/ProjectCard";
-
+import router, { useRouter } from "next/router";
 const Card = dynamic(() => import("../components/card"), {
   loading: () => <p>...</p>
 });
 
 export default function Home() {
+  const router = useRouter;
   const { observe, inView } = useInView({
     onEnter: ({ unobserve }) => unobserve() // only run once
   });
@@ -50,7 +51,8 @@ function HeroSection() {
           Howdy, <br className="hidden lg:block" /> I'm Roewyn
         </h1>
         <h2 className="dark:text-gray-100 text-gray-700 font-medium text-lg lg:text-3xl md:text-2xl my-5 truncate">
-          {titles[Math.floor(Math.random() * titles.length)]}
+          {/**titles[Math.floor(Math.random() * titles.length)]*/}
+          {titles[1]}
         </h2>
         <p className="dark:text-gray-200 text-gray-700 font-normal text-center md:text-left text-md lg:text-lg">
           A simple guy looking to develop and maintain projects with{" "}
@@ -168,6 +170,7 @@ function ProjectSection({ observe }) {
           color="#2FC06B"
           logo="/logos/sprout-logo.svg"
           link="https://sprout-learning.vercel.app/"
+          nextRouter={router}
         />
 
         <ProjectCard
@@ -176,6 +179,7 @@ function ProjectSection({ observe }) {
           color="#4B2E83"
           link="https://www.deisphere.com/"
           logo="/logos/DEISphere.svg"
+          nextRouter={router}
         />
 
         <ProjectCard
@@ -184,6 +188,7 @@ function ProjectSection({ observe }) {
           color="#0E87A1"
           link="https://our-anime-rec.herokuapp.com/"
           logo="/logos/Our Anime Rec.svg"
+          nextRouter={router}
         />
       </div>
     </section>

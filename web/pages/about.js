@@ -27,6 +27,7 @@ export default function About() {
           <a
             href="https://sprout-learning.vercel.app/"
             target="_blank"
+            rel="noopener"
             className="text-primary font-medium hover:text-primary-dark 
             transition duration-300 ease-in-out"
           >
@@ -36,6 +37,7 @@ export default function About() {
           <a
             className="text-primary font-medium hover:text-primary-dark 
             transition duration-300 ease-in-out"
+            rel="noopener"
             href="https://www.linkedin.com/company/working-for-wealth/"
             target="_blank"
           >

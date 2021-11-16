@@ -20,6 +20,7 @@ export default function Projects() {
                 className="text-primary font-medium hover:text-primary-dark 
                 transition duration-300 ease-in-out"
                 href={"/"}
+                rel="noopener"
               >
                 <strong>This Site</strong>
               </a>{" "}
@@ -39,6 +40,7 @@ export default function Projects() {
                 transition duration-300 ease-in-out"
                 href={"https://sprout-learning.vercel.app/"}
                 target="_blank"
+                rel="noopener"
               >
                 <strong>Sprout</strong>
               </a>{" "}
@@ -55,6 +57,7 @@ export default function Projects() {
                 transition duration-300 ease-in-out"
                 href={"https://deisphere.com"}
                 target="_blank"
+                rel="noopener"
               >
                 <strong>DEISphere</strong>
               </a>{" "}
@@ -71,6 +74,7 @@ export default function Projects() {
               transition duration-300 ease-in-out"
                 href={"https://our-anime-rec.herokuapp.com/"}
                 target="_blank"
+                rel="noopener"
               >
                 <strong>Our-Anime-Rec</strong>
               </a>{" "}
@@ -87,6 +91,7 @@ export default function Projects() {
               transition duration-300 ease-in-out"
                 href={"https://stupefied-benz-fd5f0c.netlify.app/"}
                 target="_blank"
+                rel="noopener"
               >
                 <strong>Simple Weather PWA</strong>
               </a>{" "}
@@ -104,7 +109,7 @@ export default function Projects() {
 }
 
 /**
- * 
+ *
  function ClientWork() {
    return (
      <section className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5">
@@ -120,7 +125,7 @@ export default function Projects() {
      <a
      href="mailto:roewyn.e.umayam@gmail.com?subject=Client%20Inquiry"
      target="_blank"
-     className="text-primary font-medium hover:text-primary-dark 
+     className="text-primary font-medium hover:text-primary-dark
      transition duration-300 ease-in-out"
      >
      I'm always open to chat
@@ -140,5 +145,5 @@ export default function Projects() {
      </section>
      );
     }
-    
+
     */
