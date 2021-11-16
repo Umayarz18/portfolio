@@ -42,7 +42,7 @@ export default function Layout(props) {
   const router = useRouter();
   const meta = {
     title: "Roewyn Umayam - Full-Stack Developer",
-    description: `Simple guy building small ideas for big impact.`,
+    description: `Simple frontend developer seeking to use skills on projects with big impact.`,
     image: `'${domain}/images/banner.png'`,
     type: "website",
     twitterHandle: "@yourtwitter", //Change for you!

@@ -1,3 +1,4 @@
+import Image from "next/image";
 export const ProjectCard = ({ key, link, color, title, logo, description, code }) => {
   return (
     <a
@@ -11,7 +12,13 @@ export const ProjectCard = ({ key, link, color, title, logo, description, code }
       m-5 md:m-0
       flex flex-col justify-center`}
     >
-      <img src={logo} className="w-32 h-32 self-center" width={`8rem`} height={`8rem`} alt={`Project logo for ${title}`} />
+      <div className="w-32 h-32 self-center relative">
+        <Image
+          src={logo}
+          className="w-full h-full"
+          layout="fill"
+          alt={`Project logo for ${title}`} />
+      </div>
       <h3 className="text-lg font-bold mt-2">{title}</h3>
       <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 truncate">
         {description}

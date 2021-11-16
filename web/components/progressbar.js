@@ -1,23 +1,22 @@
 export default function ProgressBar({ width, color }) {
   return (
     <div className="relative py-1">
-      <div role="progressbar"
+      <div
         aria-label="progress meter"
-
-        className={`progress-outer bg-${color}-200`}
+        className={`progress-outer `}
       >
         <p
-          style={{ width: width }}
+          style={{ width: `${width}%` }}
           role="progressbar"
-          aria-label={`progress is at ${width}%`}
+          aria-label="Progress bar"
           aria-valuenow={width}
-          aria-valuemax="100"
-          aria-valuemin="0"
+          aria-valuemax={100}
+          aria-valuemin={0}
           className={`
-          progress-inner bg-${color}-400
+          progress-inner
        `}
         >
-          {width}
+          {width}%
         </p>
       </div>
     </div>

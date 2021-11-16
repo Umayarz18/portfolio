@@ -77,13 +77,14 @@ function HeroSection() {
           </a>
         </div>
       </div>
-      <div className="self-center md:self-start">
-        <img
+      <div className="self-center md:self-start border-primary border-4 rounded-full">
+        <Image
           src={"/images/profile.jpg"}
           width={250}
           height={250}
+          loading="lazy"
           alt={"My profile picture"}
-          className=" max-w-12  border-primary border-4 rounded-full"
+          className="rounded-full"
         />
       </div>
     </div>
@@ -100,19 +101,19 @@ function SkillSection({ observe }) {
       <div className="flex-1 dark:bg-gray-900 bg-gray-200 w-full p-6 rounded  border-gray-400 border-2 dark:border-gray-700 self-center">
         <div className="grid gap-2 items-center  grid-col-1 lg:gap-x-0 lg:grid-cols-2 ">
           <p className=" text-sm lg:text-base font-bold ">CSS</p>
-          <ProgressBar width="50%" color="red" />
+          <ProgressBar width={50} color="red" />
 
           <p className=" text-sm lg:text-base lg:w-50 font-bold">HTML</p>
-          <ProgressBar width="60%" color="green" />
+          <ProgressBar width={60} color="green" />
 
           <p className=" text-sm lg:text-base font-bold">Javascript</p>
-          <ProgressBar width="60%" color="yellow" />
+          <ProgressBar width={60} color="yellow" />
 
           <p className=" text-sm lg:text-base font-bold">React</p>
-          <ProgressBar width="75%" color="blue" />
+          <ProgressBar width={70} color="blue" />
 
           <p className=" text-sm lg:text-base font-bold">Design</p>
-          <ProgressBar width="50%" color="indigo" />
+          <ProgressBar width={50} color="indigo" />
 
           {/**
                 <li className=" text-sm lg:text-base font-bold">Django</li>
