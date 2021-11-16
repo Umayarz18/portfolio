@@ -2,7 +2,7 @@ import Layout from "../components/layout";
 
 export default function Projects() {
   return (
-    <Layout title="My Projects - Roewyn Umayam">
+    <Layout title="My Projects - Roewyn Umayam" cannonical="projects">
       <div className="max-w-2xl text-gray-600 dark:text-gray-300 m-5">
         <section className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5">
           <h2 className="text-3xl font-bold dark:text-gray-100 text-gray-900">

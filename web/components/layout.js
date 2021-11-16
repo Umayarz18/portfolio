@@ -85,7 +85,7 @@ export default function Layout(props) {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
-        <link rel="canonical" href={`${domain}/${meta.title}`} />
+        <link rel="canonical" href={`${domain}/${meta.cannonical}`} />
         <link rel="icon" href="/favicon.ico" />
         {meta.date && (
           <meta property="article:published_time" content={meta.date} />

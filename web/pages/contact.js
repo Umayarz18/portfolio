@@ -2,7 +2,7 @@ import Layout from "../components/layout";
 
 export default function Contact() {
   return (
-    <Layout title="Say Hello - Roewyn Umayam">
+    <Layout title="Say Hello - Roewyn Umayam" cannonical="contact">
       <section className="max-w-2xl m-5 md:m-0">
         <h1 className="text-3xl font-bold dark:text-gray-100 text-gray-900  ">
           Up For A Chat?

@@ -9,7 +9,7 @@ import BlockContent from "../../components/BlockContent";
 
 export default function Blog({ posts }) {
   return (
-    <Layout title="Blog - Roewyn Umayam">
+    <Layout title="Blog - Roewyn Umayam" cannonical="blog">
       <div className="max-w-2xl m-5 ">
         <section>
           <h1 className="text-3xl font-bold dark:text-gray-100 text-gray-900  ">

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <Layout title="A Bit About Me - Roewyn Umayam">
+    <Layout title="A Bit About Me - Roewyn Umayam" cannonical="about">
       <section className="mt-10 flex  flex-col  m-5 justify-center max-w-2xl">
         <h2 className="text-3xl font-bold dark:text-gray-100 text-gray-900  ">
           Just A Guy Who Codes
