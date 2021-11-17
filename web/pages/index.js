@@ -78,7 +78,7 @@ function HeroSection() {
         </div>
       </div>
       <div className="self-center md:self-start border-primary border-4 rounded-full">
-        <Image
+        <img
           src={"/images/profile.jpg"}
           width={250}
           height={250}
