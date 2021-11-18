@@ -53,3 +53,8 @@ html {
   @apply flex flex-col text-center whitespace-nowrap
 text-white justify-center font-bold bg-primary;
 }
+
+a.link {
+  @apply text-primary font-medium hover:text-primary-dark 
+  transition duration-300 ease-in-out;
+}

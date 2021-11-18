@@ -85,7 +85,10 @@ export default function Layout(props) {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
-        <link rel="canonical" href={`${domain}/${meta.cannonical ? meta.cannonical : ''}`} />
+        <link
+          rel="canonical"
+          href={`${domain}/${meta.cannonical ? meta.cannonical : ""}`}
+        />
         <link rel="icon" href="/favicon.ico" />
         {meta.date && (
           <meta property="article:published_time" content={meta.date} />
@@ -117,8 +120,9 @@ export default function Layout(props) {
 
             {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
             <div
-              className={`${active ? "" : "hidden"
-                }   w-full lg:inline-flex lg:flex-grow lg:w-auto `}
+              className={`${
+                active ? "" : "hidden"
+              }   w-full lg:inline-flex lg:flex-grow lg:w-auto `}
             >
               <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto' ">
                 <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
@@ -182,7 +186,7 @@ export default function Layout(props) {
               <a
                 className=" mr-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple "
                 target="_blank"
-                href="https://www.instagram.com/roewynaboat_tkd/"
+                href="https://www.instagram.com/roewynaboat/"
                 rel="noopener"
               >
                 <GrInstagram />

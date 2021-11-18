@@ -188,7 +188,7 @@ function ProjectSection({ observe }) {
           description="A Django website made for a group Database Systems course that allows users to see titles of anime, manga, and light novels as well as reviews."
           color="#0E87A1"
           link="https://our-anime-rec.herokuapp.com/"
-          logo="/logos/Our Anime Rec.svg"
+          logo="/logos/OurAnimeRec.svg"
           nextRouter={router}
         />
       </div>

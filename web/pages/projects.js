@@ -17,27 +17,71 @@ export default function Projects() {
           <ul className="my-5 grid grid-cols-1 gap-y-3 text-md md:text-lg">
             <li>
               <a
-                className="text-primary font-medium hover:text-primary-dark 
-                transition duration-300 ease-in-out"
-                href={"/"}
+                className="link"
+                href={"https://pokedex-react-pwa.vercel.app/"}
+                target="_blank"
                 rel="noopener"
               >
-                <strong>This Site</strong>
+                <strong>Pokedex Next.js PWA</strong>
               </a>{" "}
-              - My portfolio site was made with inspiration and coding
-              techniques learned from a breakdown of Lee Robinson's website and
-              Julia Tan's personal site. I wanted to learn how to make a site
-              with Nextjs to act as a blog and document about my work. I used
-              Lee's site as a reference to how to set up dark mode and also how
-              to structure SEO for each web page. Made with Sanity, TailwindCSS,
-              Next.js, group + individual designs from Figma, and deployed on
-              Netlify. <em>[solo Oct 2021 - ]</em>
+              - A total joke project to test PWA functionality on Next.js sites
+              with Next-PWA. What better way to do it than by using Pokemon! The
+              PWA acts as a Pokedex, a register of all these wonderful fictional
+              animals. I used the{" "}
+              <a
+                href="https://www.pokemon.com/us/pokedex/"
+                target="_blank"
+                rel="noopener"
+                className="hover:underline font-medium"
+              >
+                official Pokedex on the Pokemon website
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://www.youtube.com/watch?v=LMRAEUPkFXI"
+                target="_blank"
+                rel="noopener"
+                className="hover:underline font-medium"
+              >
+                James Q. Quick's Pokedex Next.js tutorial
+              </a>{" "}
+              as guides for this goofy project. Made with TailwindCSS, Next.js,
+              PokeAPI and deployed on Vercel. <em>[solo Nov 2021]</em>
+            </li>
+            <li>
+              <a className="link" href={"/"} rel="noopener">
+                <strong>My portfolio site</strong>
+              </a>{" "}
+              - This site was made with inspiration and coding techniques
+              learned from a breakdown of{" "}
+              <a
+                href="https://leerob.io/"
+                target="_blank"
+                rel="noopener"
+                className="hover:underline font-medium"
+              >
+                Lee Robinson's website
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://bionicjulia.com/"
+                target="_blank"
+                rel="noopener"
+                className="hover:underline font-medium"
+              >
+                Julia Tan's personal site.
+              </a>{" "}
+              I wanted to learn how to make a site with Nextjs to act as a blog
+              and document about my work. I used Lee's site as a reference to
+              how to set up dark mode and also how to structure SEO for each web
+              page. Made with Sanity, TailwindCSS, Next.js, group + individual
+              designs from Figma, and deployed on Netlify.{" "}
+              <em>[solo Oct 2021 - ]</em>
             </li>
 
             <li>
               <a
-                className="text-primary font-medium hover:text-primary-dark 
-                transition duration-300 ease-in-out"
+                className="link"
                 href={"https://sprout-learning.vercel.app/"}
                 target="_blank"
                 rel="noopener"
@@ -53,8 +97,7 @@ export default function Projects() {
 
             <li>
               <a
-                className="text-primary font-medium hover:text-primary-dark 
-                transition duration-300 ease-in-out"
+                className="link"
                 href={"https://deisphere.com"}
                 target="_blank"
                 rel="noopener"
@@ -70,8 +113,7 @@ export default function Projects() {
 
             <li>
               <a
-                className="text-primary font-medium hover:text-primary-dark 
-              transition duration-300 ease-in-out"
+                className="link"
                 href={"https://our-anime-rec.herokuapp.com/"}
                 target="_blank"
                 rel="noopener"
@@ -87,8 +129,7 @@ export default function Projects() {
 
             <li>
               <a
-                className="text-primary font-medium hover:text-primary-dark 
-              transition duration-300 ease-in-out"
+                className="link"
                 href={"https://stupefied-benz-fd5f0c.netlify.app/"}
                 target="_blank"
                 rel="noopener"
