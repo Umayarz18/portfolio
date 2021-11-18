@@ -39,6 +39,10 @@ button:active {
   @apply ml-3 px-2 text-xl;
 }
 
+#skip {
+  scroll-margin-top: 1.125rem;
+}
+
 .badge {
   @apply rounded-xl  py-2 text-primary bg-blue-300 grid justify-center m-2;
 }

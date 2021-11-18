@@ -41,7 +41,7 @@ export default function Layout(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: "Roewyn Umayam - Full-Stack Developer",
+    title: "Roewyn Umayam - Frontend Developer",
     description: `Simple frontend developer seeking to use skills on projects with big impact.`,
     image: `${domain}/images/banner.png`,
     type: "website",
@@ -96,15 +96,22 @@ export default function Layout(props) {
       </Head>
 
       <div
-        className={`flex flex-col min-h-screen justify-start items-center  w-screen bg-gray-100 dark:bg-gray-900 `}
+        className={`flex flex-col min-h-screen justify-start items-center  w-screen bg-gray-100 dark:bg-gray-900 relative `}
       >
-        <div className="flex flex-row p-3 ">
+        <div className="flex flex-row p-3 relative">
           <div className="w-screen lg:w-full lg:max-w-7xl flex items-center flex-wrap lg:flex-row justify-around px-5 md:px-44 lg:px-0 lg:space-x-60 ">
             <a href="/" className=" inline-flex items-center  ">
               <Icon />
-              <span className="sr-only">Roewyn Umayam</span>
+              <span className="sr-only ">Roewyn Umayam</span>
             </a>
-
+            <a
+              className=" absolute px-4 py-3 transition-transform duration-200 
+              transform -translate-y-20 -left-3/4 focus:top-4 focus:translate-y-3 
+              -top-2 text-gray-700 dark:text-gray-300 z-50 focus:ring-2 focus:ring-primary"
+              href="#skip"
+            >
+              Skip to main content
+            </a>
             <button
               className="inline-flex p-3 hover:bg-vibrant-purple rounded lg:hidden text-txt-white ml-auto hover:text-txt-white outline-none"
               aria-controls="mobile-menu"
@@ -167,7 +174,7 @@ export default function Layout(props) {
             </div>
           </div>
         </div>
-        <main>{children}</main>
+        <main id="skip">{children}</main>
         <div className="border-t-2 self-center flex flex-col md:mx-auto px-5  lg:px-32  justify-center items-center">
           <footer className=" p-8 flex flex-col  items-center space-y-3 w-full">
             <small className="text-base md:text-md lg:text-lg">

@@ -52,7 +52,7 @@ function HeroSection() {
         </h1>
         <h2 className="dark:text-gray-100 text-gray-700 font-medium text-lg lg:text-3xl md:text-2xl my-5 truncate">
           {/**titles[Math.floor(Math.random() * titles.length)]*/}
-          {titles[1]}
+          {titles[4]}
         </h2>
         <p className="dark:text-gray-200 text-gray-700 font-normal text-center md:text-left text-md lg:text-lg">
           A simple guy looking to develop and maintain projects with{" "}
@@ -66,7 +66,7 @@ function HeroSection() {
             className="btn text-sm md:text-lg lg:text-xl xl:text-2xl px-5"
             target="_blank"
           >
-            Say hello 👋
+            Say hello <span className="">👋</span>
           </a>
 
           <a
