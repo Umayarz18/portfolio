@@ -43,7 +43,7 @@ export default function Layout(props) {
   const meta = {
     title: "Roewyn Umayam - Full-Stack Developer",
     description: `Simple frontend developer seeking to use skills on projects with big impact.`,
-    image: `'${domain}/images/banner.png'`,
+    image: `${domain}/images/banner.png`,
     type: "website",
     twitterHandle: "@yourtwitter", //Change for you!
     ...customMeta
@@ -85,7 +85,7 @@ export default function Layout(props) {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
-        <link rel="canonical" href={`${domain}/${meta.cannonical}`} />
+        <link rel="canonical" href={`${domain}/${meta.cannonical ? meta.cannonical : ''}`} />
         <link rel="icon" href="/favicon.ico" />
         {meta.date && (
           <meta property="article:published_time" content={meta.date} />
