@@ -1,15 +1,11 @@
 import Layout from "../../components/layout";
-import { useRouter } from "next/router";
+import Tag from "../../components/tag";
 import { groq } from "next-sanity";
 import { getClient } from "../../lib/sanity.server";
-import Tag from "../../components/tag";
-import BlockContent from "../../components/BlockContent";
-import Image from "next/dist/client/image";
 import { urlFor } from "../../lib/sanity";
-
+import BlockContent from "@sanity/block-content-to-react";
+import { config } from "../../lib/config";
 export default function Post(props) {
-  const router = useRouter();
-  let { slug } = router.query;
   const {
     body = "Uh oh, not found?!",
     color = "#FFFFFF",
@@ -46,7 +42,12 @@ export default function Post(props) {
           </div>
 
           <div className="mx-auto">
-            <BlockContent body={body} />
+            <BlockContent
+              className=""
+              blocks={body}
+              imageOptions={{ w: 320, h: 240, fit: "max" }}
+              {...config}
+            />
           </div>
         </div>
       </article>

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Layout from "../components/layout";
-import ProgressBar from "../components/progressbar";
+import { ProgressBar } from "../components/progressbar";
 import Image from "next/image";
 import HeroSVG from "../public/ComputerSVG";
 import { FiPhone, FiMail } from "react-icons/fi";
@@ -59,9 +59,10 @@ function HeroSection() {
           <strong>big impact</strong>.
         </p>
 
-        <div className=" mt-5 flex flex-row space-x-5  md:space-y-0 items-center">
+        {/**
+         * <div className=" mt-5 flex flex-row space-x-5  md:space-y-0 items-center">
           <a
-            href="mailto:roewyn.e.umayam@gmail.com?subject=Contact%20From%20Website"
+            href="/contact"
             alt="contact link"
             className="btn text-sm md:text-lg lg:text-xl xl:text-2xl px-5"
             target="_blank"
@@ -76,13 +77,13 @@ function HeroSection() {
             My Work&#8594;
           </a>
         </div>
+         */}
       </div>
       <div className="self-center md:self-start border-primary border-4 rounded-full">
         <img
           src={"/images/profile.jpg"}
           width={250}
           height={250}
-          loading="lazy"
           alt={"My profile picture"}
           className="rounded-full"
         />
@@ -101,19 +102,19 @@ function SkillSection({ observe }) {
       <div className="flex-1 dark:bg-gray-900 bg-gray-200 w-full p-6 rounded  border-gray-400 border-2 dark:border-gray-700 self-center">
         <div className="grid gap-2 items-center  grid-col-1 lg:gap-x-0 lg:grid-cols-2 ">
           <p className=" text-sm lg:text-base font-bold ">CSS</p>
-          <ProgressBar width={50} color="red" />
+          <ProgressBar width={50} color="red" type="bar" />
 
           <p className=" text-sm lg:text-base lg:w-50 font-bold">HTML</p>
-          <ProgressBar width={60} color="green" />
+          <ProgressBar width={60} color="green" type="bar" />
 
           <p className=" text-sm lg:text-base font-bold">Javascript</p>
-          <ProgressBar width={60} color="yellow" />
+          <ProgressBar width={60} color="yellow" type="bar" />
 
           <p className=" text-sm lg:text-base font-bold">React</p>
-          <ProgressBar width={70} color="blue" />
+          <ProgressBar width={70} color="blue" type="bar" />
 
           <p className=" text-sm lg:text-base font-bold">Design</p>
-          <ProgressBar width={50} color="indigo" />
+          <ProgressBar width={50} color="indigo" type="bar" />
 
           {/**
                 <li className=" text-sm lg:text-base font-bold">Django</li>
@@ -211,106 +212,13 @@ function CTASection({ observe }) {
           I’m always open to hearing about collabs and work opportunities.
         </p>
         <a
-          href="mailto:roewyn.e.umayam@gmail.com?subject=Contact%20From%20Website"
+          href="/contact"
           target="_blank"
           className="btn mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
         >
           Say Howdy 🤠
         </a>
       </section>
-    </>
-  );
-}
-function ContactSection({ observe }) {
-  return (
-    <>
-      {/** Contact CTA */}
-      <section
-        ref={observe}
-        id="contact"
-        className="bg-indigo-100 flex flex-col md:flex-row rounded-3xl p-5  content-center  "
-      >
-        <div className="flex-grow mt-3 mx-5 w-full">
-          <h1 className="text-gray-900 font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl">
-            Want to work Together?
-          </h1>
-          <p className="text-gray-700 font-normal text-md md:text-lg lg:text-xl xl:text-2xl mt-3 mb-4">
-            Feel free to reach out and let's connect.
-          </p>
-
-          <div className="flex flex-col">
-            <p className="text-gray-700 mr-3 mb-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple">
-              <FiPhone className="inline mr-2 " />
-              425-908-9152
-            </p>
-            <a
-              href="mailto:roewyn.e.umayam@gmail.com"
-              className="text-gray-700 mr-3 mb-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
-            >
-              <FiMail className="inline mr-2" />
-              roewyn.e.umayam@gmail.com
-            </a>
-            <a
-              className="text-gray-700 mr-3 mb-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
-              target="_blank"
-              href="https://www.linkedin.com/in/roewyn-umayam/"
-              rel="noopener"
-            >
-              <FaLinkedinIn className="inline mr-2" />
-              Roewyn Umayam
-            </a>
-            <a
-              className="text-gray-700 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
-              target="_blank"
-              href="https://github.com/Umayarz18"
-              rel="noopener"
-            >
-              <FaGithub className="inline mr-2" />
-              Umayarz18
-            </a>
-          </div>
-        </div>
-
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          className="grid items-center justify-center"
-        >
-          <div className="m-2.5 ">
-            <label htmlFor="name">Name</label> <br />
-            <input
-              className="w-60 rounded-xl"
-              type="text"
-              id="name"
-              name="name"
-            />
-          </div>
-          <div className="m-2.5">
-            <label htmlFor="email">Email</label> <br />
-            <input
-              className="w-60 rounded-xl"
-              type="text"
-              id="email"
-              name="email"
-            />
-          </div>
-          <div className="m-2.5">
-            <label htmlFor="message">Message</label> <br />
-            <textarea
-              className="w-60 rounded-xl"
-              id="message"
-              name="message"
-            ></textarea>
-          </div>
-          <div className="m-2.5">
-            <div data-netlify-captchat="true"></div>
-          </div>
-          <button className="m-2.5  w-60 justify-self-center btn" type="submit">
-            Say Hey👋
-          </button>
-        </form>
-      </section>{" "}
     </>
   );
 }

@@ -9,6 +9,30 @@ export default {
       type: "string"
     },
     {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 96
+      }
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "string",
+      validatation: Rule =>
+        Rule.required()
+          .min(10)
+          .max(80)
+    },
+    {
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "reference", to: { type: "tag" } }]
+    },
+    {
       name: "body",
       title: "Body",
       type: "blockContent"

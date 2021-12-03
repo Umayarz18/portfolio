@@ -12,18 +12,22 @@ export default function About() {
         </h2>
         <p className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5">
           I recently graduated from the University of Washington Bothell. I was
-          a business student studying in Management Information Systems. I went
-          from project management to developer. I took programming classes
-          before but never fell in love until I worked on websites for college
-          and clients. This spark of passion for me is towards web development,
-          especially frontend development. From my past projects, I found lots
-          of pride in making UI that was sleek and scalable. I'm hoping to
-          branch out as a full-time front-end developer or developer advocate.
+          a business student studying in Management Information Systems but I
+          shifted my focus from project management to web development. I took
+          programming classes before but never fell in love until I worked on
+          websites for college projects and clients. From my past projects, I
+          found lots of pride in making UI that was scalable and accessible. I'm
+          hoping to branch out as a full-time front-end developer or developer
+          advocate at companies with meaningful products.
         </p>
+      </section>
 
+      <section className="flex  flex-col  m-5 justify-center max-w-2xl">
+        <h2 className="text-3xl font-bold dark:text-gray-100 text-gray-900  ">
+          What I'm Up To
+        </h2>
         <p className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5">
-          I'm working on applications that have a high positive impact on their
-          users. A college{" "}
+          A college{" "}
           <a
             href="https://sprout-learning.vercel.app/"
             target="_blank"
@@ -47,18 +51,11 @@ export default function About() {
           taught to the next generation. Currently, I act as a volunteer CTO to
           continually improve on this project and distribute it to scale.
         </p>
-      </section>
-
-      <section className="flex  flex-col  m-5 justify-center max-w-2xl">
-        <h2 className="text-3xl font-bold dark:text-gray-100 text-gray-900  ">
-          When I'm Not Just A Guy Who Codes
-        </h2>
         <p className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5">
-          Before my love of code, I enjoyed helping others by teaching (still
-          do). I have taught Taekwondo for five years and trained for 12+ years.
-          I loved leaving a positive impact on young students and helping shape
-          them to be better people. I love how code allows me to do this help
-          others through tech-driven means.
+          Coding is not the only big passion that takes up my time. I'm an
+          active Taekwondo Instructor and have been training since I was 8. I
+          love to help my peers and students progress in their skills while also
+          acting as a postive role model.
         </p>
         <p className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5">
           Outside of Taekwondo, I'm a huge nerd for all things comics, sci-fi,

@@ -7,6 +7,7 @@ const links = [
   { link: "/about", title: "About" },
   { link: "/projects", title: "Projects" },
   { link: "/blog", title: "Blog" },
+  { link: "/code-snippets", title: "Code" },
   { link: "/contact", title: "Contact" }
 ];
 const NavItem = ({ link, title, id }) => (
@@ -29,7 +30,11 @@ export default function NavBar() {
     lg:items-center items-start  flex flex-col lg:h-auto"
     >
       {links.map((item, index) => (
-        <NavItem link={item.link} title={item.title} key={`${item.title}-navlink`} />
+        <NavItem
+          link={item.link}
+          title={item.title}
+          key={`${item.title}-navlink`}
+        />
       ))}
     </nav>
   );

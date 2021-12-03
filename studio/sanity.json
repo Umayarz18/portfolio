@@ -16,11 +16,14 @@
     "@sanity/color-input",
     "@sanity/dashboard",
     "dashboard-widget-netlify",
-    "asset-source-unsplash"
+    "asset-source-unsplash",
+    "@sanity/code-input"
   ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision"]
+      "plugins": [
+        "@sanity/vision"
+      ]
     }
   },
   "parts": [

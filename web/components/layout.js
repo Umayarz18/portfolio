@@ -36,7 +36,7 @@ export default function Layout(props) {
 
   const domain =
     process.env.NODE_ENV === "production"
-      ? "https://roewyn-umayam.netlify.app"
+      ? "roewyn-umayam.netlify.app"
       : "localhost3000"; //Change to match your domain
   const { children, ...customMeta } = props;
   const router = useRouter();
@@ -98,9 +98,13 @@ export default function Layout(props) {
       <div
         className={`flex flex-col min-h-screen justify-start items-center  w-screen bg-gray-100 dark:bg-gray-900 relative `}
       >
-        <div className="flex flex-row p-3 relative">
-          <div className="w-screen lg:w-full lg:max-w-7xl flex items-center flex-wrap lg:flex-row justify-around px-5 md:px-44 lg:px-0 lg:space-x-60 ">
-            <a href="/" className=" inline-flex items-center  ">
+        <header className="flex flex-row py-3   relative">
+          <div
+            className=" mx-auto w-screen lg:w-full lg:max-w-7xl flex 
+          items-center flex-wrap lg:flex-row justify-around px-5 md:px-44 
+          lg:px-0 lg:space-x-52 "
+          >
+            <a href="/" className=" inline-flex items-center flex-grow">
               <Icon />
               <span className="sr-only ">Roewyn Umayam</span>
             </a>
@@ -137,7 +141,9 @@ export default function Layout(props) {
                   <button
                     aria-label="Toggle Dark Mode"
                     type="button"
-                    className="lg:inline-flex w-full lg:ml-5 mx-3 lg:w-9 h-9 bg-gray-300 rounded-lg dark:bg-gray-600 flex items-center justify-center  
+                    className="lg:inline-flex w-full  lg:ml-2 lg:w-9 h-9 
+                    bg-gray-300 rounded-lg dark:bg-gray-600 flex 
+                    items-center justify-center  
                     hover:ring-2 ring-gray-300 transition-all"
                     onClick={() =>
                       setTheme(resolvedTheme === "dark" ? "light" : "dark")
@@ -173,7 +179,7 @@ export default function Layout(props) {
               </div>
             </div>
           </div>
-        </div>
+        </header>
         <main id="skip">{children}</main>
         <div className="border-t-2 self-center flex flex-col md:mx-auto px-5  lg:px-32  justify-center items-center">
           <footer className=" p-8 flex flex-col  items-center space-y-3 w-full">

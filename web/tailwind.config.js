@@ -15,6 +15,9 @@ module.exports = {
             p: {
               color: theme("colors.gray.600"),
             },
+            code: {
+              "overflow-x": "scoll",
+            },
             a: {
               color: theme("colors.purple.500"),
               "&:hover": {
