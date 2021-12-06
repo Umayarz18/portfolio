@@ -5,7 +5,7 @@ import { urlFor } from "../../lib/sanity";
 import Tag from "../../components/tag";
 export default function CodeSnippetsPage({ snippets }) {
   return (
-    <Layout>
+    <Layout title="Code Snippets - Roewyn Umayam" cannonical="code-snippets">
       <div
         style={{ minHeight: "70vh" }}
         className="max-w-md md:max-w-xl lg:max-w-2xl"

@@ -12,7 +12,8 @@ export default function Post(props) {
 
   return (
     <Layout
-      pageTitle={`${title} | Roewyn Umayam | Full-Stack Developer & Taekwondo Instructor`}
+      title={`${title} - Code Snippets - Roewyn Umayam `}
+      cannonical={`/code-snippets/${slug}`}
     >
       {/** Article Section */}
       <article className="lg:max-w-2xl m-5 md:mx-auto">
@@ -47,6 +48,7 @@ export async function getStaticProps({ params, preview = false }) {
 
   return {
     props: slug,
+    revalidate: 60,
   };
 }
 
