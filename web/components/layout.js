@@ -98,26 +98,26 @@ export default function Layout(props) {
       <div
         className={`flex flex-col min-h-screen justify-start items-center  w-screen bg-gray-100 dark:bg-gray-900 relative `}
       >
-        <header className="flex flex-row py-3   relative">
+        <header className="flex flex-row py-3  w-full max-w-7xl mx-auto">
           <div
-            className=" mx-auto w-screen lg:w-full lg:max-w-7xl flex 
-          items-center flex-wrap lg:flex-row justify-around px-5 md:px-44 
-          lg:px-0 lg:space-x-52 "
+            className=" mx-auto w-full  flex 
+          items-center flex-wrap lg:flex-row justify-between px-5 py-2 
+          lg:px-0 max-w-3xl md:max-w-2xl"
           >
-            <a href="/" className=" inline-flex items-center flex-grow">
-              <Icon />
+            <a href="/" className=" inline-flex items-center max-w-3xl">
+              <Icon classes="h-12 w-12" />
               <span className="sr-only ">Roewyn Umayam</span>
             </a>
             <a
               className=" absolute px-4 py-3 transition-transform duration-200 
-              transform -translate-y-20 -left-3/4 focus:top-4 focus:translate-y-3 
+              transform -translate-y-24 right-3/4 focus:top-4 focus:translate-y-3 
               -top-2 text-gray-700 dark:text-gray-300 z-50 focus:ring-2 focus:ring-primary"
               href="#skip"
             >
               Skip to main content
             </a>
             <button
-              className="inline-flex p-3 hover:bg-vibrant-purple rounded lg:hidden text-txt-white ml-auto hover:text-txt-white outline-none"
+              className="inline-flex p-3 hover:bg-vibrant-purple rounded md:hidden text-txt-white ml-auto hover:text-txt-white outline-none"
               aria-controls="mobile-menu"
               aria-expanded="false"
               onClick={handleClick}
@@ -133,15 +133,15 @@ export default function Layout(props) {
             <div
               className={`${
                 active ? "" : "hidden"
-              }   w-full lg:inline-flex lg:flex-grow lg:w-auto `}
+              }   w-full md:inline-flex flex-initial md:w-auto `}
             >
-              <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto' ">
-                <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
+              <div className="md:inline-flex md:flex-row md:ml-12 md:w-auto w-full md:items-center items-start  flex flex-col md:h-auto' ">
+                <div className="md:inline-flex md:flex-row md:ml-auto md:w-auto w-full md:items-center items-start  flex flex-col md:h-auto">
                   <NavBar router={router} />
                   <button
                     aria-label="Toggle Dark Mode"
                     type="button"
-                    className="lg:inline-flex w-full  lg:ml-2 lg:w-9 h-9 
+                    className="md:inline-flex w-full  md:ml-2 md:w-9 h-9 
                     bg-gray-300 rounded-lg dark:bg-gray-600 flex 
                     items-center justify-center  
                     hover:ring-2 ring-gray-300 transition-all"

@@ -47,12 +47,11 @@ function HeroSection() {
   return (
     <div className="flex flex-col-reverse md:flex-row justify-center items-center space-x-3 mt-5">
       <div className="grid justify-items-center md:justify-items-start  self-center max-w-lg ">
-        <h1 className="text-gray-800 text-3xl  dark:text-primary filter dark:blur-lg font-bold lg:text-5xl md:text-4xl">
+        <h1 className="text-primary text-3xl   filter dark:blur-lg font-bold lg:text-5xl md:text-4xl">
           Howdy, <br className="hidden lg:block" /> I'm Roewyn
         </h1>
         <h2 className="dark:text-gray-100 text-gray-700 font-medium text-lg lg:text-3xl md:text-2xl my-5 truncate">
-          {/**titles[Math.floor(Math.random() * titles.length)]*/}
-          {titles[4]}
+          Tech-driven Problem Solver 🕵🏾
         </h2>
         <p className="dark:text-gray-200 text-gray-700 font-normal text-center md:text-left text-md lg:text-lg">
           A simple guy looking to develop and maintain projects with{" "}
@@ -79,15 +78,13 @@ function HeroSection() {
         </div>
          */}
       </div>
-      <div className="self-center md:self-start border-primary border-4 rounded-full">
-        <img
-          src={"/images/profile.jpg"}
-          width={250}
-          height={250}
-          alt={"My profile picture"}
-          className="rounded-full"
-        />
-      </div>
+      <Image
+        src={"/images/profile.jpg"}
+        width={200}
+        height={200}
+        alt={"My profile picture"}
+        className="rounded-full   max-w-xs border-primary border-4"
+      />
     </div>
   );
 }

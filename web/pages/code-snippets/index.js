@@ -41,7 +41,7 @@ export default function CodeSnippetsPage({ snippets }) {
               <h3 className="dark:text-gray-200 font-bold text-gray-700 text-md lg:text-lg">
                 {snippet.title}
               </h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
                 {snippet.description}
               </p>
             </a>

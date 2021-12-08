@@ -1,4 +1,4 @@
-const withPWA = require('next-pwa')
+const withPWA = require("next-pwa");
 const runtimeCaching = require("next-pwa/cache");
 
 module.exports = withPWA({
@@ -8,7 +8,7 @@ module.exports = withPWA({
     register: true,
     skipWaiting: true,
     runtimeCaching,
-    buildExcludes: [/middleware-manifest.json$/]
+    buildExcludes: [/middleware-manifest.json$/],
   },
   i18n: {
     locales: ["en"],
@@ -18,6 +18,11 @@ module.exports = withPWA({
     return [
       {
         source: "/blog/[slug]",
+        destination: "/404", // Matched parameters can be used in the destination
+        permanent: false,
+      },
+      {
+        source: "/blog",
         destination: "/404", // Matched parameters can be used in the destination
         permanent: false,
       },
