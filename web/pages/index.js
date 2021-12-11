@@ -83,7 +83,7 @@ function HeroSection() {
         width={200}
         height={200}
         alt={"My profile picture"}
-        className="rounded-full   max-w-xs border-primary border-4"
+        className="rounded-full"
       />
     </div>
   );
