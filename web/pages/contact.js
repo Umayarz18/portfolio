@@ -18,15 +18,14 @@ export default function Contact() {
         name="contact"
         method="POST"
         data-netlify="true"
-        netlify-honeypot="bot-field"
-        hidden
+        data-netlify-honeypot="bot-field"
       >
         <input type="hidden" name="form-name" value="contact" />
         <div className="flex flex-wrap  mb-6">
           <div className="w-full md:w-1/2 px-3 md:pr-3 mb-6 md:mb-0">
             <label
               className="block uppercase  text-gray-700 dark:text-gray-300 text-xs font-bold mb-2"
-              for="grid-first-name"
+              htmlFor="grid-first-name"
             >
               First Name
             </label>
@@ -43,7 +42,7 @@ export default function Contact() {
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs 
               font-bold mb-2 dark:text-gray-300 "
-              for="grid-last-name"
+              htmlFor="grid-last-name"
             >
               Last Name
             </label>
@@ -62,7 +61,7 @@ export default function Contact() {
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs 
               font-bold mb-2 dark:text-gray-300"
-              for="email"
+              htmlFor="email"
             >
               E-mail
             </label>
@@ -80,7 +79,7 @@ export default function Contact() {
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs 
               font-bold mb-2 dark:text-gray-300"
-              for="message"
+              htmlFor="message"
             >
               Message
             </label>
