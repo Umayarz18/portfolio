@@ -13,7 +13,14 @@ export default function Contact() {
           shoot me an email here.
         </p>
       </section>
-      <form className="" name="contact" method="POST" data-netlify="true">
+      <form
+        className=""
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        hidden
+      >
         <input type="hidden" name="form-name" value="contact" />
         <div className="flex flex-wrap  mb-6">
           <div className="w-full md:w-1/2 px-3 md:pr-3 mb-6 md:mb-0">
