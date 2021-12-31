@@ -11,6 +11,8 @@ import post from "./documents/post";
 import author from "./documents/author";
 import tag from "./documents/tag";
 import codeSnippet from "./documents/codeSnippet";
+import project from "./documents/project";
+import mainImage from "./objects/mainImage";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -28,6 +30,8 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     blockContent,
     tag,
-    codeSnippet
+    codeSnippet,
+    project,
+    mainImage
   ])
 });
