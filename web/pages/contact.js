@@ -11,16 +11,20 @@ export default function Contact() {
 
   const ConfirmationMessage = (
     <React.Fragment>
-      <p>
-        Thank you for submitting this form. Someone should get back to you
-        within 24-48 hours.
+      <p className="max-w-2xl m-5 md:m-0 text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5">
+        Thank you for submitting this form. I should get back to you within
+        24-48 hours.
       </p>
-
-      <button
-        onClick={() => router.replace("/contact", undefined, { shallow: true })}
-      >
-        Submit Another Response
-      </button>
+      <div className="max-w-2xl justify-center flex my-3">
+        <button
+          className="btn font-medium"
+          onClick={() =>
+            router.replace("/contact", undefined, { shallow: true })
+          }
+        >
+          Submit Another Response
+        </button>
+      </div>
     </React.Fragment>
   );
   return (
@@ -127,7 +131,7 @@ export default function Contact() {
             <button
               className="btn focus:shadow-outline focus:outline-none text-gray-100 
             font-bold py-2  rounded w-full"
-              type="button"
+              type="submit"
             >
               Send
             </button>
