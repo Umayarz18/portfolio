@@ -19,6 +19,7 @@ export default function Contact() {
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        data-splitbee-event="Contact Form"
       >
         <input type="hidden" name="form-name" value="contact" />
         <div className="flex flex-wrap  mb-6">

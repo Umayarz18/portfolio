@@ -26,6 +26,11 @@ module.exports = withPWA({
         destination: "/404", // Matched parameters can be used in the destination
         permanent: false,
       },
+      {
+        source: "/resources",
+        destination: "/helpful-links", // Matched parameters can be used in the destination
+        permanent: true,
+      },
     ];
   },
 });

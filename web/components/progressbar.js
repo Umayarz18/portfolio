@@ -58,7 +58,7 @@ export const ProgressBar = ({ type, width }) => {
             fill="transparent"
             strokeDasharray={circumference}
             strokeDashoffset={strokeDashoffset}
-            className="text-indigo-400 transform translate-x-5 translate-y-5 "
+            className="text-primary dark:text-primary-dark  transform translate-x-5 translate-y-5 "
           />
         </svg>
         <span className="absolute text-3xl font-medium">{width}%</span>

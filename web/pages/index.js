@@ -47,39 +47,25 @@ function HeroSection() {
   return (
     <div className="flex flex-col-reverse md:flex-row justify-center items-center space-x-3 mt-5">
       <div className="grid justify-items-center md:justify-items-start  self-center max-w-lg ">
-        <h1 className="text-primary text-3xl   filter dark:blur-lg font-bold lg:text-5xl md:text-4xl">
-          Howdy, <br className="hidden lg:block" /> I'm Roewyn
+        <h1
+          className="dark:text-gray-50 text-gray-800
+         text-3xl  py-3  lg:text-5xl md:text-4xl"
+        >
+          <span className="font-bold">Hey, I'm Roewyn </span> 👋
         </h1>
-        <h2 className="dark:text-gray-100 text-gray-700 font-medium text-lg lg:text-3xl md:text-2xl my-5 truncate">
-          Tech-driven Problem Solver 🕵🏾
+        <h2 className=" text-lg lg:text-3xl md:text-2xl my-2 md:mb-3 truncate">
+          <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
+            Frontend Developer{" "}
+          </span>
+          🕵🏾
         </h2>
         <p className="dark:text-gray-200 text-gray-700 font-normal text-center md:text-left text-md lg:text-lg">
-          A simple guy looking to develop and maintain projects with{" "}
-          <strong>big impact</strong>.
+          A martial artist, comic book geek, and certified clown that loves to
+          build web applications for good ideas and memes.
         </p>
-
-        {/**
-         * <div className=" mt-5 flex flex-row space-x-5  md:space-y-0 items-center">
-          <a
-            href="/contact"
-            alt="contact link"
-            className="btn text-sm md:text-lg lg:text-xl xl:text-2xl px-5"
-            target="_blank"
-          >
-            Say hello <span className="">👋</span>
-          </a>
-
-          <a
-            href="/projects"
-            className="btn-secondary px-12  text-sm md:text-lg lg:text-xl xl:text-2xl"
-          >
-            My Work&#8594;
-          </a>
-        </div>
-         */}
       </div>
       <Image
-        src={"/images/profile.jpg"}
+        src={"/images/Profile-2.png"}
         width={200}
         height={200}
         alt={"My profile picture"}
@@ -97,43 +83,50 @@ function SkillSection({ observe }) {
     >
       {/** Skill Stats */}
       <div className="flex-1 dark:bg-gray-900 bg-gray-200 w-full p-6 rounded  border-gray-400 border-2 dark:border-gray-700 self-center">
-        <div className="grid gap-2 items-center  grid-col-1 lg:gap-x-0 lg:grid-cols-2 ">
-          <p className=" text-sm lg:text-base font-bold ">CSS</p>
-          <ProgressBar width={50} color="red" type="bar" />
+        <div className="grid gap-6 items-center  grid-col-1 lg:gap-x-0 lg:grid-cols-3 ">
+          <div className="flex justify-center flex-col items-center">
+            <p className=" text-sm lg:text-base font-bold ">CSS</p>
+            <ProgressBar width={60} color="red" />
+          </div>
+          <div className="flex justify-center flex-col items-center">
+            <p className=" text-sm lg:text-base lg:w-50 font-bold">HTML</p>
+            <ProgressBar width={75} color="green" />
+          </div>
+          <div className="flex justify-center flex-col items-center">
+            <p className=" text-sm lg:text-base font-bold">Javascript</p>
+            <ProgressBar width={60} color="yellow" />
+          </div>
+          <div className="flex justify-center flex-col items-center">
+            <p className=" text-sm lg:text-base font-bold">React</p>
+            <ProgressBar width={70} color="blue" />
+          </div>
 
-          <p className=" text-sm lg:text-base lg:w-50 font-bold">HTML</p>
-          <ProgressBar width={60} color="green" type="bar" />
-
-          <p className=" text-sm lg:text-base font-bold">Javascript</p>
-          <ProgressBar width={60} color="yellow" type="bar" />
-
-          <p className=" text-sm lg:text-base font-bold">React</p>
-          <ProgressBar width={70} color="blue" type="bar" />
-
-          <p className=" text-sm lg:text-base font-bold">Design</p>
-          <ProgressBar width={50} color="indigo" type="bar" />
-
-          {/**
-                <li className=" text-sm lg:text-base font-bold">Django</li>
-                <ProgressBar width="40%" />
-                 */}
+          <div className="flex justify-center flex-col items-center">
+            <p className=" text-sm lg:text-base font-bold">Design</p>
+            <ProgressBar width={65} color="indigo" />
+          </div>
+          <div className="flex justify-center flex-col items-center">
+            <p className=" text-sm lg:text-base">
+              <span className="font-bold">Fun </span>🤡
+            </p>
+            <ProgressBar width={100} color="indigo" />
+          </div>
         </div>
       </div>
 
       {/** Soft skills + description */}
       <div className="">
-        <h2 className="font-bold dark:text-gray-100 text-gray-900 text-2xl md:text-3xl lg:text-4xl">
-          Fast Stats
+        <h2 className="dark:text-gray-100 text-gray-900 text-2xl md:text-3xl lg:text-4xl">
+          <span className="font-bold">Fast Stats</span>
         </h2>
         <p className="my-5 dark:text-gray-200 text-gray-800 text-lg md:text-xl lg:text-2xl">
-          Resumes are boring to read. Instead, here's a quick rundown on my
-          skills. But if you do need mine, here's{" "}
+          Here's a brutally honest breakdown on my skills (at least what I
+          think). If you need something more formal, here's{" "}
           <a
-            href="https://drive.google.com/file/d/18QHgjzhHJ23sHLL4lsLvc2_PlaMxznpJ/view?usp=sharing"
+            href="https://docs.google.com/document/d/1AYRmENQAlvM9xK41u4tD8Euq1I0MWAKSBm5VRWhGbrg/edit?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary font-medium hover:text-primary-dark 
-            transition duration-300 ease-in-out"
+            className="link"
           >
             my resume
           </a>
@@ -153,11 +146,7 @@ function ProjectSection({ observe }) {
       <p className="text-center my-5 font-normal  dark:text-gray-200 text-gray-800 text-lg md:text-xl lg:text-2xl">
         {" "}
         If you need more samples, you can always view{" "}
-        <a
-          className=" text-primary font-medium hover:text-primary-dark 
-          transition duration-300 ease-in-out"
-          href="/projects"
-        >
+        <a className="link" href="/projects">
           my project list
         </a>
         .
@@ -200,20 +189,19 @@ function CTASection({ observe }) {
       {/** Push to contact me */}
       <section
         ref={observe}
-        className="grid text-center m-5 my-24 lg:my-44 justify-center"
+        className="grid text-center m-5 my-24 lg:my-36 justify-center"
       >
-        <h2 className="dark:text-gray-200 font-bold text-gray-800 text-2xl md:text-3xl lg:text-4xl">
-          Need a Developer? 👨🏾‍💻
+        <h2 className="dark:text-gray-200 text-gray-800 text-2xl md:text-3xl lg:text-4xl">
+          <span className="font-bold">Need a Developer?</span> 👨🏾‍💻
         </h2>
         <p className="dark:text-gray-200 my-2 justify-self-center  md:p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl xl:mx-24">
           I’m always open to hearing about collabs and work opportunities.
         </p>
         <a
           href="/contact"
-          target="_blank"
           className="btn mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
         >
-          Say Howdy 🤠
+          <span className="font-bold">Say Howdy</span> 🤠
         </a>
       </section>
     </>

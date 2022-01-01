@@ -5,8 +5,8 @@ export default function SiteMap() {
 }
 
 export async function getServerSideProps({ res }) {
-  const baseUrl = process.env.DOMAIN;
-  const baseLinks = ["about", "contact", "projects", "blog"];
+  const baseUrl = `https://${process.env.DOMAIN}`;
+  const baseLinks = ["about", "contact", "projects", "blog", "helpful-links"];
   const query = groq`{
       "countries": *[_type == 'codeSnippet']{slug},
     }`;

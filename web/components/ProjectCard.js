@@ -1,11 +1,16 @@
 import Image from "next/image";
-export const ProjectCard = ({ key, link, color, title, logo, description, code }) => {
+export const ProjectCard = ({
+  key,
+  link,
+  color,
+  title,
+  logo,
+  description,
+  code,
+}) => {
   return (
-    <a
+    <article
       key={key}
-      href={link}
-      target="_blank"
-      rel="noopener"
       style={{ borderColor: color }}
       className={`dark:bg-gray-900 bg-gray-200  
       border-gray-400 border-2  rounded p-6
@@ -17,22 +22,25 @@ export const ProjectCard = ({ key, link, color, title, logo, description, code }
           src={logo}
           className="w-full h-full"
           layout="fill"
-          alt={`Project logo for ${title}`} />
+          alt={`Project logo for ${title}`}
+        />
       </div>
       <h3 className="text-lg font-bold mt-2">{title}</h3>
       <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 truncate">
         {description}
       </p>
       <div className="flex flex-row justify-between mt-2">
-        <p
+        <a
           target="_blank"
-
+          href={link}
+          target="_blank"
+          rel="noopener"
           className="text-gray-800 dark:text-gray-100 font-medium "
         >
           View Project
-        </p>
+        </a>
         {code && <a>View Code</a>}
       </div>
-    </a>
+    </article>
   );
 };

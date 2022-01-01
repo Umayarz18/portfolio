@@ -55,7 +55,7 @@ export default function About() {
           Coding is not the only big passion that takes up my time. I'm an
           active Taekwondo Instructor and have been training since I was 8. I
           love to help my peers and students progress in their skills while also
-          acting as a postive role model.
+          acting as a positive role model.
         </p>
         <p className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5">
           Outside of Taekwondo, I'm a huge nerd for all things comics, sci-fi,

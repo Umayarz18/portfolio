@@ -1,26 +1,64 @@
 import Head from "next/head";
 import Image from "next/image";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaTwitter } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
 import { CgFacebook } from "react-icons/cg";
+import { FiMenu } from "react-icons/fi";
 import Link from "next/link";
 import NavBar from "./navbar";
 import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import Icon from "../public/Icon";
-import { FiMenu } from "react-icons/fi";
+import Footer from "./Footer";
 
-const NavItem = ({ link, title }) => (
-  <Link href={link}>
-    <a
-      className=" lg:ml-5 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded 
-    text-gray-700 dark:text-gray-200 font-bold items-center justify-center "
-    >
-      {title}
-    </a>
-  </Link>
-);
+const footerLinks = [
+  [
+    {
+      link: "/",
+      title: "Home"
+    },
+    {
+      link: "/about",
+      title: "About"
+    },
+    {
+      link: "https://timeline.roewynumayam.com",
+      title: "Timeline"
+    }
+  ],
+  [
+    {
+      link: "/projects",
+      title: "Projects"
+    },
+    {
+      link: "/code-snippets",
+      title: "Snippets"
+    },
+    {
+      link: "/helpful-links",
+      title: "Resources"
+    }
+  ],
+  [
+    {
+      link: "https://twitter.com/RoewynU",
+      title: "Twitter",
+      outsideLink: true
+    },
+    {
+      link: "https://github.com/Umayarz18",
+      title: "Github",
+      outsideLink: true
+    },
+    {
+      link: "https://www.linkedin.com/in/roewyn-umayam/",
+      title: "LinkedIn",
+      outsideLink: true
+    }
+  ]
+];
 
 export default function Layout(props) {
   const [mounted, setMounted] = useState(false);
@@ -34,10 +72,7 @@ export default function Layout(props) {
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
 
-  const domain =
-    process.env.NODE_ENV === "production"
-      ? "roewyn-umayam.netlify.app"
-      : "localhost3000"; //Change to match your domain
+  const domain = "roewynumayam.com";
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
@@ -45,7 +80,7 @@ export default function Layout(props) {
     description: `Simple frontend developer seeking to use skills on projects with big impact.`,
     image: `${domain}/images/banner.png`,
     type: "website",
-    twitterHandle: "@yourtwitter", //Change for you!
+    twitterHandle: "@RoewynU", //Change for you!
     ...customMeta
   };
 
@@ -89,7 +124,7 @@ export default function Layout(props) {
           rel="canonical"
           href={`${domain}/${meta.cannonical ? meta.cannonical : ""}`}
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/Icon.png" />
         {meta.date && (
           <meta property="article:published_time" content={meta.date} />
         )}
@@ -105,7 +140,7 @@ export default function Layout(props) {
           lg:px-0 max-w-3xl md:max-w-2xl"
           >
             <a href="/" className=" inline-flex items-center max-w-3xl">
-              <Icon classes="h-12 w-12" />
+              <Image src="/Icon.png" height={50} width={50} />
               <span className="sr-only ">Roewyn Umayam</span>
             </a>
             <a
@@ -181,51 +216,7 @@ export default function Layout(props) {
           </div>
         </header>
         <main id="skip">{children}</main>
-        <div className="border-t-2 self-center flex flex-col md:mx-auto px-5  lg:px-32  justify-center items-center">
-          <footer className=" p-8 flex flex-col  items-center space-y-3 w-full">
-            <small className="text-base md:text-md lg:text-lg">
-              Roewyn Umayam &copy;<time>2021</time>. All rights reserved.
-            </small>
-            <div className="flex items-center mt-2 md:mt-0">
-              <a
-                className=" mr-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
-                target="_blank"
-                href="https://www.linkedin.com/in/roewyn-umayam/"
-                rel="noopener"
-              >
-                <FaLinkedinIn />
-                <span className="sr-only">Link to LinkedIn account</span>
-              </a>
-              <a
-                className=" mr-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple "
-                target="_blank"
-                href="https://www.instagram.com/roewynaboat/"
-                rel="noopener"
-              >
-                <GrInstagram />
-                <span className="sr-only">Link to Instagram account</span>
-              </a>
-              <a
-                className="mr-3 text-base md:text-md lg:text-lg hover:text-vibrant-purple"
-                target="_blank"
-                rel="noopener"
-                href="https://www.facebook.com/profile.php?id=100009905313992"
-              >
-                <CgFacebook />
-                <span className="sr-only">Link to Facebook account</span>
-              </a>
-              <a
-                className="text-base md:text-md lg:text-lg hover:text-vibrant-purple"
-                target="_blank"
-                href="https://github.com/Umayarz18"
-                rel="noopener"
-              >
-                <FaGithub />
-                <span className="sr-only">Link to Github account</span>
-              </a>
-            </div>
-          </footer>
-        </div>
+        <Footer footerLinks={footerLinks} />
       </div>
     </div>
   );

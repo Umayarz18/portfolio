@@ -2,23 +2,30 @@ import { FiMenu } from "react-icons/fi";
 import Link from "next/dist/client/link";
 import { useState } from "react";
 import Icon from "../public/Icon";
+import Dropdown from "./Dropdown";
+import { ArchiveIcon, CodeIcon } from "@heroicons/react/outline";
 
 const links = [
   { link: "/about", title: "About" },
   { link: "/projects", title: "Projects" },
-  { link: "/code-snippets", title: "Code" },
-  { link: "/resources", title: "Resources" },
+  { link: "https://timeline.roewynumayam.com", title: "Timeline" },
   { link: "/contact", title: "Contact" }
 ];
+
+const ResourceItems = [
+  {
+    link: "/code-snippets",
+    title: "Code Snippets",
+    icon: CodeIcon
+  },
+  {
+    link: "/helpful-links",
+    title: "Helpful Links",
+    icon: ArchiveIcon
+  }
+];
 const NavItem = ({ link, title, id }) => (
-  <a
-    href={link}
-    className=" md:inline-flex md:w-auto w-full px-3 py-1 rounded 
-      hover:text-primary
-    text-gray-700 dark:text-gray-200 dark:hover:text-primary 
-      dark:hover:bg-opacity-90 font-bold items-center justify-center
-    hover:bg-purple-200 "
-  >
+  <a href={link} className=" nav-link">
     {title}
   </a>
 );
@@ -36,6 +43,7 @@ export default function NavBar() {
           key={`${item.title}-navlink`}
         />
       ))}
+      <Dropdown label="Resources" items={ResourceItems} type={"nav-link"} />
     </nav>
   );
 }
