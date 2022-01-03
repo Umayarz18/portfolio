@@ -1,3 +1,4 @@
+import React from "react";
 export default {
   title: "Project",
   name: "project",
@@ -25,8 +26,17 @@ export default {
     {
       title: "SEO Image",
       name: "image",
+      type: "image",
+      options: {
+        hotspot: true
+      }
+    },
+    {
+      title: "Project Image",
+      name: "projectImage",
       type: "mainImage"
     },
+    { title: "Featured Project", name: "isFeatured", type: "boolean" },
     {
       title: "Project Breakdown",
       name: "projectBreakdown",
@@ -44,21 +54,40 @@ export default {
       type: "array",
       of: [
         {
-          type: "object",
-          fields: [
-            {
-              title: "Link Name",
-              name: "name",
-              type: "string"
-            },
-            {
-              title: "Link Source",
-              name: "source",
-              type: "string"
-            }
-          ]
+          type: "link"
         }
       ]
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: "title",
+      description: "description",
+      image: "projectImage"
+    },
+    prepare({ title, description, image }) {
+      return {
+        title,
+        subtitle: description,
+        media: image ? (
+          image
+        ) : (
+          <span
+            style={{
+              fontSize: "1.5rem",
+              backgroundColor: "#D0BCD5",
+              width: "4rem",
+              height: "4rem",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "1rem"
+            }}
+          >
+            <p>🎉</p>
+          </span>
+        )
+      };
+    }
+  }
 };

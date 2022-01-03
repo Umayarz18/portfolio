@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev:all": "cd studio && sanity start && cd ../ && cd web && npm run dev",
+    "dev:studio": "cd studio && sanity start",
+    "dev:web": "cd web && npm run dev",
+    "postinstall": " cd studio && sanity deploy"
+  }
+}

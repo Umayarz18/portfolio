@@ -27,7 +27,7 @@ export default function Post(props) {
             <Tag key={tag._id} color={tag.color} title={tag.title} />
           ))}
         </div>
-        <div className=" mx-auto">
+        <div className=" mx-auto prose prose-lg">
           <BlockContent body={body} />
         </div>
       </article>

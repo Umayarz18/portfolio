@@ -5,7 +5,8 @@ const NavItem = ({ link, title, outsideLink }) => (
       target={outsideLink == true ? "_blank" : null}
       rel="noopener"
       className=" lg:inline-flex lg:w-auto w-full  py-2 rounded 
-      text-gray-700 dark:text-gray-200 font-medium items-center justify-center  "
+      text-gray-700 dark:text-gray-200 dark:hover:text-gray-50 
+      hover:text-gray-500 font-medium items-center justify-center  "
     >
       {title}
     </a>

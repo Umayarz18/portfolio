@@ -7,9 +7,9 @@ export default function About() {
   return (
     <Layout title="A Bit About Me - Roewyn Umayam" cannonical="about">
       <section className="mt-10 flex  flex-col  m-5 justify-center max-w-2xl">
-        <h2 className="text-3xl font-bold dark:text-gray-100 text-gray-900  ">
+        <h1 className="text-3xl font-bold dark:text-gray-100 text-gray-900  ">
           Just A Guy Who Codes
-        </h2>
+        </h1>
         <p className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5">
           I recently graduated from the University of Washington Bothell. I was
           a business student studying in Management Information Systems but I

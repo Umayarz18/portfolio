@@ -1,8 +1,9 @@
-import Head from "next/head";
 import Layout from "../components/layout";
 import { ProgressBar } from "../components/progressbar";
 import Image from "next/image";
-import HeroSVG from "../public/ComputerSVG";
+import groq from "groq";
+import { getClient } from "../lib/sanity.server";
+import { urlFor } from "../lib/sanity";
 import { FiPhone, FiMail } from "react-icons/fi";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
@@ -11,11 +12,8 @@ import useInView from "react-cool-inview";
 import dynamic from "next/dynamic";
 import { ProjectCard } from "../components/ProjectCard";
 import router, { useRouter } from "next/router";
-const Card = dynamic(() => import("../components/card"), {
-  loading: () => <p>...</p>
-});
 
-export default function Home() {
+export default function Home({ projects }) {
   const router = useRouter;
   const { observe, inView } = useInView({
     onEnter: ({ unobserve }) => unobserve() // only run once
@@ -26,24 +24,15 @@ export default function Home() {
       <div className="mx-auto max-w-2xl">
         <HeroSection />
 
-        <SkillSection observe={observe} />
-        <ProjectSection />
-        <CTASection observe={observe} />
+        <SkillSection />
+        <ProjectSection projects={projects} />
+        <CTASection />
       </div>
     </Layout>
   );
 }
 
 function HeroSection() {
-  const titles = [
-    "Full Stack Developer",
-    "Frontend Developer",
-    "Taekwondo Instructor 🥋",
-    "MIS Grad 👨🏾‍🎓",
-    "Tech-driven Problem Solver 🕵🏾",
-    "Certified Clown 🤡",
-    "Comic Nerd 🦸‍♂️"
-  ];
   return (
     <div className="flex flex-col-reverse md:flex-row justify-center items-center space-x-3 mt-5">
       <div className="grid justify-items-center md:justify-items-start  self-center max-w-lg ">
@@ -59,16 +48,16 @@ function HeroSection() {
           </span>
           🕵🏾
         </h2>
-        <p className="dark:text-gray-200 text-gray-700 font-normal text-center md:text-left text-md lg:text-lg">
+        <p className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl mr-4">
           A martial artist, comic book geek, and certified clown that loves to
-          build web applications for good ideas and memes.
+          build web apps for good ideas and memes.
         </p>
       </div>
       <Image
         src={"/images/Profile-2.png"}
         width={200}
         height={200}
-        alt={"My profile picture"}
+        alt={""}
         className="rounded-full"
       />
     </div>
@@ -119,7 +108,7 @@ function SkillSection({ observe }) {
         <h2 className="dark:text-gray-100 text-gray-900 text-2xl md:text-3xl lg:text-4xl">
           <span className="font-bold">Fast Stats</span>
         </h2>
-        <p className="my-5 dark:text-gray-200 text-gray-800 text-lg md:text-xl lg:text-2xl">
+        <p className="my-5 text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl">
           Here's a brutally honest breakdown on my skills (at least what I
           think). If you need something more formal, here's{" "}
           <a
@@ -137,13 +126,55 @@ function SkillSection({ observe }) {
   );
 }
 
-function ProjectSection({ observe }) {
+function ProjectSection({ projects }) {
   return (
     <section>
       <h2 className="font-bold text-center dark:text-gray-100  text-gray-900 text-2xl md:text-3xl lg:text-4xl">
         My Recent Projects
       </h2>
-      <p className="text-center my-5 font-normal  dark:text-gray-200 text-gray-800 text-lg md:text-xl lg:text-2xl">
+      <section className="m-5 md:my-3 md:mx-0">
+        {projects.map(project => (
+          <article
+            key={project._id}
+            className="dark:bg-gray-900 bg-gray-200 w-full p-6 rounded  
+          border-gray-400 border-2 dark:border-gray-700 self-center
+          flex flex-col md:flex-row  md:m-0"
+          >
+            <div className="w-full h-full md:h-1/2 md:w-1/2 ">
+              <img
+                src={urlFor(project.projectImage)}
+                alt={project.projectImage.alt}
+              />
+            </div>
+            <div
+              className="w-full h-full
+            flex flex-col justify-center gap-2 mt-4 md:mt-0 md:ml-3"
+            >
+              <h3
+                className=" text-lg lg:text-3xl md:text-2xl font-bold 
+              text-transparent bg-clip-text bg-gradient-to-r 
+              from-primary to-primary-dark"
+              >
+                {project.title}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 font-normal text-md md:text-xl mr-4">
+                {project.description}
+              </p>
+              <a
+                className="border-gray-400 border-2 dark:border-gray-700 
+                rounded dark:hover:bg-gray-700  dark:text-gray-200
+                hover:bg-gray-400 text-gray-800
+                text-center py-1 px-3 font-medium"
+                href={`/projects/${project.slug.current}`}
+              >
+                Project Breakdown
+              </a>
+            </div>
+          </article>
+        ))}
+      </section>
+
+      <p className="text-center my-5 text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl">
         {" "}
         If you need more samples, you can always view{" "}
         <a className="link" href="/projects">
@@ -194,7 +225,7 @@ function CTASection({ observe }) {
         <h2 className="dark:text-gray-200 text-gray-800 text-2xl md:text-3xl lg:text-4xl">
           <span className="font-bold">Need a Developer?</span> 👨🏾‍💻
         </h2>
-        <p className="dark:text-gray-200 my-2 justify-self-center  md:p-5 text-gray-700 font-normal text-lg md:text-xl lg:text-2xl xl:mx-24">
+        <p className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl justify-self-center mx-auto my-4">
           I’m always open to hearing about collabs and work opportunities.
         </p>
         <a
@@ -206,4 +237,31 @@ function CTASection({ observe }) {
       </section>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const projects = await getClient()
+    .fetch(
+      groq`
+  *[_type == "project" && isFeatured == true]{
+      description,
+      projectImage,
+      slug,
+      title,
+      _id
+  }`
+    )
+    .catch(error => {
+      console.log(error);
+    });
+
+  return {
+    props: {
+      projects
+    },
+    // Next.js will attempt to re-generate the page:
+    // - When a request comes in
+    // - At most once every 10 seconds
+    revalidate: 10 // In seconds
+  };
 }

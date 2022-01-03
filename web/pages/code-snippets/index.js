@@ -26,6 +26,7 @@ export default function CodeSnippetsPage({ snippets }) {
         <section className="grid grid-cols-2 gap-2 lg:gap-x-4 m-5 md:m-0">
           {snippets.map((snippet) => (
             <a
+              key={`code-snippet-${snippet.title}`}
               href={`/code-snippets/${snippet.slug.current}`}
               className="flex flex-col justify-start dark:bg-gray-900 
               bg-gray-200  py-4 px-2 rounded  border-gray-400 border-2 

@@ -17,7 +17,7 @@ export default function Contact() {
       </p>
       <div className="max-w-2xl justify-center flex my-3">
         <button
-          className="btn font-medium"
+          className="btn font-medium focus:ring focus:ring-primary-dark"
           onClick={() =>
             router.replace("/contact", undefined, { shallow: true })
           }
@@ -41,13 +41,13 @@ export default function Contact() {
       </section>
       {formVisible ? (
         <form
-          className=""
+          className="flex-1 dark:bg-gray-900 bg-gray-200 w-full p-6 rounded  
+          border-gray-400 border-2 dark:border-gray-700 self-center my-4"
           name="contact"
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           data-splitbee-event="Contact Form"
-          data-netlify-recaptcha="true"
           action="contact/?success=true"
         >
           <input type="hidden" name="subject" value={`You've got mail!`} />
@@ -65,9 +65,10 @@ export default function Contact() {
                 First Name
               </label>
               <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 
+                required
+                className="appearance-none block w-full bg-gray-100 dark:bg-gray-200 text-gray-700 
               border border-gray-200 rounded py-3 px-4 mb-3 leading-tight 
-              focus:outline-none focus:bg-gray-100 dark:text-gray-300"
+              focus:outline-none focus:ring focus:ring-primary-dark dark:text-gray-300"
                 id="grid-first-name"
                 type="text"
                 placeholder="Jane"
@@ -82,9 +83,10 @@ export default function Contact() {
                 Last Name
               </label>
               <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 
+                required
+                className="appearance-none block w-full bg-gray-100 dark:bg-gray-200 text-gray-700 
               border border-gray-200 rounded py-3 px-4 leading-tight 
-              focus:outline-none focus:bg-gray-100 focus:border-gray-1000"
+              focus:outline-none focus:ring focus:ring-primary-dark focus:border-gray-1000"
                 id="grid-last-name"
                 type="text"
                 placeholder="Doe"
@@ -101,9 +103,10 @@ export default function Contact() {
                 E-mail
               </label>
               <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 
+                required
+                className="appearance-none block w-full bg-gray-100 dark:bg-gray-200 text-gray-700 
               border border-gray-200 rounded py-3 px-4 mb-3 leading-tight 
-              focus:outline-none focus:bg-gray-100 focus:border-gray-1000"
+              focus:outline-none focus:ring focus:ring-primary-dark focus:border-gray-1000"
                 id="email"
                 type="email"
               />
@@ -119,17 +122,17 @@ export default function Contact() {
                 Message
               </label>
               <textarea
-                className=" no-resize appearance-none block w-full bg-gray-200 
+                required
+                className=" no-resize appearance-none block w-full bg-gray-100 dark:bg-gray-200 
               text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 
-              leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-1000 h-48 resize-none"
+              leading-tight focus:outline-none focus:ring focus:ring-primary-dark focus:border-gray-1000 h-48 resize-none"
                 id="message"
               ></textarea>
             </div>
           </div>
-          <div data-netlify-recaptcha="true"></div>
           <div className="px-3 mb-6">
             <button
-              className="btn focus:shadow-outline focus:outline-none text-gray-100 
+              className="btn focus:ring focus:ring-primary-dark text-gray-100 
             font-bold py-2  rounded w-full"
               type="submit"
             >

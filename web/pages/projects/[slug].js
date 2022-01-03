@@ -4,49 +4,56 @@ import { groq } from "next-sanity";
 import { getClient } from "../../lib/sanity.server";
 import { urlFor } from "../../lib/sanity";
 import BlockContent from "@sanity/block-content-to-react";
+import { MarkupContent } from "../../components/BlockContent";
 import { config } from "../../lib/config";
+import { useRouter } from "next/router";
 export default function Post(props) {
+  const router = useRouter();
+  let { slug } = router.query;
   const {
     projectBreakdown = "Uh oh, not found?!",
     color = "#FFFFFF",
     technologies = [],
     title = "Unknown Title?",
-    related_articles = [],
-    image
+    description,
+    image,
+    links
   } = props;
 
   return (
     <Layout
-      pageTitle={`${title} | Roewyn Umayam | Full-Stack Developer & Taekwondo Instructor`}
+      pageTitle={`${title} | Roewyn Umayam | Frontend Developer`}
+      cannonical={`/projects/${slug}`}
+      description={description}
+      image={urlFor(image)}
     >
       {/** Article Section */}
       <article className="max-w-2xl m-5">
-        <img
-          src={urlFor(image)}
-          width={200}
-          height={200}
-          className=" w-full object-cover "
-          alt={`post picture`}
-        />
         <div className="flex flex-row items-center justify-between">
-          <h1 className="text-4xl font-bold dark:text-gray-100 text-gray-900 my-4">
-            {title}
+          <h1 className="text-4xl lg:text-6xl font-semibold dark:text-gray-100 text-gray-900 mb-4">
+            {title}: Project Overview
           </h1>
         </div>
-        <div className="prose-2xl dark:prose-dark">
-          <div className=" flex flex-wrap  ">
+        <div className="prose prose-lg  md:prose-xl dark:prose-dark">
+          <div className=" flex flex-wrap  mt-2">
             {technologies.map(({ color, title, _id }) => (
               <Tag key={_id} color={color} title={title} />
             ))}
           </div>
-
-          <div className="mx-auto">
-            <BlockContent
-              className=""
-              blocks={projectBreakdown}
-              imageOptions={{ w: 320, h: 240, fit: "max" }}
-              {...config}
-            />
+          <div className=" flex flex-wrap gap-4 mt-2">
+            {links.map(({ label, source, _id }) => (
+              <a
+                className="link  lg:text-2xl hover:underline font-extrabold"
+                key={_id}
+                href={source}
+                title={title}
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+          <div className="">
+            <BlockContent blocks={projectBreakdown} />
           </div>
         </div>
       </article>
@@ -57,7 +64,7 @@ export default function Post(props) {
 const query = groq`*[_type == "project" && slug.current == $slug][0]{
     ...,
     "technologies": technologies[]->{title, "color": color.hex, _id},
-    
+    links,
   }`;
 
 export async function getStaticProps({ params, preview = false }) {
@@ -79,7 +86,7 @@ export async function getStaticPaths() {
   console.log(projects);
   // Get the paths we want to pre-render based on projects
   const paths = projects.map(project => ({
-    params: { slug: project.slug.current }
+    params: { slug: `${project.slug.current}` }
   }));
 
   // We'll pre-render only these paths at build time.

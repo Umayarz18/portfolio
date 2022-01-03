@@ -13,6 +13,7 @@ import tag from "./documents/tag";
 import codeSnippet from "./documents/codeSnippet";
 import project from "./documents/project";
 import mainImage from "./objects/mainImage";
+import link from "./objects/link";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -32,6 +33,7 @@ export default createSchema({
     tag,
     codeSnippet,
     project,
-    mainImage
+    mainImage,
+    link
   ])
 });

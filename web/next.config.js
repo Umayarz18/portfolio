@@ -22,6 +22,11 @@ module.exports = withPWA({
         permanent: false,
       },
       {
+        source: "/projects/[slug]",
+        destination: "/404", // Matched parameters can be used in the destination
+        permanent: false,
+      },
+      {
         source: "/blog",
         destination: "/404", // Matched parameters can be used in the destination
         permanent: false,

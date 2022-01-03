@@ -140,8 +140,12 @@ export default function Layout(props) {
           lg:px-0 max-w-3xl md:max-w-2xl"
           >
             <a href="/" className=" inline-flex items-center max-w-3xl">
-              <Image src="/Icon.png" height={50} width={50} />
-              <span className="sr-only ">Roewyn Umayam</span>
+              <Image
+                src="/Icon.png"
+                height={50}
+                width={50}
+                alt="Roewyn Umayam"
+              />
             </a>
             <a
               className=" absolute px-4 py-3 transition-transform duration-200 

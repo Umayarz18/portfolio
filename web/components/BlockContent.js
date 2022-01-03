@@ -1,5 +1,6 @@
 import BlockContent from "@sanity/block-content-to-react";
 import client from "../sanity";
+import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 export default function MarkupContent({ body }) {
   return (

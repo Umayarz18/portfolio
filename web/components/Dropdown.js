@@ -47,6 +47,7 @@ export default function Dropdown({ label, items, type }) {
               <Menu.Item as={Fragment} key={`link-${Item.title}`}>
                 {({ active }) => (
                   <button
+                    aria-hidden="false"
                     onClick={(e) => router.push(Item.link)}
                     className={`${
                       active
