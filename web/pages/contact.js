@@ -1,12 +1,11 @@
 import Layout from "../components/layout";
-import React, { useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 
 export default function Contact() {
-  const [submitterName, setSubmitterName] = useState("");
   const router = useRouter();
   const confirmationScreenVisible =
-    router.query?.success && router.query.success === "true";
+    router.query.success && router.query.success === "true";
   const formVisible = !confirmationScreenVisible;
 
   const ConfirmationMessage = (
@@ -51,9 +50,9 @@ export default function Contact() {
           action="contact/?success=true"
         >
           <input type="hidden" name="subject" value={`You've got mail!`} />
-          <label className="hidden">
+          <label className="hidden" htmlFor="bot-field">
             Don’t fill this out if you’re human:
-            <input name="bot-field" />
+            <input name="bot-field" id="bot-field" />
           </label>
           <input type="hidden" name="form-name" value="contact" />
           <div className="flex flex-wrap  mb-6">

@@ -2,23 +2,13 @@ import Layout from "../components/layout";
 import { ProgressBar } from "../components/progressbar";
 import Image from "next/image";
 import groq from "groq";
+import React from "react";
 import { getClient } from "../lib/sanity.server";
 import { urlFor } from "../lib/sanity";
-import { FiPhone, FiMail } from "react-icons/fi";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { GrInstagram } from "react-icons/gr";
-import { CgFacebook } from "react-icons/cg";
-import useInView from "react-cool-inview";
-import dynamic from "next/dynamic";
 import { ProjectCard } from "../components/ProjectCard";
-import router, { useRouter } from "next/router";
+import router from "next/router";
 
 export default function Home({ projects }) {
-  const router = useRouter;
-  const { observe, inView } = useInView({
-    onEnter: ({ unobserve }) => unobserve() // only run once
-  });
-
   return (
     <Layout>
       <div className="mx-auto max-w-2xl">
@@ -75,30 +65,30 @@ function SkillSection({ observe }) {
         <div className="grid gap-6 items-center  grid-col-1 lg:gap-x-0 lg:grid-cols-3 ">
           <div className="flex justify-center flex-col items-center">
             <p className=" text-sm lg:text-base font-bold ">CSS</p>
-            <ProgressBar width={60} color="red" />
+            <ProgressBar width={60} color="red" label="CSS" />
           </div>
           <div className="flex justify-center flex-col items-center">
             <p className=" text-sm lg:text-base lg:w-50 font-bold">HTML</p>
-            <ProgressBar width={75} color="green" />
+            <ProgressBar width={75} color="green" label="HTML" />
           </div>
           <div className="flex justify-center flex-col items-center">
             <p className=" text-sm lg:text-base font-bold">Javascript</p>
-            <ProgressBar width={60} color="yellow" />
+            <ProgressBar width={60} color="yellow" label="Javascript" />
           </div>
           <div className="flex justify-center flex-col items-center">
             <p className=" text-sm lg:text-base font-bold">React</p>
-            <ProgressBar width={70} color="blue" />
+            <ProgressBar width={70} color="blue" label="React" />
           </div>
 
           <div className="flex justify-center flex-col items-center">
             <p className=" text-sm lg:text-base font-bold">Design</p>
-            <ProgressBar width={65} color="indigo" />
+            <ProgressBar width={65} color="indigo" label="Desing" />
           </div>
           <div className="flex justify-center flex-col items-center">
             <p className=" text-sm lg:text-base">
               <span className="font-bold">Fun </span>🤡
             </p>
-            <ProgressBar width={100} color="indigo" />
+            <ProgressBar width={100} color="indigo" label="Fun🤡" />
           </div>
         </div>
       </div>
@@ -216,26 +206,23 @@ function ProjectSection({ projects }) {
 
 function CTASection({ observe }) {
   return (
-    <>
-      {/** Push to contact me */}
-      <section
-        ref={observe}
-        className="grid text-center m-5 my-24 lg:my-36 justify-center"
+    <section
+      ref={observe}
+      className="grid text-center m-5 my-24 lg:my-36 justify-center"
+    >
+      <h2 className="dark:text-gray-200 text-gray-800 text-2xl md:text-3xl lg:text-4xl">
+        <span className="font-bold">Need a Developer?</span> 👨🏾‍💻
+      </h2>
+      <p className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl justify-self-center mx-auto my-4">
+        I{`’`}m always open to hearing about collabs and work opportunities.
+      </p>
+      <a
+        href="/contact"
+        className="btn mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
       >
-        <h2 className="dark:text-gray-200 text-gray-800 text-2xl md:text-3xl lg:text-4xl">
-          <span className="font-bold">Need a Developer?</span> 👨🏾‍💻
-        </h2>
-        <p className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl justify-self-center mx-auto my-4">
-          I’m always open to hearing about collabs and work opportunities.
-        </p>
-        <a
-          href="/contact"
-          className="btn mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
-        >
-          <span className="font-bold">Say Howdy</span> 🤠
-        </a>
-      </section>
-    </>
+        <span className="font-bold">Say Howdy</span> 🤠
+      </a>
+    </section>
   );
 }
 

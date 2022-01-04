@@ -1,7 +1,5 @@
 import Layout from "../components/layout";
-import { FaInstagram, FaLinkedinIn, FaFacebookF } from "react-icons/fa";
-import { GrInstagram } from "react-icons/gr";
-import Image from "next/image";
+import React from "react";
 
 export default function About() {
   return (
@@ -31,7 +29,7 @@ export default function About() {
           <a
             href="https://sprout-learning.vercel.app/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="text-primary font-medium hover:text-primary-dark 
             transition duration-300 ease-in-out"
           >
@@ -43,7 +41,7 @@ export default function About() {
             transition duration-300 ease-in-out"
             rel="noopener"
             href="https://www.linkedin.com/company/working-for-wealth/"
-            target="_blank"
+            target="_blank noreferrer"
           >
             Working for Wealth
           </a>

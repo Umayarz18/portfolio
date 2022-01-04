@@ -1,15 +1,16 @@
 import React from "react";
-export const ProgressBar = ({ type, width }) => {
+export const ProgressBar = ({ type, width, label }) => {
   let normalizedRadius = 60 - 4 * 2;
   let circumference = normalizedRadius * 2 * Math.PI;
   const strokeDashoffset = circumference - (width / 100) * circumference;
 
-  if (type == "bar") {
+  if (type === "bar") {
     return (
       <div className="relative py-1">
         <div aria-label="progress meter" className={`progress-outer `}>
           <p
             style={{ width: `${width}%` }}
+            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
             role="progressbar"
             aria-label="Progress bar"
             aria-valuenow={width}
@@ -38,14 +39,15 @@ export const ProgressBar = ({ type, width }) => {
             cx={50}
             cy={50}
             strokeWidth="10"
-            aria-labelledby="progressBar"
+            role="img"
+            aria-labelledby={`progressBar-${label}-${width}`}
             fill="transparent"
             className="text-indigo-200 transform translate-x-5 translate-y-5 "
           />
 
           <circle
             role="progressbar"
-            id="progressBar"
+            id={`progressBar-${label}-${width}`}
             aria-label="Progress bar"
             aria-valuenow={width}
             aria-valuemax={100}

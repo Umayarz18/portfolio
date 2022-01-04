@@ -4,15 +4,14 @@ import { groq } from "next-sanity";
 import { getClient } from "../../lib/sanity.server";
 import { urlFor } from "../../lib/sanity";
 import BlockContent from "@sanity/block-content-to-react";
-import { MarkupContent } from "../../components/BlockContent";
-import { config } from "../../lib/config";
 import { useRouter } from "next/router";
+import React from "react";
+
 export default function Post(props) {
   const router = useRouter();
   let { slug } = router.query;
   const {
     projectBreakdown = "Uh oh, not found?!",
-    color = "#FFFFFF",
     technologies = [],
     title = "Unknown Title?",
     description,

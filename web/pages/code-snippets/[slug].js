@@ -4,7 +4,7 @@ import { groq } from "next-sanity";
 import { getClient } from "../../lib/sanity.server";
 import Tag from "../../components/tag";
 import BlockContent from "../../components/BlockContent";
-
+import React from "react";
 export default function Post(props) {
   const router = useRouter();
   let { slug } = router.query;
@@ -27,7 +27,7 @@ export default function Post(props) {
             <Tag key={tag._id} color={tag.color} title={tag.title} />
           ))}
         </div>
-        <div className=" mx-auto prose prose-lg">
+        <div className=" mx-auto ">
           <BlockContent body={body} />
         </div>
       </article>

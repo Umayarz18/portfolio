@@ -1,9 +1,9 @@
 import { Error404 } from "../public/error404art";
 import Head from "next/head";
-
+import React from "react";
 export default function Custom404() {
   return (
-    <>
+    <React.Fragment>
       <Head>
         <title>Error 404 | Roewyn Umayam</title>
       </Head>
@@ -22,6 +22,6 @@ export default function Custom404() {
           .
         </p>
       </div>
-    </>
+    </React.Fragment>
   );
 }

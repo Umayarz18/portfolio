@@ -1,5 +1,5 @@
 import Layout from "../../components/layout";
-
+import React from "react";
 export default function Projects() {
   return (
     <Layout title="My Projects - Roewyn Umayam" cannonical="projects">
@@ -12,7 +12,11 @@ export default function Projects() {
             I continually work on projects to learn new things in web
             development. Most of my work is done for organization or to
             prototype ideas that have promise to do a lot of good. Other times,
-            they exist only to meme around with a new technology or concept 🤡.
+            they exist only to meme around with a new technology or concept{" "}
+            <span role="img" aria-label="Clown face emoji">
+              🤡
+            </span>
+            .
           </p>
           <ul className="my-5 grid grid-cols-1 gap-y-3 text-md md:text-lg">
             <li>
@@ -20,7 +24,7 @@ export default function Projects() {
                 className="link"
                 href={"https://pokedex-react-pwa.vercel.app/"}
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 <strong>Pokedex Next.js PWA</strong>
               </a>{" "}
@@ -31,7 +35,7 @@ export default function Projects() {
               <a
                 href="https://www.pokemon.com/us/pokedex/"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="hover:underline font-medium"
               >
                 official Pokedex on the Pokemon website
@@ -40,7 +44,7 @@ export default function Projects() {
               <a
                 href="https://www.youtube.com/watch?v=LMRAEUPkFXI"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="hover:underline font-medium"
               >
                 James Q. Quick's Pokedex Next.js tutorial
@@ -49,7 +53,7 @@ export default function Projects() {
               PokeAPI and deployed on Vercel. <em>[solo Nov 2021]</em>
             </li>
             <li>
-              <a className="link" href={"/"} rel="noopener">
+              <a className="link" href={"/"} rel="noopener noreferrer">
                 <strong>My portfolio site</strong>
               </a>{" "}
               - This site was made with inspiration and coding techniques
@@ -57,7 +61,7 @@ export default function Projects() {
               <a
                 href="https://leerob.io/"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="hover:underline font-medium"
               >
                 Lee Robinson's website
@@ -66,7 +70,7 @@ export default function Projects() {
               <a
                 href="https://bionicjulia.com/"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="hover:underline font-medium"
               >
                 Julia Tan's personal site.

@@ -1,5 +1,6 @@
 import groq from "groq";
 import { getClient } from "../lib/sanity.server";
+import React from "react";
 export default function SiteMap() {
   return <div>loading</div>;
 }

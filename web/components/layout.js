@@ -1,15 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
-import { FaLinkedinIn, FaGithub, FaTwitter } from "react-icons/fa";
-import { GrInstagram } from "react-icons/gr";
-import { CgFacebook } from "react-icons/cg";
+import React from "react";
 import { FiMenu } from "react-icons/fi";
-import Link from "next/link";
 import NavBar from "./navbar";
 import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
-import Icon from "../public/Icon";
 import Footer from "./Footer";
 
 const footerLinks = [
@@ -120,10 +116,6 @@ export default function Layout(props) {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
-        <link
-          rel="canonical"
-          href={`${domain}/${meta.cannonical ? meta.cannonical : ""}`}
-        />
         <link rel="icon" href="/Icon.png" />
         {meta.date && (
           <meta property="article:published_time" content={meta.date} />
@@ -182,8 +174,8 @@ export default function Layout(props) {
                     type="button"
                     className="md:inline-flex w-full  md:ml-2 md:w-9 h-9 
                     bg-gray-300 rounded-lg dark:bg-gray-600 flex 
-                    items-center justify-center  
-                    hover:ring-2 ring-gray-300 transition-all"
+                    items-center justify-center  transition-all
+                     focus:outline-none focus:ring-2 focus:ring-gray-600 dark:focus:ring-gray-300  "
                     onClick={() =>
                       setTheme(resolvedTheme === "dark" ? "light" : "dark")
                     }

@@ -1,8 +1,8 @@
 import Layout from "../../components/layout";
 import { groq } from "next-sanity";
 import { getClient } from "../../lib/sanity.server";
-import { urlFor } from "../../lib/sanity";
 import Tag from "../../components/tag";
+import React from "react";
 export default function CodeSnippetsPage({ snippets }) {
   return (
     <Layout title="Code Snippets - Roewyn Umayam" cannonical="code-snippets">
@@ -12,7 +12,10 @@ export default function CodeSnippetsPage({ snippets }) {
       >
         <section className="m-5 md:m-0">
           <h2 className="text-3xl font-bold dark:text-gray-100 text-gray-900  ">
-            Code Snippets to Recycle ♻️
+            Code Snippets to Recycle{" "}
+            <span role="img" aria-label="recycle symbol">
+              ♻️
+            </span>
           </h2>
           <p
             className="text-gray-600 dark:text-gray-300 font-normal 
