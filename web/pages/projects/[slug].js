@@ -22,7 +22,7 @@ export default function Post(props) {
 
   return (
     <Layout
-      pageTitle={`${title} | Roewyn Umayam | Frontend Developer`}
+      title={`${title} | Roewyn Umayam | Frontend Developer`}
       cannonical={`/projects/${slug}`}
       description={description}
       image={urlFor(image)}
