@@ -6,22 +6,37 @@ export default function SiteMap() {
 }
 
 export async function getServerSideProps({ res }) {
-  const baseUrl = `https://${process.env.DOMAIN}`;
-  const baseLinks = ["about", "contact", "projects", "blog", "helpful-links"];
+  const baseUrl = `https://www.roewynumayam.com`;
+  const baseLinks = [
+    "about",
+    "contact",
+    "projects",
+    "blog",
+    "helpful-links",
+    "code-snippets",
+  ];
   const query = groq`{
-      "countries": *[_type == 'codeSnippet']{slug},
+      "codeSnippets": *[_type == 'codeSnippet']{slug},
+      "projects": *[_type =='project']{slug}
     }`;
   const urls = await getClient().fetch(query);
-  const countries = urls.countries.map((page) => {
+  const codeSnippets = urls.codeSnippets.map((page) => {
     const slug = page.slug.current === "/" ? "/" : `/${page.slug.current}`;
     return `
-      <loc>${baseUrl}${slug}</loc>
-      <changefreq>daily</changefreq>
-      <priority>0.7</priority>
+      <loc>${baseUrl}/code-snippets${slug}</loc>
     `;
   });
 
-  const locations = [...countries];
+  const projectsList = urls.projects.map((page) => {
+    const slug = page.slug.current === "/" ? "/" : `/${page.slug.current}`;
+    return `
+      <loc>${baseUrl}/projects${slug}</loc>
+    `;
+  });
+
+  const locations = [...codeSnippets];
+  const projects = [...projectsList];
+
   const createSitemap = () => `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         ${locations
@@ -33,8 +48,21 @@ export async function getServerSideProps({ res }) {
           })
           .join("")}
 
+        ${projects
+          .map((project) => {
+            return `<url>
+                      ${project}
+                    </url>
+                  `;
+          })
+          .join("")}}
+        
          ${baseLinks.map((link) => {
-           return `<url> <loc>${baseUrl}/${link}</loc> </url>`;
+           return `<url> 
+           <loc>${baseUrl}/${link}</loc> 
+           <changefreq>daily</changefreq>
+           <priority>0.7</priority>
+           </url>`;
          })} 
     </urlset>
     `;
