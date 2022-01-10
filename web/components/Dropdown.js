@@ -1,7 +1,8 @@
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment } from "react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
+import React from "react";
 export default function Dropdown({ label, items, type }) {
   const router = useRouter();
   return (
@@ -43,8 +44,8 @@ export default function Dropdown({ label, items, type }) {
           ].join(" ")}
         >
           {items.map((Item) => (
-            <div className="px-1 py-1 ">
-              <Menu.Item as={Fragment} key={`link-${Item.title}`}>
+            <div className="px-1 py-1 " key={`link-${Item.title}`}>
+              <Menu.Item as={Fragment}>
                 {({ active }) => (
                   <button
                     aria-hidden="false"

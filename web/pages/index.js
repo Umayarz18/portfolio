@@ -24,7 +24,7 @@ export default function Home({ projects }) {
 
 function HeroSection() {
   return (
-    <div className="flex flex-col-reverse md:flex-row justify-center items-center space-x-3 mt-5">
+    <section className="flex flex-col-reverse md:flex-row justify-center items-center space-x-3 mt-5">
       <div className="grid justify-items-center md:justify-items-start  self-center max-w-lg ">
         <h1
           className="dark:text-gray-50 text-gray-800
@@ -32,13 +32,13 @@ function HeroSection() {
         >
           <span className="font-bold">Hey, I'm Roewyn </span> 👋
         </h1>
-        <h2 className=" text-lg lg:text-3xl md:text-2xl my-2 md:mb-3 truncate">
+        <h2 className=" text-2xl lg:text-3xl  my-2 md:mb-3 truncate">
           <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
             Frontend Developer{" "}
           </span>
           🕵🏾
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl mr-4">
+        <p className="text-gray-600  text-center md:text-left dark:text-gray-300 font-normal text-lg md:text-xl  mx-4 md:ml-0 md:mr-4">
           A martial artist, comic book geek, and certified clown that loves to
           build web apps for good ideas and memes.
         </p>
@@ -50,16 +50,13 @@ function HeroSection() {
         alt={""}
         className="rounded-full"
       />
-    </div>
+    </section>
   );
 }
 
-function SkillSection({ observe }) {
+function SkillSection() {
   return (
-    <section
-      ref={observe}
-      className=" flex items-center justify-center   flex-col-reverse max-w-2xl  lg:mx-auto m-5 mt-10 lg:my-24"
-    >
+    <section className=" flex items-center justify-center   flex-col-reverse max-w-2xl  lg:mx-auto m-5 my-24 lg:my-36">
       {/** Skill Stats */}
       <div className="flex-1 dark:bg-gray-900 bg-gray-200 w-full p-6 rounded  border-gray-400 border-2 dark:border-gray-700 self-center">
         <div className="grid gap-6 items-center  grid-col-1 lg:gap-x-0 lg:grid-cols-3 ">
@@ -118,9 +115,12 @@ function SkillSection({ observe }) {
 
 function ProjectSection({ projects }) {
   return (
-    <section>
-      <h2 className="font-bold text-center dark:text-gray-100  text-gray-900 text-2xl md:text-3xl lg:text-4xl">
-        My Recent Projects
+    <section className="m-0 my-24 lg:my-36">
+      <h2
+        className="font-bold text-center dark:text-gray-100  t
+      ext-gray-900 text-2xl md:text-3xl lg:text-4xl"
+      >
+        My Latest Work
       </h2>
       <section className="m-5 md:my-3 md:mx-0">
         {projects.map(project => (
@@ -130,7 +130,7 @@ function ProjectSection({ projects }) {
           border-gray-400 border-2 dark:border-gray-700 self-center
           flex flex-col md:flex-row  md:m-0"
           >
-            <div className="w-full h-full md:h-1/2 md:w-1/2 ">
+            <div className="w-full h-full md:h-1/2  ">
               <img
                 src={urlFor(project.projectImage)}
                 alt={project.projectImage.alt}
@@ -163,8 +163,13 @@ function ProjectSection({ projects }) {
           </article>
         ))}
       </section>
-
-      <p className="text-center my-5 text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl">
+      <h2
+        className="font-bold text-center dark:text-gray-100  t
+      ext-gray-900 text-2xl md:text-3xl lg:text-4xl mt-16 lg:mt-24"
+      >
+        Featured Projects
+      </h2>
+      <p className="text-center  m-5 text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl">
         {" "}
         If you need more samples, you can always view{" "}
         <a className="link" href="/projects">
@@ -204,24 +209,120 @@ function ProjectSection({ projects }) {
   );
 }
 
-function CTASection({ observe }) {
+function CTASection() {
   return (
-    <section
-      ref={observe}
-      className="grid text-center m-5 my-24 lg:my-36 justify-center"
-    >
-      <h2 className="dark:text-gray-200 text-gray-800 text-2xl md:text-3xl lg:text-4xl">
-        <span className="font-bold">Need a Developer?</span> 👨🏾‍💻
-      </h2>
-      <p className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl justify-self-center mx-auto my-4">
-        I{`’`}m always open to hearing about collabs and work opportunities.
-      </p>
-      <a
-        href="/contact"
-        className="btn mt-5 md:mt-0 mx-5 text-md md:text-lg lg:text-xl xl:text-2xl w-2/3 md:w-1/2 lg:w-1/3 justify-self-center"
+    <section className="flex flex-col m-5 md:mx-0 my-24 lg:my-36 justify-center items-center  ">
+      <div className="flex flex-col place-content-center">
+        <h2 className="dark:text-gray-200 text-gray-800 text-2xl md:text-3xl lg:text-4xl mx-auto">
+          <span className="font-bold">Need a Developer?</span> 👨🏾‍💻
+        </h2>
+        <p className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl justify-self-center  mx-2 my-4">
+          I{`’`}m always open to hearing about collabs and work opportunities.
+        </p>
+      </div>
+      <form
+        className=" dark:bg-gray-900 bg-gray-200 w-full p-6 rounded  
+          border-gray-400 border-2 dark:border-gray-700 self-center m-5 lg:mx-0 text-left"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        data-splitbee-event="Contact Form"
+        action="/?success=true"
       >
-        <span className="font-bold">Say Howdy</span> 🤠
-      </a>
+        <label className="hidden" htmlFor="bot-field">
+          Don’t fill this out if you’re human:
+          <input name="bot-field" id="bot-field" />
+        </label>
+        <input type="hidden" name="form-name" value="contact" />
+        <div className="flex flex-col justify-start  mb-6">
+          <div className="w-full  px-3 md:pr-3 mb-6 md:mb-0">
+            <label
+              htmlFor="name"
+              className="block uppercase  text-gray-700 dark:text-gray-300 text-xs font-bold mb-2"
+            >
+              Name
+            </label>
+            <input
+              required
+              className="appearance-none block w-full bg-gray-100 dark:bg-gray-200 text-gray-700 
+                border border-gray-200 rounded py-3 px-4 mb-3 leading-tight 
+                focus:outline-none focus:ring focus:ring-primary-dark dark:text-gray-300"
+              id="name"
+              type="text"
+              placeholder="Jane"
+              name="name"
+            />
+          </div>
+          <div className="w-full  px-3">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs 
+              font-bold mb-2 dark:text-gray-300 "
+              htmlFor="subject"
+            >
+              Subject
+            </label>
+            <input
+              required
+              className="appearance-none block w-full bg-gray-100 dark:bg-gray-200 text-gray-700 
+                border border-gray-200 rounded py-3 px-4 leading-tight 
+                focus:outline-none focus:ring focus:ring-primary-dark focus:border-gray-1000"
+              id="subject"
+              type="text"
+              placeholder="Doe"
+              name="subject"
+            />
+          </div>
+        </div>
+        <div className="flex flex-wrap  mb-6">
+          <div className="w-full px-3">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs 
+              font-bold mb-2 dark:text-gray-300"
+              htmlFor="email"
+            >
+              E-mail
+            </label>
+            <input
+              required
+              className="appearance-none block w-full bg-gray-100 dark:bg-gray-200 text-gray-700 
+                border border-gray-200 rounded py-3 px-4 mb-3 leading-tight 
+                focus:outline-none focus:ring focus:ring-primary-dark focus:border-gray-1000"
+              id="email"
+              name="email"
+              type="email"
+            />
+          </div>
+        </div>
+        <div className="flex flex-wrap  mb-6">
+          <div className="w-full px-3">
+            <label
+              className="block uppercase tracking-wide text-gray-700 text-xs 
+              font-bold mb-2 dark:text-gray-300"
+              htmlFor="message"
+            >
+              Message
+            </label>
+            <textarea
+              required
+              name="message"
+              className=" no-resize appearance-none block w-full bg-gray-100 dark:bg-gray-200 
+              text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 
+              leading-tight focus:outline-none focus:ring focus:ring-primary-dark focus:border-gray-1000 h-48 resize-none"
+              id="message"
+            ></textarea>
+          </div>
+        </div>
+        <div className="px-3 mb-6">
+          <button
+            className="btn focus:ring focus:ring-primary-dark text-gray-100 
+            font-bold py-2  rounded w-full"
+            type="submit"
+          >
+            Send
+          </button>
+        </div>
+      </form>
     </section>
   );
 }

@@ -49,7 +49,6 @@ export default function Contact() {
           data-splitbee-event="Contact Form"
           action="contact/?success=true"
         >
-          <input type="hidden" name="subject" value={`You've got mail!`} />
           <label className="hidden" htmlFor="bot-field">
             Don’t fill this out if you’re human:
             <input name="bot-field" id="bot-field" />
@@ -58,37 +57,39 @@ export default function Contact() {
           <div className="flex flex-wrap  mb-6">
             <div className="w-full md:w-1/2 px-3 md:pr-3 mb-6 md:mb-0">
               <label
+                htmlFor="name"
                 className="block uppercase  text-gray-700 dark:text-gray-300 text-xs font-bold mb-2"
-                htmlFor="grid-first-name"
               >
-                First Name
+                Name
               </label>
               <input
                 required
                 className="appearance-none block w-full bg-gray-100 dark:bg-gray-200 text-gray-700 
-              border border-gray-200 rounded py-3 px-4 mb-3 leading-tight 
-              focus:outline-none focus:ring focus:ring-primary-dark dark:text-gray-300"
-                id="grid-first-name"
+                border border-gray-200 rounded py-3 px-4 mb-3 leading-tight 
+                focus:outline-none focus:ring focus:ring-primary-dark dark:text-gray-300"
+                id="name"
                 type="text"
                 placeholder="Jane"
+                name="name"
               />
             </div>
             <div className="w-full md:w-1/2 px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs 
               font-bold mb-2 dark:text-gray-300 "
-                htmlFor="grid-last-name"
+                htmlFor="subject"
               >
-                Last Name
+                Subject
               </label>
               <input
                 required
                 className="appearance-none block w-full bg-gray-100 dark:bg-gray-200 text-gray-700 
-              border border-gray-200 rounded py-3 px-4 leading-tight 
-              focus:outline-none focus:ring focus:ring-primary-dark focus:border-gray-1000"
-                id="grid-last-name"
+                border border-gray-200 rounded py-3 px-4 leading-tight 
+                focus:outline-none focus:ring focus:ring-primary-dark focus:border-gray-1000"
+                id="subject"
                 type="text"
                 placeholder="Doe"
+                name="subject"
               />
             </div>
           </div>
@@ -104,9 +105,10 @@ export default function Contact() {
               <input
                 required
                 className="appearance-none block w-full bg-gray-100 dark:bg-gray-200 text-gray-700 
-              border border-gray-200 rounded py-3 px-4 mb-3 leading-tight 
-              focus:outline-none focus:ring focus:ring-primary-dark focus:border-gray-1000"
+                border border-gray-200 rounded py-3 px-4 mb-3 leading-tight 
+                focus:outline-none focus:ring focus:ring-primary-dark focus:border-gray-1000"
                 id="email"
+                name="email"
                 type="email"
               />
             </div>
@@ -122,6 +124,7 @@ export default function Contact() {
               </label>
               <textarea
                 required
+                name="message"
                 className=" no-resize appearance-none block w-full bg-gray-100 dark:bg-gray-200 
               text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 
               leading-tight focus:outline-none focus:ring focus:ring-primary-dark focus:border-gray-1000 h-48 resize-none"
