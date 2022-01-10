@@ -223,18 +223,17 @@ function CTASection() {
       <form
         className=" dark:bg-gray-900 bg-gray-200 w-full p-6 rounded  
           border-gray-400 border-2 dark:border-gray-700 self-center m-5 lg:mx-0 text-left"
-        name="landing-contact"
+        name="landing contact"
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         data-splitbee-event="Contact Form"
-        action="/?success=true"
       >
         <label className="hidden" htmlFor="bot-field">
           Don’t fill this out if you’re human:
           <input name="bot-field" id="bot-field" />
         </label>
-        <input type="hidden" name="form-name" value="landing-contact" />
+        <input type="hidden" name="form-name" value="landing contact" />
         <div className="flex flex-col justify-start  mb-6">
           <div className="w-full  px-3 md:pr-3 mb-6 md:mb-0">
             <label
