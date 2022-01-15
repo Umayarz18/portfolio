@@ -74,7 +74,7 @@ export default function Layout(props) {
   const meta = {
     title: "Roewyn Umayam - Frontend Developer",
     description: `Simple frontend developer seeking to use skills on projects with big impact.`,
-    image: `${domain}/images/banner.png`,
+    image: `https://${domain}/images/banner.png`,
     type: "website",
     twitterHandle: "@RoewynU", //Change for you!
     ...customMeta
