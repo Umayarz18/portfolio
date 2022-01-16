@@ -8,7 +8,16 @@ export default {
       title: "Title",
       type: "string"
     },
-
+    {
+      title: "Featured Tag",
+      name: "isFeatured",
+      type: "boolean"
+    },
+    {
+      title: "Link",
+      name: "link",
+      type: "url"
+    },
     {
       name: "color",
       title: "Color",
