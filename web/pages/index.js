@@ -75,11 +75,11 @@ function SkillSection({ tags }) {
               target="_blank"
               rel="noopener noreferrer"
               className="h-48 w-48 justify-center items-center flex flex-col-reverse 
-              border-4  dark:bg-gray-600 hover:border-primary-dark
+              border-2  dark:bg-gray-500 hover:border-primary-dark
               bg-gray-200  rounded  dark:hover:border-primary-dark 
               border-gray-400  dark:border-gray-100 
               transition duration-300 ease-in-out group
-              focus:ring-primary-dark focus:ring-4 focus:outline-none p-8 m-3"
+              focus:ring-primary-dark focus:ring-2 focus:outline-none p-8 m-3"
             >
               <h3
                 className=" mt-4 text-lg font-bold group-hover:text-primary-dark
