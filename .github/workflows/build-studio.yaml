@@ -11,8 +11,15 @@ jobs:
     runs-on: ubuntu-18.04
     name: Deploy Sanity
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "17.x"
       - uses: sanity-io/github-action-sanity@v0.2-alpha
+      - name: Install Sanity CLI
+        run: npm install -g @sanity/cli
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
         with:
