@@ -17,7 +17,10 @@
     "@sanity/dashboard",
     "dashboard-widget-netlify",
     "asset-source-unsplash",
-    "@sanity/code-input"
+    "@sanity/code-input",
+    "@sanity/production-preview",
+    "iframe-pane",
+    "social-preview"
   ],
   "env": {
     "development": {
@@ -34,6 +37,14 @@
     {
       "implements": "part:@sanity/dashboard/config",
       "path": "src/dashboardConfig.js"
+    },
+    {
+      "implements": "part:@sanity/production-preview/resolve-production-url",
+      "path": "./resolveProductionUrl.js"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./deskStructure.js"
     }
   ]
 }

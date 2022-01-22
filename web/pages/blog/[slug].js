@@ -5,7 +5,20 @@ import { getClient } from "../../lib/sanity.server";
 import { urlFor } from "../../lib/sanity";
 import BlockContent from "@sanity/block-content-to-react";
 import { config } from "../../lib/config";
-export default function Post(props) {
+import React from "react";
+export default function Post({ data, Preview }) {
+  const { data: previewData } = usePreviewSubscription(data?.query, {
+    params: data?.queryParams ?? {},
+    // The hook will return this on first render
+    // This is why it's important to fetch *draft* content server-side!
+    initialData: data?.page,
+    // The passed-down preview context determines whether this function does anything
+    enabled: preview,
+  });
+
+  // Client-side uses the same query, so we may need to filter it down again
+  const page = filterDataToSingleItem(previewData, preview);
+
   const {
     body = "Uh oh, not found?!",
     color = "#FFFFFF",
@@ -14,7 +27,7 @@ export default function Post(props) {
     title = "Unknown Title?",
     related_articles = [],
     mainImage,
-  } = props;
+  } = page;
 
   return (
     <Layout
@@ -27,7 +40,7 @@ export default function Post(props) {
           width={200}
           height={200}
           className=" w-full object-cover "
-          alt={`post picture`}
+          alt={mainImage.alt}
         />
         <div className="flex flex-row items-center justify-between">
           <h1 className="text-4xl font-bold dark:text-gray-100 text-gray-900 my-4">
@@ -72,12 +85,19 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   }`;
 
 export async function getStaticProps({ params, preview = false }) {
-  const slug = await getClient().fetch(query, {
-    slug: params.slug,
-  });
+  const queryParams = { slug: params.slug };
+  const data = await getClient(preview).fetch(query, queryParams);
+
+  // Escape hatch, if our query failed to return data
+  if (!data) return { notFound: true };
+
+  // Helper function to reduce all returned documents down to just one
+  const page = filterDataToSingleItem(data, preview);
 
   return {
-    props: slug,
+    // Pass down the "preview mode" boolean to the client-side
+    preview,
+    props: { page, query, queryParams },
   };
 }
 
@@ -95,4 +115,24 @@ export async function getStaticPaths() {
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
   return { paths, fallback: false };
+}
+
+/**
+ * Helper function to return the correct version of the document
+ * If we're in "preview mode" and have multiple documents, return the draft
+ */
+function filterDataToSingleItem(data, preview) {
+  if (!Array.isArray(data)) {
+    return data;
+  }
+
+  if (data.length === 1) {
+    return data[0];
+  }
+
+  if (preview) {
+    return data.find((item) => item._id.startsWith(`drafts.`)) || data[0];
+  }
+
+  return data[0];
 }
