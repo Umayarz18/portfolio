@@ -20,7 +20,8 @@
     "@sanity/code-input",
     "@sanity/production-preview",
     "iframe-pane",
-    "social-preview"
+    "social-preview",
+    "markdown"
   ],
   "env": {
     "development": {
