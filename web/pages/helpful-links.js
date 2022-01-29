@@ -3,7 +3,10 @@ import Tag from "../components/tag";
 import React from "react";
 export default function Resources({ notes }) {
   return (
-    <Layout title="Resources - Roewyn Umayam">
+    <Layout
+      title="Resources - Roewyn Umayam"
+      description="I've found a lot of nice resources or tools that might have you out."
+    >
       <div className="max-w-2xl text-gray-600 dark:text-gray-300 m-5">
         <section className="text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5">
           <h1 className="text-3xl font-bold dark:text-gray-100 text-gray-900">

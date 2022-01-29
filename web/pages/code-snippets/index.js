@@ -5,7 +5,10 @@ import Tag from "../../components/tag";
 import React from "react";
 export default function CodeSnippetsPage({ snippets }) {
   return (
-    <Layout title="Code Snippets - Roewyn Umayam" cannonical="code-snippets">
+    <Layout
+      title="Code Snippets - Roewyn Umayam"
+      description="I kept looking of the same things when I code so here's a list of things I always refer back to."
+    >
       <div
         style={{ minHeight: "70vh" }}
         className="max-w-md md:max-w-xl lg:max-w-2xl"
