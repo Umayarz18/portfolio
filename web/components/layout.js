@@ -12,48 +12,48 @@ const footerLinks = [
   [
     {
       link: "/",
-      title: "Home"
+      title: "Home",
     },
     {
       link: "/about",
-      title: "About"
+      title: "About",
     },
     {
       link: "https://timeline.roewynumayam.com",
-      title: "Timeline"
-    }
+      title: "Timeline",
+    },
   ],
   [
     {
       link: "/projects",
-      title: "Projects"
+      title: "Projects",
     },
     {
       link: "/code-snippets",
-      title: "Snippets"
+      title: "Snippets",
     },
     {
       link: "/helpful-links",
-      title: "Resources"
-    }
+      title: "Resources",
+    },
   ],
   [
     {
       link: "https://twitter.com/RoewynU",
       title: "Twitter",
-      outsideLink: true
+      outsideLink: true,
     },
     {
       link: "https://github.com/Umayarz18",
       title: "Github",
-      outsideLink: true
+      outsideLink: true,
     },
     {
       link: "https://www.linkedin.com/in/roewyn-umayam/",
       title: "LinkedIn",
-      outsideLink: true
-    }
-  ]
+      outsideLink: true,
+    },
+  ],
 ];
 
 export default function Layout(props) {
@@ -61,7 +61,7 @@ export default function Layout(props) {
   const { resolvedTheme, setTheme } = useTheme();
   const [active, setActive] = useState(false);
 
-  //Use to toggle the menue
+  //Use to toggle the menu
   const handleClick = () => {
     setActive(!active);
   };
@@ -73,11 +73,12 @@ export default function Layout(props) {
   const router = useRouter();
   const meta = {
     title: "Roewyn Umayam - Frontend Developer",
-    description: `Simple frontend developer seeking to use skills on projects with big impact.`,
+    description: `A martial artist, comic book geek, and certified clown that loves to
+    build web apps for good ideas and memes.`,
     image: `https://${domain}/images/banner.png`,
     type: "website",
     twitterHandle: "@RoewynU", //Change for you!
-    ...customMeta
+    ...customMeta,
   };
 
   return (

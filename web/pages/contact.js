@@ -27,7 +27,10 @@ export default function Contact() {
     </React.Fragment>
   );
   return (
-    <Layout title="Say Hello - Roewyn Umayam" cannonical="contact">
+    <Layout
+      title="Say Hello - Roewyn Umayam"
+      description="You can chat with me about collaborations, opportunities, memes, or martial arts."
+    >
       <section className="max-w-2xl m-5 md:m-0">
         <h1 className="text-3xl font-bold dark:text-gray-100 text-gray-900  ">
           Up For A Chat?
