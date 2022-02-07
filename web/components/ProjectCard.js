@@ -13,7 +13,7 @@ export const ProjectCard = ({
     <article
       key={key}
       style={{ borderColor: color }}
-      className={`dark:bg-gray-900 bg-gray-200  
+      className={`bg-gray-200 dark:bg-transparent  
       border-gray-400 border-2  rounded p-6
       m-5 md:m-0
       flex flex-col justify-center`}

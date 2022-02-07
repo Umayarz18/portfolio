@@ -26,7 +26,10 @@ export default function Home({ content }) {
 
 function HeroSection() {
   return (
-    <section className="flex flex-col-reverse md:flex-row justify-center items-center space-x-3 mt-5">
+    <section
+      className="flex flex-col-reverse md:flex-row justify-center items-center space-x-3 mt-5 
+    max-w-2xl  lg:mx-auto m-5"
+    >
       <div className="grid justify-items-center md:justify-items-start  self-center max-w-lg ">
         <h1
           className="dark:text-gray-50 text-gray-800
@@ -35,7 +38,10 @@ function HeroSection() {
           <span className="font-bold">Hey, I'm Roewyn </span> 👋
         </h1>
         <h2 className=" text-2xl lg:text-3xl  my-2 md:mb-3 truncate">
-          <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
+          <span
+            className="font-bold text-transparent bg-clip-text bg-gradient-to-b
+           from-primary to-primary-dark dark:from-primary-dark dark:to-primary"
+          >
             Frontend Developer{" "}
           </span>
           🕵🏾
@@ -68,26 +74,39 @@ function SkillSection({ tags }) {
       max-w-2xl  lg:mx-auto m-5 my-24 lg:my-36"
     >
       <div className="flex-1 mt-4 w-full self-center">
-        <div className="grid gap-3 place-items-center  grid-col-1 lg:gap-x-0 md:grid-cols-3 ">
+        <div className="grid gap-3  justify-between   grid-col-2 lg:gap-x-0 md:grid-cols-2 lg:grid-cols-3 ">
           {tags.map(tag => (
             <a
               href={tag.link}
               target="_blank"
+              key={tag._id}
               rel="noopener noreferrer"
-              className="h-48 w-48 justify-center items-center flex flex-col-reverse 
-              border-2  dark:bg-gray-500 hover:border-primary-dark
-              bg-gray-200  rounded  dark:hover:border-primary-dark 
-              border-gray-400  dark:border-gray-100 
+              className="h-64 w-64 md:h-48 md:w-48 
+             rounded  
               transition duration-300 ease-in-out group
-              focus:ring-primary-dark focus:ring-2 focus:outline-none p-8 m-3"
+              focus:ring-primary-dark focus:ring-2 focus:outline-none  m-3"
             >
-              <h3
-                className=" mt-4 text-lg font-bold group-hover:text-primary-dark
-              transition duration-300 ease-in-out group"
+              <div
+                className=" rounded flex place-content-start h-full w-full 
+              bg-gradient-to-r p-0.5 from-primary to-primary-dark"
               >
-                {tag.title}
-              </h3>
-              <img src={urlFor(tag.image)} alt={""} className="h-24 w-24" />
+                <div
+                  className="justify-center  w-full p-4 items-center flex flex-col-reverse dark:bg-gray-400
+              bg-gray-200"
+                >
+                  <h3
+                    className=" mt-4 text-lg font-bold dark:group-hover:text-primary-dark group-hover:text-primary
+                transition duration-300 ease-in-out group"
+                  >
+                    {tag.title}
+                  </h3>
+                  <img
+                    src={urlFor(tag.image)}
+                    alt={""}
+                    className="h-24 w-24 grayscale "
+                  />
+                </div>
+              </div>
             </a>
           ))}
         </div>
@@ -137,7 +156,7 @@ function ProjectSection({ projects }) {
             >
               <h3
                 className=" text-lg lg:text-3xl md:text-2xl font-bold 
-              text-transparent bg-clip-text bg-gradient-to-r 
+              text-transparent bg-clip-text bg-gradient-to-b 
               from-primary to-primary-dark"
               >
                 {project.title}

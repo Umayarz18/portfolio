@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import React from "react";
 export default function Dropdown({ label, items, type }) {
   const router = useRouter();
+
   return (
     <Menu as="div" className="relative inline-block text-left z-50">
       <div className="block">
@@ -46,24 +47,55 @@ export default function Dropdown({ label, items, type }) {
           {items.map((Item) => (
             <div className="px-1 py-1 " key={`link-${Item.title}`}>
               <Menu.Item as={Fragment}>
-                {({ active }) => (
-                  <button
-                    aria-hidden="false"
-                    onClick={(e) => router.push(Item.link)}
-                    className={`${
-                      active
-                        ? "bg-opacity-90 bg-purple-200 text-primary"
-                        : "text-gray-700 dark:text-gray-200"
-                    } group flex rounded-md items-center  font-semibold w-full px-2 py-2 text-sm md:text-md focus:outline-black`}
-                  >
-                    {active ? (
-                      <Item.icon className="w-5 h-5 mr-2" aria-hidden="true" />
-                    ) : (
-                      <Item.icon className="w-5 h-5 mr-2" aria-hidden="true" />
+                {type === "nav-link"
+                  ? ({ active }) => (
+                      <a
+                        href={Item.link}
+                        className={`${
+                          active
+                            ? "bg-opacity-90 bg-purple-200 text-primary"
+                            : "text-gray-700 dark:text-gray-200"
+                        } group flex rounded-md items-center  font-bold 
+                        w-full px-2 py-2 text-sm md:text-base focus:outline-black`}
+                      >
+                        {active ? (
+                          <Item.icon
+                            className="w-5 h-5 mr-2"
+                            aria-hidden="true"
+                          />
+                        ) : (
+                          <Item.icon
+                            className="w-5 h-5 mr-2"
+                            aria-hidden="true"
+                          />
+                        )}
+                        {Item.title}
+                      </a>
+                    )
+                  : ({ active }) => (
+                      <button
+                        aria-hidden="false"
+                        onClick={(e) => router.push(Item.link)}
+                        className={`${
+                          active
+                            ? "bg-opacity-90 bg-purple-200 text-primary"
+                            : "text-gray-700 dark:text-gray-200"
+                        } group flex rounded-md items-center  font-semibold w-full px-2 py-2 text-sm md:text-md focus:outline-black`}
+                      >
+                        {active ? (
+                          <Item.icon
+                            className="w-5 h-5 mr-2"
+                            aria-hidden="true"
+                          />
+                        ) : (
+                          <Item.icon
+                            className="w-5 h-5 mr-2"
+                            aria-hidden="true"
+                          />
+                        )}
+                        {Item.title}
+                      </button>
                     )}
-                    {Item.title}
-                  </button>
-                )}
               </Menu.Item>
             </div>
           ))}

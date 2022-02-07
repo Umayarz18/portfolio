@@ -1,18 +1,22 @@
-import { FiMenu } from "react-icons/fi";
-import Link from "next/dist/client/link";
-import { useState } from "react";
-import Icon from "../public/Icon";
 import Dropdown from "./Dropdown";
-import { ArchiveIcon, CodeIcon } from "@heroicons/react/outline";
-
+import { ArchiveIcon, ClockIcon, CodeIcon } from "@heroicons/react/outline";
+import React from "react";
 const links = [
   { link: "/about", title: "About" },
   { link: "/projects", title: "Projects" },
-  { link: "https://timeline.roewynumayam.com", title: "Timeline" },
-  { link: "/contact", title: "Contact" }
+  { link: "/blog", title: "Blog" },
+  {
+    link: "/contact",
+    title: "Contact"
+  }
 ];
 
 const ResourceItems = [
+  {
+    link: "https://timeline.roewynumayam.com",
+    title: "Timeline",
+    icon: ClockIcon
+  },
   {
     link: "/code-snippets",
     title: "Code Snippets",
@@ -25,7 +29,7 @@ const ResourceItems = [
   }
 ];
 const NavItem = ({ link, title, id }) => (
-  <a href={link} className=" nav-link">
+  <a href={link} className=" nav-link" key={`${title}-top-nav-link`}>
     {title}
   </a>
 );
@@ -43,7 +47,7 @@ export default function NavBar() {
           key={`${item.title}-navlink`}
         />
       ))}
-      <Dropdown label="Resources" items={ResourceItems} type={"nav-link"} />
+      <Dropdown label="Extras" items={ResourceItems} type={"nav-link"} />
     </nav>
   );
 }

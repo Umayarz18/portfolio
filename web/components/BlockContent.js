@@ -23,7 +23,7 @@ const link = (props) => {
 };
 
 const list = (props) => {
-  return <li className="bg-blue-200">{props.children}</li>;
+  return <li className="list-disc">{props.children}</li>;
 };
 const serializers = {
   marks: { link, list },
@@ -69,7 +69,7 @@ const serializers = {
       }
 
       if (listItem === "bullet") {
-        return <li className="uppercase">-{props.children}</li>;
+        return <li className="uppercase list-disc">-{props.children}</li>;
       }
       // Fall back to default handling
       return BlockContent.defaultSerializers.types.block(props);

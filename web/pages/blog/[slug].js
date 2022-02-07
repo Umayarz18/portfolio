@@ -3,35 +3,22 @@ import Tag from "../../components/tag";
 import { groq } from "next-sanity";
 import { getClient } from "../../lib/sanity.server";
 import { urlFor } from "../../lib/sanity";
-import BlockContent from "@sanity/block-content-to-react";
-import { config } from "../../lib/config";
+import BlockContent from "../../components/BlockContent";
 import React from "react";
-export default function Post({ data, Preview }) {
-  const { data: previewData } = usePreviewSubscription(data?.query, {
-    params: data?.queryParams ?? {},
-    // The hook will return this on first render
-    // This is why it's important to fetch *draft* content server-side!
-    initialData: data?.page,
-    // The passed-down preview context determines whether this function does anything
-    enabled: preview,
-  });
-
-  // Client-side uses the same query, so we may need to filter it down again
-  const page = filterDataToSingleItem(previewData, preview);
-
+export default function Post({ page, preview }) {
   const {
     body = "Uh oh, not found?!",
-    color = "#FFFFFF",
-    imageSource = "/logos/Our Anime Rec.svg",
     stack = [],
     title = "Unknown Title?",
-    related_articles = [],
     mainImage,
+    description,
   } = page;
 
   return (
     <Layout
-      pageTitle={`${title} | Roewyn Umayam | Full-Stack Developer & Taekwondo Instructor`}
+      title={`${title}`}
+      image={urlFor(mainImage)}
+      description={description}
     >
       {/** Article Section */}
       <article className="max-w-2xl m-5">
@@ -40,14 +27,14 @@ export default function Post({ data, Preview }) {
           width={200}
           height={200}
           className=" w-full object-cover "
-          alt={mainImage.alt}
+          alt={mainImage.alt ? mainImage.alt : `Cover for ${title}`}
         />
-        <div className="flex flex-row items-center justify-between">
-          <h1 className="text-4xl font-bold dark:text-gray-100 text-gray-900 my-4">
+        <div className="flex flex-row items-center justify-between leading-10">
+          <h1 className="text-4xl lg:text-6xl font-bold dark:text-gray-100 text-gray-900 my-4  h-full">
             {title}
           </h1>
         </div>
-        <div className="prose-2xl dark:prose-dark">
+        <div className="prose prose-lg  md:prose-xl dark:prose-dark">
           <div className=" flex flex-wrap  ">
             {stack.map(({ color, title, _id }) => (
               <Tag key={_id} color={color} title={title} />
@@ -55,12 +42,7 @@ export default function Post({ data, Preview }) {
           </div>
 
           <div className="mx-auto">
-            <BlockContent
-              className=""
-              blocks={body}
-              imageOptions={{ w: 320, h: 240, fit: "max" }}
-              {...config}
-            />
+            <BlockContent body={body} />
           </div>
         </div>
       </article>
@@ -69,19 +51,10 @@ export default function Post({ data, Preview }) {
 }
 
 const query = groq`*[_type == "post" && slug.current == $slug][0]{
-    body,
-    "stack": stack_composition[]->{title, "color": color.hex, _id},
     title,
-    "color": color.hex,
+    description,
     mainImage,
-    imageSource,
-    publishedAt,
-    "related_articles": *[_type == "post" && slug.current != $slug][0 .. 1]{
-      _id,
-      title,
-      "color": color.hex,
-      slug,
-    }
+    body
   }`;
 
 export async function getStaticProps({ params, preview = false }) {
@@ -96,8 +69,7 @@ export async function getStaticProps({ params, preview = false }) {
 
   return {
     // Pass down the "preview mode" boolean to the client-side
-    preview,
-    props: { page, query, queryParams },
+    props: { page },
   };
 }
 

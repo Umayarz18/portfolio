@@ -17,21 +17,6 @@ module.exports = withPWA({
   async redirects() {
     return [
       {
-        source: "/blog/[slug]",
-        destination: "/404", // Matched parameters can be used in the destination
-        permanent: false,
-      },
-      {
-        source: "/projects/[slug]",
-        destination: "/404", // Matched parameters can be used in the destination
-        permanent: false,
-      },
-      {
-        source: "/blog",
-        destination: "/404", // Matched parameters can be used in the destination
-        permanent: false,
-      },
-      {
         source: "/resources",
         destination: "/helpful-links", // Matched parameters can be used in the destination
         permanent: true,

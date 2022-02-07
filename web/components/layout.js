@@ -124,9 +124,9 @@ export default function Layout(props) {
       </Head>
 
       <div
-        className={`flex flex-col min-h-screen justify-start items-center  w-screen bg-gray-100 dark:bg-gray-900 relative `}
+        className={`flex flex-col min-h-screen justify-start items-center w-screen bg-gray-100 bg-gradient-to-r dark:from-gray-900 dark:to-gray-950`}
       >
-        <header className="flex flex-row py-3  w-full max-w-7xl mx-auto">
+        <header className="flex flex-row py-3  w-full max-w-7xl mx-auto sticky top-0 z-50">
           <div
             className=" mx-auto w-full  flex 
           items-center flex-wrap lg:flex-row justify-between px-5 py-2 

@@ -1,8 +1,9 @@
 import Link from "next/link";
+import React from "react";
 const NavItem = ({ link, title, outsideLink }) => (
   <Link href={link}>
     <a
-      target={outsideLink == true ? "_blank" : null}
+      target={outsideLink === true ? "_blank" : null}
       rel="noopener"
       className=" lg:inline-flex lg:w-auto w-full  py-2 rounded 
       text-gray-700 dark:text-gray-200 dark:hover:text-gray-50 
@@ -16,7 +17,7 @@ const NavItem = ({ link, title, outsideLink }) => (
 export default function Footer({ footerLinks }) {
   return (
     <footer className="border-t-2 self-center flex flex-wrap mx-auto   justify-center items-center">
-      <section className=" py-4 flex flex-col lg:flex-row  justify-between items-start space-y-3 w-full ">
+      <section className=" py-4 flex flex-col md:flex-row  justify-between items-start space-y-3 w-full ">
         <div className="flex-row flex justify-between w-full  md:w-1/2 p-2 min-w-min">
           {footerLinks.map((column, index) => (
             <section
@@ -34,7 +35,7 @@ export default function Footer({ footerLinks }) {
             </section>
           ))}
         </div>
-        <div className=" flex flex-wrap justify-center items-center w-3/4 md:w-1/2 mx-auto">
+        <div className=" flex flex-wrap justify-center items-center w-full md:w-1/2 mx-auto">
           <section className="flex flex-wrap  gap-3 items-start  justify-center md:justify-end mx-auto">
             <a
               className="bg-gray-200 dark:bg-gray-100 p-2 px-3 rounded text-xs text-gray-700"

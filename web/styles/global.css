@@ -23,7 +23,7 @@ button:active {
 
 .btn {
   @apply text-center text-white;
-  @apply bg-gradient-to-r from-primary to-primary-dark;
+  @apply bg-gradient-to-b from-primary to-primary-dark;
   @apply rounded-lg py-2 px-3 self-center hover:from-primary-dark;
   @apply transition duration-300 ease-in-out;
   @apply focus:border-primary-dark;
@@ -32,7 +32,7 @@ button:active {
 .btn-secondary {
   @apply border-4 border-primary text-center text-primary;
   @apply font-bold hover:bg-primary hover:text-white;
-  @apply rounded-lg self-center  py-2 px-3 transition duration-300 ease-in-out;
+  @apply rounded-lg self-center py-2 px-3 transition duration-300 ease-in-out;
 }
 
 .icon-btn {
@@ -44,8 +44,9 @@ button:active {
 }
 
 .badge {
-  @apply rounded-xl  py-2 text-primary bg-blue-300 grid justify-center m-2;
+  @apply rounded-xl py-2 text-primary bg-blue-300 grid justify-center m-2;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -53,33 +54,32 @@ html {
 .progress-outer {
   @apply overflow-hidden min-h-full text-xs flex rounded bg-purple-200;
 }
+
 .progress-inner {
-  @apply flex flex-col text-center whitespace-nowrap
-text-white justify-center font-bold  bg-gradient-to-r from-primary to-primary-dark;
+  @apply flex flex-col text-center whitespace-nowrap text-white;
+  @apply justify-center font-bold bg-gradient-to-r from-primary to-primary-dark;
 }
 
 a.link {
   @apply font-medium;
-  @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark;
-  @apply hover:from-primary-dark  transition duration-500 ease-in-out;
+  @apply text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary-dark;
+  @apply hover:from-primary-dark transition duration-500 ease-in-out;
+  @apply dark:hover:from-primary underline dark:to-primary dark:from-primary-dark;
 }
 
 .nav-link {
-  @apply md:inline-flex md:w-auto w-full px-3 py-1 rounded 
-  hover:text-primary text-gray-700 dark:text-gray-200 
-  dark:hover:text-primary  dark:hover:bg-opacity-90 font-bold 
-  items-center justify-center hover:bg-purple-200;
+  @apply md:inline-flex md:w-auto w-full px-3 py-1 rounded hover:text-primary;
+  @apply text-gray-700 dark:text-gray-200 dark:hover:text-primary;
+  @apply dark:hover:bg-opacity-90 font-bold items-center justify-center hover:bg-purple-200;
 }
 
-.dropdown-btn-nav-link {
-}
+/**.dropdown-btn-nav-link {}*/
 
 .dropdown-btn-primary {
-  @apply md:inline-flex md:w-auto w-full px-3 py-1 rounded 
-  hover:text-primary text-gray-700 dark:text-gray-200 
-  dark:hover:text-primary  dark:hover:bg-opacity-90 font-bold 
-  items-center justify-center hover:bg-purple-200;
+  @apply md:inline-flex md:w-auto w-full px-3 py-1 rounded;
+  @apply hover:text-primary text-gray-700 dark:text-gray-200;
+  @apply dark:hover:text-primary dark:hover:bg-opacity-90 font-bold;
+  @apply items-center justify-center hover:bg-purple-200;
 }
 
-.dropdown-btn {
-}
+/**.dropdown-btn {}*/

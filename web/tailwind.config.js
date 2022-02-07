@@ -7,6 +7,7 @@ module.exports = {
       colors: {
         primary: "#776CBD",
         "primary-dark": "#4C36D3",
+        "gray-950": "#292A2E",
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -18,20 +19,22 @@ module.exports = {
             code: {
               "overflow-x": "scoll",
             },
-            a: {
-              color: theme("colors.purple.500"),
-              "&:hover": {
-                color: theme("colors.purple.600"),
+            ol: {
+              li: {
+                color: theme("colors.gray.600"),
+                listStyleType: theme("listStyleType.disc"),
               },
-              code: { color: theme("colors.blue.400") },
             },
+            ul: {
+              li: {
+                color: theme("colors.gray.600"),
+              },
+            },
+
             //"h2,h3,h4": {},
             thead: {
               borderBottomColor: theme("colors.gray.200"),
             },
-            code: { color: theme("colors.pink.500") },
-            "blockquote p:first-of-type::before": false,
-            "blockquote p:last-of-type::after": false,
           },
         },
         dark: {
@@ -40,13 +43,6 @@ module.exports = {
               color: theme("colors.gray.300"),
             },
             color: theme("colors.gray.300"),
-            a: {
-              color: theme("colors.purple.400"),
-              "&:hover": {
-                color: theme("colors.purple.500"),
-              },
-              code: { color: theme("colors.purple.400") },
-            },
             blockquote: {
               borderLeftColor: theme("colors.gray.700"),
               color: theme("colors.gray.300"),
