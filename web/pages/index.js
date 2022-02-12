@@ -74,7 +74,7 @@ function SkillSection({ tags }) {
       max-w-2xl  lg:mx-auto m-5 my-24 lg:my-36"
     >
       <div className="flex-1 mt-4 w-full self-center">
-        <div className="grid gap-3  justify-between   grid-col-2 lg:gap-x-0 md:grid-cols-2 lg:grid-cols-3 ">
+        <div className="grid mx-auto  place-items-center   grid-cols-1 lg:gap-x-0 md:grid-cols-2 lg:grid-cols-3 ">
           {tags.map(tag => (
             <a
               href={tag.link}

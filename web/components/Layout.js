@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import { FiMenu } from "react-icons/fi";
-import NavBar from "./navbar";
+import NavBar from "./NavBar";
 import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
@@ -163,9 +163,8 @@ export default function Layout(props) {
 
             {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
             <div
-              className={`${
-                active ? "" : "hidden"
-              }   w-full md:inline-flex flex-initial md:w-auto `}
+              className={`${active ? "" : "hidden"
+                }   w-full md:inline-flex flex-initial md:w-auto `}
             >
               <div className="md:inline-flex md:flex-row md:ml-12 md:w-auto w-full md:items-center items-start  flex flex-col md:h-auto' ">
                 <div className="md:inline-flex md:flex-row md:ml-auto md:w-auto w-full md:items-center items-start  flex flex-col md:h-auto">
