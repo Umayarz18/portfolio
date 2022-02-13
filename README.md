@@ -27,13 +27,14 @@ This codebase was made with inspiration and code from the following sources:
 
 This website was made with several packages, frameworks, and tools that were put in to try out different concepts in web development:
 
-- `Next.js`:
-- `Sanity.io`:
-- `Typescript`:
-- `TailwindCSS`:
-- `Github Actions`:
-- `Husky`:
-- `ESLint`:
-- `lint-staged`;
-- `prettier`: -`Splitbee.io`:
+- `Next.js`: A React framework best for SEO, performance, and developer experience with React
+- `Sanity.io`: A Headless CMS that gives you freedom to structure Content in a configured interface
+- `Typescript`: Helps make code consistent and eliminate bugs before they can happen
+- `TailwindCSS`: A utility CSS framework to make Responsiveness + Styling nicer
+- `Github Actions`: To (eventually) automate testing + MISC tasks for Continuous Integration
+- `Husky`: Helps check code for formatting and linting with git hooks
+- `ESLint`: Stop bugs, problems, and enforce code style
+- `lint-staged`: Makes sure code follows our format before commits are made
+- `prettier`: Code formatting for consistency
+- `Splitbee.io`: Web analytics
 - Soon to be `Jest`, `Algolia`
