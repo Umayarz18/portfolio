@@ -10,7 +10,7 @@ import React from 'react';
 
 export default function Post(props) {
     const router = useRouter();
-    let { slug } = router.query;
+    const { slug } = router.query;
     const {
         projectBreakdown = 'Uh oh, not found?!',
         technologies = [],

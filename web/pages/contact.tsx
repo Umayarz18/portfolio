@@ -1,5 +1,5 @@
-import Layout from '../components/layout';
-import React from 'react';
+import Layout from '../components/Layout';
+import React, { Fragment } from 'react';
 import { useRouter } from 'next/router';
 
 export default function Contact() {
@@ -9,7 +9,7 @@ export default function Contact() {
     const formVisible = !confirmationScreenVisible;
 
     const ConfirmationMessage = (
-        <React.Fragment>
+        <Fragment>
             <p className='max-w-2xl m-5 md:m-0 text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5'>
                 Thank you for submitting this form. I should get back to you
                 within 24-48 hours.
@@ -24,7 +24,7 @@ export default function Contact() {
                     Submit Another Response
                 </button>
             </div>
-        </React.Fragment>
+        </Fragment>
     );
     return (
         <Layout

@@ -4,7 +4,7 @@ import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 type MarkupContentProps = {
-    body: never;
+    body: any;
 };
 
 export default function MarkupContent({ body }: MarkupContentProps) {

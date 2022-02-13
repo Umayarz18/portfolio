@@ -8,7 +8,7 @@ import BlockContent from '../../components/BlockContent';
 import React from 'react';
 export default function Post(props) {
     const router = useRouter();
-    let { slug } = router.query;
+    const { slug } = router.query;
     const {
         body = 'Uh oh, not found?!',
         title = 'Unknown Title?',

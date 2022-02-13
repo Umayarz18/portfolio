@@ -24,7 +24,7 @@ export default function Post({ page, preview }) {
             {/** Article Section */}
             <article className='max-w-2xl m-5'>
                 <img
-                    src={urlFor(mainImage)}
+                    src={urlFor(mainImage).url()}
                     width={200}
                     height={200}
                     className=' w-full object-cover '
