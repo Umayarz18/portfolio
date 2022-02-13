@@ -4,12 +4,20 @@ on:
     branches: [main]
 jobs:
   sanity-deploy:
-    runs-on: ubuntu-18.04
-    name: Deploy Sanity
+    name: Build & Deploy Sanity Studio
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: sanity-io/github-action-sanity@v0.2-alpha
-        env:
-          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
         with:
-          args: deploy
+          node-version: '17.x'
+      - name: Install Project Dependencies
+        run: npm ci
+        working-directory: studio
+      - name: Install Sanity CLI
+        run: npm install -g @sanity/cli
+      - name: Deploy Studio
+        run: sanity deploy
+        working-directory: studio 
