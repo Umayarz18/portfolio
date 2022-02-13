@@ -1,0 +1,17 @@
+Feel free to use this code for inspiration and a resource for building your own
+projects.
+
+I have intentionally overengineered my site to be a reference for up-and-coming
+developers to explore a codebase with different parts (linting, components, using a Headless CMS, git hooks, etc.).
+
+If you use this code, please acknowledge this source and help pay it forward by
+helping other developers along with their journeys.
+
+This codebase was made with inspiration and code from the following sources:
+
+- Lee Robinson
+- Julia Tan
+- TailwindUI Components
+- HeadlessUI Components
+- The countless developers in the community that helped make the packages and
+  frameworks my site was made possible with.
