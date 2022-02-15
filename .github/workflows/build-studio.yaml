@@ -9,20 +9,18 @@ jobs:
     name: Build & Deploy Sanity Studio
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-      - name: Install Node.js
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
         with:
-          node-version: '17.x'
-      - name: Install Project Dependencies
-        run: npm install
-        working-directory: studio
-      - name: Install Sanity CLI
-        run: npm install -g @sanity/cli
-      - name: Deploy Studio
+          node-version: 12.x
+      - name: Install dependencies
+        run: |
+          cd studio
+          npm install
+          npm install @sanity/cli
+      - name: Deploy Sanity Studio
         run: |
           set -e
           cd studio
-          SANITY_AUTH_TOKEN="${{ secrets.SANITY_UTH_TOKEN }}" npx sanity deploy
-        working-directory: studio 
+          SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" npx sanity deploy
