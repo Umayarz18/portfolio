@@ -2,6 +2,8 @@ name: Build && Deploy Sanity Studio
 on:
   push:
     branches: [main]
+    paths-ignore: 
+      - "./web/**"
 jobs:
   sanity-deploy:
     name: Build & Deploy Sanity Studio
@@ -19,5 +21,8 @@ jobs:
       - name: Install Sanity CLI
         run: npm install -g @sanity/cli
       - name: Deploy Studio
-        run: sanity deploy
+        run: |
+          set -e
+          cd studio
+          SANITY_AUTH_TOKEN="${{ secrets.SANITY_UTH_TOKEN }}" npx sanity deploy
         working-directory: studio 
