@@ -5,31 +5,9 @@ export default {
   type: "document",
   fields: [
     {
-      title: "Project Title",
-      name: "title",
-      type: "string"
-    },
-    {
-      title: "Slug",
-      name: "slug",
-      type: "slug",
-      options: {
-        source: "title",
-        maxLength: 96
-      }
-    },
-    {
-      title: "SEO Description",
-      name: "description",
-      type: "text"
-    },
-    {
-      title: "SEO Image",
-      name: "image",
-      type: "image",
-      options: {
-        hotspot: true
-      }
+      name: "seoContent",
+      title: "SEO Content",
+      type: "seo"
     },
     {
       title: "Project Image",
@@ -61,8 +39,8 @@ export default {
   ],
   preview: {
     select: {
-      title: "title",
-      description: "description",
+      title: "seoContent.title",
+      description: "seoContent.description",
       image: "projectImage"
     },
     prepare({ title, description, image }) {

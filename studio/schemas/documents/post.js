@@ -4,33 +4,9 @@ export default {
   type: "document",
   fields: [
     {
-      name: "title",
-      title: "Title",
-      type: "string"
-    },
-    {
-      name: "color",
-      title: "Color",
-      type: "color"
-    },
-    {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: {
-        source: "title",
-        maxLength: 96
-      }
-    },
-    {
-      name: "description",
-      title: "Description",
-      type: "text"
-    },
-    {
-      name: "imageSource",
-      title: "Image Source",
-      type: "string"
+      name: 'seoContent',
+      title: 'SEO Content',
+      type: 'seo'
     },
     {
       name: "author",
@@ -66,7 +42,7 @@ export default {
 
   preview: {
     select: {
-      title: "title",
+      title: "seoContent.title",
       author: "author.name",
       media: "mainImage"
     },

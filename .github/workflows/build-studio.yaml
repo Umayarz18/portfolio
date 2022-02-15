@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: '17.x'
       - name: Install Project Dependencies
-        run: npm ci
+        run: npm install
         working-directory: studio
       - name: Install Sanity CLI
         run: npm install -g @sanity/cli
