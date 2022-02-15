@@ -4,34 +4,28 @@ import { Tag } from '../../components/Tag';
 import { groq } from 'next-sanity';
 import { getClient } from '../../lib/sanity.server';
 import { urlFor } from '../../lib/sanity';
-import BlockContent from '@sanity/block-content-to-react';
-import { useRouter } from 'next/router';
+import BlockContent from '../../components/BlockContent';
 import React from 'react';
 
 export default function Post(props) {
-    const router = useRouter();
-    const { slug } = router.query;
     const {
         projectBreakdown = 'Uh oh, not found?!',
         technologies = [],
-        title = 'Unknown Title?',
-        description,
-        image,
+        seo,
         links,
     } = props;
 
     return (
         <Layout
-            title={`${title}: Project Overview - Roewyn Umayam`}
-            cannonical={`/projects/${slug}`}
-            description={description}
-            image={urlFor(image)}
+            title={`${seo.title}: Project Overview - Roewyn Umayam`}
+            description={seo.description}
+            image={urlFor(seo.ogImage).url()}
         >
             {/** Article Section */}
             <article className='max-w-2xl m-5'>
                 <div className='flex flex-row items-center justify-between'>
                     <h1 className='text-4xl lg:text-6xl font-semibold dark:text-gray-100 text-gray-900 mb-4'>
-                        {title}: Project Overview
+                        {seo.title}: Project Overview
                     </h1>
                 </div>
                 <div className='prose prose-lg  md:prose-xl dark:prose-dark'>
@@ -46,14 +40,13 @@ export default function Post(props) {
                                 className='link  lg:text-2xl hover:underline font-extrabold'
                                 key={_id}
                                 href={source}
-                                title={title}
                             >
                                 {label}
                             </a>
                         ))}
                     </div>
                     <div className=''>
-                        <BlockContent blocks={projectBreakdown} />
+                        <BlockContent body={projectBreakdown} />
                     </div>
                 </div>
             </article>
@@ -61,8 +54,9 @@ export default function Post(props) {
     );
 }
 
-const query = groq`*[_type == "project" && slug.current == $slug][0]{
+const query = groq`*[_type == "project" && seoContent.slug.current == $slug][0]{
     ...,
+    "seo":seoContent,
     "technologies": technologies[]->{title, "color": color.hex, _id},
     links,
   }`;
@@ -81,7 +75,7 @@ export async function getStaticProps({ params, preview = false }) {
 export async function getStaticPaths() {
     // Call an external API endpoint to get projects
     const projects = await getClient().fetch(groq`*[_type=="project"]{
-    slug    
+        "slug": seoContent.slug   
   }`);
     // Get the paths we want to pre-render based on projects
     const paths = projects.map((project) => ({

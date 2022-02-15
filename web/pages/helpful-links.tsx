@@ -25,26 +25,17 @@ export default function Resources({ notes }: any) {
                 </section>
 
                 <section className='grid grid-cols-1  gap-2 lg:gap-x-4 m-5 md:m-0'>
-                    {notes.map(({ title, description, link, image, tags }) => (
-                        <section
+                    {notes.map(({ title, description, link, tags }) => (
+                        <a
+                            href={link}
                             key={`note-${title}`}
                             className='text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5'
+                            target='_blank'
+                            rel='noreferrer'
                         >
-                            <a
-                                href={link}
-                                target='_blank'
-                                className='flex flex-col lg:flex-row justify-start dark:bg-gray-900 
-              bg-gray-200  py-4 px-2   rounded  border-gray-400 border-2 
-              dark:border-gray-700 self-center lg:h-52 h-full'
-                                rel='noreferrer'
-                            >
-                                <img
-                                    className=' h-44 w-full lg:w-56 bg-blue-400 rounded mb-2'
-                                    src={image}
-                                    alt={`Screenshot of the homepage of ${title}`}
-                                />
-                                <div className='flex lg:ml-4 flex-col justify-center'>
-                                    <h3 className='dark:text-gray-200 font-bold text-gray-700 text-md lg:text-lg'>
+                            <div className='overflow-hidden  rounded-xl h-90 md:w-full cursor-pointer md:m-auto group '>
+                                <div className=' w-full text-lg'>
+                                    <h3 className=' text-2xl font-semibold mb-2 ease-in-out group-hover:underline text-gray-700 dark:text-gray-200'>
                                         {title}
                                     </h3>
                                     <div className='flex my-1 '>
@@ -56,12 +47,12 @@ export default function Resources({ notes }: any) {
                                             />
                                         ))}
                                     </div>
-                                    <p className='text-sm text-gray-600 dark:text-gray-400'>
+                                    <p className='text-gray-600 dark:text-gray-400 text-md mb-2'>
                                         {description}
                                     </p>
                                 </div>
-                            </a>
-                        </section>
+                            </div>
+                        </a>
                     ))}
                 </section>
             </div>
@@ -76,7 +67,6 @@ export async function getStaticProps() {
             description:
                 'Wave is a free and amazing accessibilty tool for your websites. Just drop in your link and find out what areas to improve on in your sites to make them more accessible.',
             link: 'https://wave.webaim.org/',
-            image: '/images/wave.png',
             tags: [
                 { title: 'Accessibility', color: '#125E8A' },
                 { title: 'Websites', color: '#363457' },
@@ -87,7 +77,6 @@ export async function getStaticProps() {
             description:
                 'Coolors.co is an awesome color generate to helps make choosing colors simple and a bit more fun :)',
             link: 'https://coolors.co/',
-            image: '/images/coolors.png',
             tags: [
                 { title: 'Design', color: '#7D83FF' },
                 { title: 'Colors', color: '#426B69' },

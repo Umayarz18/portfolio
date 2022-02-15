@@ -4,7 +4,7 @@ import groq from 'groq';
 import React from 'react';
 import { getClient } from '../lib/sanity.server';
 import { urlFor } from '../lib/sanity';
-import { ProjectCard } from '../components/ProjectCard';
+import { SkillCard } from '../components/SkillCard';
 
 export default function Home({ content }: any) {
     const featuredProjects = content.featuredProjects;
@@ -68,39 +68,13 @@ function SkillSection({ tags }: any) {
         >
             <div className='flex-1 mt-4 w-full self-center'>
                 <div className='grid mx-auto  place-items-center grid-cols-1 lg:gap-x-0 md:grid-cols-2 lg:grid-cols-3 '>
-                    {tags.map((tag) => (
-                        <a
-                            href={tag.link}
-                            target='_blank'
-                            key={tag._id}
-                            rel='noopener noreferrer'
-                            className='h-64 w-64 md:h-48 md:w-48 
-             rounded  
-              transition duration-300 ease-in-out group
-              focus:ring-primary-dark focus:ring-2 focus:outline-none  m-3'
-                        >
-                            <div
-                                className=' rounded flex place-content-start h-full w-full 
-              bg-gradient-to-r p-0.5 from-primary to-primary-dark'
-                            >
-                                <div
-                                    className='justify-center  w-full p-4 items-center flex flex-col-reverse dark:bg-gray-400
-              bg-gray-200'
-                                >
-                                    <h3
-                                        className=' mt-4 text-lg font-bold dark:group-hover:text-primary-dark group-hover:text-primary
-                transition duration-300 ease-in-out group'
-                                    >
-                                        {tag.title}
-                                    </h3>
-                                    <img
-                                        src={urlFor(tag.image).url()}
-                                        alt={''}
-                                        className='h-24 w-24 grayscale '
-                                    />
-                                </div>
-                            </div>
-                        </a>
+                    {tags.map(({ title, image, link, _id }) => (
+                        <SkillCard
+                            title={title}
+                            image={image}
+                            link={link}
+                            key={_id}
+                        />
                     ))}
                 </div>
             </div>
@@ -150,10 +124,10 @@ function ProjectSection({ projects }: any) {
               text-transparent bg-clip-text bg-gradient-to-b 
               from-primary to-primary-dark'
                             >
-                                {project.title}
+                                {project.seo.title}
                             </h3>
                             <p className='text-gray-600 dark:text-gray-300 font-normal text-md md:text-xl mr-4'>
-                                {project.description}
+                                {project.seo.description}
                             </p>
                             <a
                                 className='border-gray-400 border-2 dark:border-gray-700 
@@ -161,7 +135,7 @@ function ProjectSection({ projects }: any) {
                 hover:bg-gray-400 text-gray-800
                 text-center py-1 px-3 font-medium'
                                 data-splitbee-event='CTA To Highlighted Project'
-                                href={`/projects/${project.slug.current}`}
+                                href={`/projects/${project.seo.slug.current}`}
                             >
                                 Project Breakdown
                             </a>
@@ -169,45 +143,6 @@ function ProjectSection({ projects }: any) {
                     </article>
                 ))}
             </section>
-            <h2
-                className='font-bold text-center dark:text-gray-100  t
-      ext-gray-900 text-2xl md:text-3xl lg:text-4xl mt-16 lg:mt-24'
-            >
-                Featured Projects
-            </h2>
-            <p className='text-center  m-5 text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl'>
-                {' '}
-                If you need more samples, you can always view{' '}
-                <a className='link' href='/projects'>
-                    my project list
-                </a>
-                .
-            </p>
-            <div className='grid grid-cols-1 grid-rows-1 md:grid-cols-3 justify-center gap-3'>
-                <ProjectCard
-                    title='Sprout'
-                    description='An e-learning platform designed to teach high school students personal finance through short articles, quizzes, and activites to better prepare them for adulthood.'
-                    color='#2FC06B'
-                    logo='/logos/sprout-logo.svg'
-                    link='https://sprout-learning.vercel.app/'
-                />
-
-                <ProjectCard
-                    title='DEISphere'
-                    description='An event conference website set for the University of Washington Bothell Beta Alpha Psi meant to bring attention to diversity and inclusion in the accounting field.'
-                    color='#4B2E83'
-                    link='https://www.deisphere.com/'
-                    logo='/logos/DEISphere.svg'
-                />
-
-                <ProjectCard
-                    title='Our-Anime-Rec'
-                    description='A Django website made for a group Database Systems course that allows users to see titles of anime, manga, and light novels as well as reviews.'
-                    color='#0E87A1'
-                    link='https://our-anime-rec.herokuapp.com/'
-                    logo='/logos/OurAnimeRec.svg'
-                />
-            </div>
         </section>
     );
 }
@@ -242,16 +177,13 @@ export async function getStaticProps() {
       *[_type=="project" || _type == "tag"][0]{
         "featuredTags":*[_type=="tag" && isFeatured == true]{
         _id,
-        'color': color.hex,
         image,
         title,
         link
         }	,
         "featuredProjects": *[_type=="project" && isFeatured == true]{
-          description,
+          "seo":seoContent,
           projectImage,
-          slug,
-          title,
           _id
         }
       }`

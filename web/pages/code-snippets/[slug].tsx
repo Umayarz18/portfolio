@@ -16,10 +16,7 @@ export default function Post(props) {
     } = props;
 
     return (
-        <Layout
-            title={`${title} - Code Snippets - Roewyn Umayam `}
-            cannonical={`/code-snippets/${slug}`}
-        >
+        <Layout title={`${title} - Code Snippets - Roewyn Umayam `}>
             {/** Article Section */}
             <article className='lg:max-w-2xl m-5 md:mx-auto'>
                 <div className='flex flex-row items-center justify-between'>

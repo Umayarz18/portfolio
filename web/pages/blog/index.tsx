@@ -37,7 +37,7 @@ export default function Blog({ posts }) {
                         All Posts
                     </h2>
                     {posts.map((post) => (
-                        <BlogCard key={post.id} data={post} />
+                        <BlogCard key={post.id} data={post.seo} />
                     ))}
                 </section>
             </div>
@@ -49,7 +49,11 @@ export async function getStaticProps() {
     const posts = await getClient()
         .fetch(
             groq`
-  *[_type == "post"]`
+  *[_type == "post"]{"seo":seoContent{
+      title,
+      slug,
+      description,
+  }}`
         )
         .catch((error) => {
             console.log(error);

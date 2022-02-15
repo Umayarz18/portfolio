@@ -7,39 +7,38 @@ import { urlFor } from '../../lib/sanity';
 import BlockContent from '../../components/BlockContent';
 import React from 'react';
 export default function Post({ page, preview }) {
-    const {
-        body = 'Uh oh, not found?!',
-        stack = [],
-        title = 'Unknown Title?',
-        mainImage,
-        description,
-    } = page;
+    const { body, seo, stack } = page;
 
     return (
         <Layout
-            title={`${title}`}
-            image={urlFor(mainImage)}
-            description={description}
+            title={`${seo.title}`}
+            image={urlFor(seo.ogImage).url}
+            description={seo.description}
         >
             {/** Article Section */}
             <article className='max-w-2xl m-5'>
                 <img
-                    src={urlFor(mainImage).url()}
+                    src={urlFor(seo.ogImage).url()}
                     width={200}
                     height={200}
                     className=' w-full object-cover '
-                    alt={mainImage.alt ? mainImage.alt : `Cover for ${title}`}
+                    alt={
+                        seo.ogImage.alt
+                            ? seo.ogImage.alt
+                            : `Cover for ${seo.title}`
+                    }
                 />
                 <div className='flex flex-row items-center justify-between leading-10'>
                     <h1 className='text-4xl lg:text-6xl font-bold dark:text-gray-100 text-gray-900 my-4  h-full'>
-                        {title}
+                        {seo.title}
                     </h1>
                 </div>
                 <div className='prose prose-lg  md:prose-xl dark:prose-dark'>
                     <div className=' flex flex-wrap  '>
-                        {stack.map(({ color, title, _id }) => (
-                            <Tag key={_id} color={color} title={title} />
-                        ))}
+                        {stack &&
+                            stack.map(({ color, title, _id }) => (
+                                <Tag key={_id} color={color} title={title} />
+                            ))}
                     </div>
 
                     <div className='mx-auto'>
@@ -51,10 +50,9 @@ export default function Post({ page, preview }) {
     );
 }
 
-const query = groq`*[_type == "post" && slug.current == $slug][0]{
-    title,
-    description,
-    mainImage,
+const query = groq`*[_type == "post" && seoContent.slug.current == $slug][0]{
+    "seo":seoContent,
+    stack,
     body
   }`;
 
@@ -77,7 +75,7 @@ export async function getStaticProps({ params, preview = false }) {
 export async function getStaticPaths() {
     // Call an external API endpoint to get posts
     const posts = await getClient().fetch(groq`*[_type=="post"]{
-    slug
+       "slug": seoContent.slug 
   }`);
 
     // Get the paths we want to pre-render based on posts
