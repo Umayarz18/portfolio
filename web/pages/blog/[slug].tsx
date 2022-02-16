@@ -12,7 +12,7 @@ export default function Post({ page, preview }) {
     return (
         <Layout
             title={`${seo.title}`}
-            image={urlFor(seo.ogImage).url}
+            image={urlFor(seo.ogImage).url()}
             description={seo.description}
         >
             {/** Article Section */}
