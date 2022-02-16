@@ -17,17 +17,6 @@ export default function Post({ page, preview }) {
         >
             {/** Article Section */}
             <article className='max-w-2xl m-5'>
-                <img
-                    src={urlFor(seo.ogImage).url()}
-                    width={200}
-                    height={200}
-                    className=' w-full object-cover '
-                    alt={
-                        seo.ogImage.alt
-                            ? seo.ogImage.alt
-                            : `Cover for ${seo.title}`
-                    }
-                />
                 <div className='flex flex-row items-center justify-between leading-10'>
                     <h1 className='text-4xl lg:text-6xl font-bold dark:text-gray-100 text-gray-900 my-4  h-full'>
                         {seo.title}
