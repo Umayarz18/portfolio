@@ -4,7 +4,6 @@ import S from "@sanity/desk-tool/structure-builder";
 import Iframe from "sanity-plugin-iframe-pane";
 import SocialPreview from "part:social-preview/component";
 import resolveProductionUrl from "./resolveProductionUrl";
-
 export const getDefaultDocumentNode = ({ schemaType }) => {
   if (["post", "project", "codeSnippet"].includes(schemaType)) {
     return S.document().views([
@@ -15,7 +14,17 @@ export const getDefaultDocumentNode = ({ schemaType }) => {
           url: doc => resolveProductionUrl(doc)
         })
         .title("Preview"),
-      S.view.component(SocialPreview({})).title("Social & SEO")
+      S.view.component(SocialPreview({
+        prepareFunction: (
+          { seoContent } /* this object is the currently active document */,
+        ) => ({
+          title: seoContent.title,
+          description: seoContent?.description,
+          ogImage: seoContent.ogImage,
+          siteUrl: 'https://roewynumayam.com',
+          slug: '/' + seoContent.slug.current || '/'
+        }),
+      })).title("Social & SEO")
     ]);
   }
   return S.document().views([S.view.form()]);
