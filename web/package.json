@@ -35,7 +35,7 @@
         "@typescript-eslint/parser": "^5.11.0",
         "autoprefixer": "^10.2.6",
         "eslint": "^8.9.0",
-        "eslint-plugin-react": "^7.28.0",
+        "eslint-plugin-react": "^7.29.2",
         "husky": "^7.0.4",
         "lint-staged": "^12.3.3",
         "postcss": "^8.3.5",
