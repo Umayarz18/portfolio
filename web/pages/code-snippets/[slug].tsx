@@ -24,17 +24,19 @@ export default function Post(props) {
                         {title}
                     </h1>
                 </div>
-                <div className='flex flex-wrap my-4'>
-                    {tags.map((tag) => (
-                        <Tag
-                            key={tag._id}
-                            color={tag.color}
-                            title={tag.title}
-                        />
-                    ))}
-                </div>
-                <div className=' mx-auto '>
-                    <BlockContent body={body} />
+                <div className='prose prose-lg  md:prose-xl dark:prose-dark'>
+                    <div className='flex flex-wrap my-4'>
+                        {tags.map((tag) => (
+                            <Tag
+                                key={tag._id}
+                                color={tag.color}
+                                title={tag.title}
+                            />
+                        ))}
+                    </div>
+                    <div className=' mx-auto '>
+                        <BlockContent body={body} />
+                    </div>
                 </div>
             </article>
         </Layout>

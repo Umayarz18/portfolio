@@ -41,7 +41,9 @@ export default function Post({ page, preview }) {
 
 const query = groq`*[_type == "post" && seoContent.slug.current == $slug][0]{
     "seo":seoContent,
-    stack,
+    "stack": stack_composition[]-> {
+        title, "color": color.hex, _id,
+    },
     body
   }`;
 

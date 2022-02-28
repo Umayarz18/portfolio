@@ -12,7 +12,6 @@ export default function MarkupContent({ body }: MarkupContentProps) {
         <BlockContent
             className=''
             blocks={body}
-            imageOptions={{ w: 320, h: 240, fit: 'max' }}
             serializers={serializers}
             {...config}
         />
@@ -30,12 +29,21 @@ const link = (props) => {
 const list = (props) => {
     return <li className='list-disc'>{props.children}</li>;
 };
+
+const code = (props) => {
+    return (
+        <span className='text-base lg:text-lg font-mono bg-gray-300 text-gray-950 rounded px-1'>
+            {props.children}
+        </span>
+    );
+};
+
 const serializers = {
-    marks: { link, list },
+    marks: { link, list, code },
     types: {
         code: (props) => (
             <div
-                className='rounded border 
+                className='not-prose rounded border 
       border-gray-200 bg-gray-200 dark:border-gray-700 dark:bg-gray-800
       text-sm lg:text-md max-w-xs md:max-w-xl lg:max-w-2xl mx-auto mb-6'
             >
@@ -44,12 +52,12 @@ const serializers = {
                     data-language={props.node.language}
                 >
                     {props.node.filename && (
-                        <p
+                        <div
                             className=' dark:bg-gray-700 bg-gray-300 text-gray-700 
                 dark:text-gray-200 font-bold mx-auto p-2'
                         >
                             {props.node.filename}
-                        </p>
+                        </div>
                     )}
                     <div className='overflow-x-scroll p-2'>
                         <SyntaxHighlighter
