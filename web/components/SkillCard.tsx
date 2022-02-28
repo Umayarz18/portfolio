@@ -15,28 +15,18 @@ export const SkillCard = ({ title, image, link }: SkillCardProps) => (
         href={link}
         target='_blank'
         rel='noopener noreferrer'
-        className='h-64 w-64 md:h-48 md:w-48 rounded transition duration-300 ease-in-out group focus:ring-primary-dark focus:ring-2 focus:outline-none  m-3'
+        className=' h-48 w-48 md:h-32 md:w-32 rounded group focus:ring-primary-dark focus:ring-2 focus:outline-none  m-5 justify-center p-4 items-center flex flex-col-reverse '
     >
-        <div
-            className=' rounded flex place-content-start h-full w-full 
-              bg-gradient-to-r p-0.5 from-primary to-primary-dark'
+        <h3
+            className=' mt-4 text-lg font-bold dark:group-hover:text-primary-dark group-hover:text-primary
+                transition duration-300 ease-in-out group text-center'
         >
-            <div
-                className='justify-center  w-full p-4 items-center flex flex-col-reverse dark:bg-gray-400
-              bg-gray-200'
-            >
-                <h3
-                    className=' mt-4 text-lg font-bold dark:group-hover:text-primary-dark group-hover:text-primary
-                transition duration-300 ease-in-out group'
-                >
-                    {title}
-                </h3>
-                <img
-                    src={urlFor(image).url()}
-                    alt={''}
-                    className='h-32 w-32 md:h-16 md:w-16 grayscale '
-                />
-            </div>
-        </div>
+            {title}
+        </h3>
+        <img
+            src={urlFor(image).url()}
+            alt={''}
+            className='h-32 w-32 md:h-16 md:w-16 '
+        />
     </a>
 );
