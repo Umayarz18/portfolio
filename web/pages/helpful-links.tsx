@@ -1,6 +1,8 @@
 import Layout from '../components/Layout';
 import { Tag } from '../components/Tag';
 import React from 'react';
+import { getClient } from '../lib/sanity.server';
+import { groq } from 'next-sanity';
 export default function Resources({ notes }: any) {
     return (
         <Layout
@@ -25,10 +27,10 @@ export default function Resources({ notes }: any) {
                 </section>
 
                 <section className='grid grid-cols-1  gap-2 lg:gap-x-4 m-5 md:m-0'>
-                    {notes.map(({ title, description, link, tags }) => (
+                    {notes.map(({ title, description, link, tags, _id }) => (
                         <a
                             href={link}
-                            key={`note-${title}`}
+                            key={_id}
                             className='text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl my-5'
                             target='_blank'
                             rel='noreferrer'
@@ -39,13 +41,14 @@ export default function Resources({ notes }: any) {
                                         {title}
                                     </h3>
                                     <div className='flex my-1 '>
-                                        {tags.map(({ title, color }) => (
-                                            <Tag
-                                                title={title}
-                                                color={color}
-                                                key={`${title}-tag-helpful-link`}
-                                            />
-                                        ))}
+                                        {tags &&
+                                            tags.map(({ title, color }) => (
+                                                <Tag
+                                                    title={title}
+                                                    color={color}
+                                                    key={`${title}-tag-helpful-link`}
+                                                />
+                                            ))}
                                     </div>
                                     <p className='text-gray-600 dark:text-gray-400 text-md mb-2'>
                                         {description}
@@ -61,32 +64,25 @@ export default function Resources({ notes }: any) {
 }
 
 export async function getStaticProps() {
-    const notes = [
-        {
-            title: 'Wave',
-            description:
-                'Wave is a free and amazing accessibilty tool for your websites. Just drop in your link and find out what areas to improve on in your sites to make them more accessible.',
-            link: 'https://wave.webaim.org/',
-            tags: [
-                { title: 'Accessibility', color: '#125E8A' },
-                { title: 'Websites', color: '#363457' },
-            ],
-        },
-        {
-            title: 'Coolors',
-            description:
-                'Coolors.co is an awesome color generate to helps make choosing colors simple and a bit more fun :)',
-            link: 'https://coolors.co/',
-            tags: [
-                { title: 'Design', color: '#7D83FF' },
-                { title: 'Colors', color: '#426B69' },
-            ],
-        },
-    ];
+    const notes = await getClient()
+        .fetch(
+            groq`
+      *[_type=="resourceLink"] | order(_createdAt desc){
+        _id,
+        link,
+        title,
+        description,
+      }`
+        )
+        .catch((error) => {
+            console.log(error);
+        });
+
     return {
-        props: {
-            notes,
-        },
-        revalidate: 60,
+        props: { notes },
+        // Next.js will attempt to re-generate the page:
+        // - When a request comes in
+        // - At most once every 10 seconds
+        revalidate: 10, // In seconds
     };
 }
