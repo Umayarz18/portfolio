@@ -15,6 +15,7 @@ import mainImage from "./objects/mainImage";
 import link from "./objects/link";
 import seo from "./objects/seo";
 import resourceLink from "./documents/resourceLink";
+import page from "./documents/page";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -36,6 +37,7 @@ export default createSchema({
     mainImage,
     link,
     seo,
-    resourceLink
+    resourceLink,
+    page,
   ])
 });

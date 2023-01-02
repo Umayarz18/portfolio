@@ -40,7 +40,7 @@ export const Footer = ({ footerLinks }: FooterProps) => {
                             <img
                                 src='/sanity-logo.svg'
                                 alt='Powered by Sanity'
-                                className='h-3 bg-[#f03e2f]'
+                                className='h-3 '
                             />
                         </a>
 

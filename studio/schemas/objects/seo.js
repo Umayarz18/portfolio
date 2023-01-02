@@ -16,7 +16,7 @@ export default {
       title: 'Description',
       name: 'description',
       description: 'This description populates meta-tags on the webpage',
-      type: 'string',
+      type: 'text',
     },
     {
       title: "Slug",

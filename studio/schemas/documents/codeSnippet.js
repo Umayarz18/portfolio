@@ -20,7 +20,7 @@ export default {
     {
       name: "description",
       title: "Description",
-      type: "string",
+      type: "text",
       validatation: Rule =>
         Rule.required()
           .min(10)
