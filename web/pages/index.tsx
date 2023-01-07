@@ -116,8 +116,10 @@ function HighlightedSection({ projects }: any) {
                             data-splitbee-event={`CTA To ${
                                 project.title ?? project.seoTitle
                             }`}
-                            href={`/projects/${
-                                project.slug?.current ?? project.seoSlug.current
+                            href={`/${
+                                project.slug?.current
+                                    ? 'code-snippets/' + project.slug?.current
+                                    : 'projects/' + project.seoSlug.current
                             }`}
                             className='w-full self-center flex flex-col md:flex-row dark:bg-gray-900 
                         bg-gray-200 p-4 px-6 rounded-xl'
