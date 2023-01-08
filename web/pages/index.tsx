@@ -119,7 +119,7 @@ function HighlightedSection({ projects }: any) {
                             href={`/${
                                 project.slug?.current
                                     ? 'code-snippets/' + project.slug?.current
-                                    : 'projects/' + project.seoSlug.current
+                                    : 'blog/' + project.seoSlug.current
                             }`}
                             className='w-full self-center flex flex-col md:flex-row dark:bg-gray-900 
                         bg-gray-200 p-4 px-6 rounded-xl'
