@@ -25,9 +25,9 @@ export const CodeBlock = (props: unknown) => {
         }
         return (
             <button
-                className='text-gray-800 rounded
+                className='text-gray-700 rounded
                 dark:ring-primary-dark focus:ring-2 ring-primary
-              bg-slate-400  dark:text-white dark:bg-gray-600 p-1'
+              bg-gray-300  dark:text-gray-200 dark:bg-gray-700 p-1'
                 onClick={() => copyToClipboard()}
                 aria-label='Copy code'
             >
