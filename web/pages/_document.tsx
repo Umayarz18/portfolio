@@ -1,6 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
-import Script from 'next/script';
 
 class MyDocument extends Document {
     render() {
@@ -21,7 +20,7 @@ class MyDocument extends Document {
                     <link rel='manifest' href='/manifest.json' />
                     <link rel='apple-touch-icon' href='/favicon.ico'></link>
                     <meta name='theme-color' content='#fff' />
-                    <Script async src='https://cdn.splitbee.io/sb.js'></Script>
+                    <script async src='https://cdn.splitbee.io/sb.js' />
                 </Head>
                 <body>
                     <Main />

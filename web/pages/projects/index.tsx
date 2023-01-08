@@ -60,7 +60,7 @@ export async function getStaticProps() {
     const projects = await getClient()
         .fetch(
             groq`
-  *[_type == "project"] | order(_createdAt asc) {
+  *[_type == "project"] | order(_createdAt desc) {
       "seo":seoContent{
       title,
       slug,
