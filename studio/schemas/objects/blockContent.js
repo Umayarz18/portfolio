@@ -70,8 +70,16 @@ export default {
       }
     },
     {
-      type: "markdown",
-      description: "A Github flavored markdown field with image uploading"
+      name: "codepen",
+      title: "CodePen",
+      type: "object",
+      fields: [
+        {
+          name: 'link',
+          title: 'Iframe Link',
+          type: 'url'
+        }
+      ]
     }
   ]
 };

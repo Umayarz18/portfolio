@@ -1,6 +1,6 @@
 import BlockContent from '@sanity/block-content-to-react';
 import { config } from '../lib/config';
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { CodeBlock } from './code-block/CodeBlock';
 
 type MarkupContentProps = {
@@ -12,6 +12,7 @@ export default function MarkupContent({ body }: MarkupContentProps) {
     return (
         <BlockContent
             className=''
+            ignoreUnknownTypes={false}
             blocks={body}
             serializers={serializers}
             {...config}
@@ -43,7 +44,16 @@ const serializers = {
     marks: { link, list, code },
     types: {
         code: (props) => <CodeBlock {...props} />,
-
+        codepen: (props) => {
+            const iframeStyles: CSSProperties = {
+                width: 'inherit',
+            };
+            return (
+                <div className='min-w-full lg:max-w-2xl'>
+                    <iframe src={props.node.link} style={iframeStyles} />
+                </div>
+            );
+        },
         block: (props) => {
             const { style = 'normal', listItem = 'none' } = props.node;
 
