@@ -46,7 +46,7 @@ export default function Post(props) {
             ))}
           </div>
           <div className="">
-            <BlockContent body={projectBreakdown} />
+            <BlockContent body={projectBreakdown} source={seo.title} />
           </div>
         </div>
       </article>

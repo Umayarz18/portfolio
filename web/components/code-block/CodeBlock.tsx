@@ -25,6 +25,9 @@ export const CodeBlock = (props: unknown) => {
     }
     return (
       <button
+        data-splitbee-event={`Code copied at: ${
+          props["node"].filename ?? props["node"].code
+        }, ${props["analyticsSource"]}`}
         className="text-gray-700 rounded
                 dark:ring-primary-dark focus:ring-2 ring-primary
               bg-gray-300  dark:text-gray-200 dark:bg-gray-700 p-1"

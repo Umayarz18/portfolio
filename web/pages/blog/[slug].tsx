@@ -31,7 +31,7 @@ export default function Post({ page, preview }) {
           </div>
 
           <div className="mx-auto">
-            <BlockContent body={body} />
+            <BlockContent body={body} source={seo.title} />
           </div>
         </div>
       </article>

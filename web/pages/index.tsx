@@ -6,7 +6,7 @@ import React from "react";
 import { getClient } from "../lib/sanity.server";
 import { urlFor } from "../lib/sanity";
 import { SkillCard } from "../components/SkillCard";
-import MarkupContent from "../components/BlockContent";
+import BlockContent from "../components/BlockContent";
 
 export default function Home({ content }: any) {
   return (
@@ -54,7 +54,7 @@ function HeroSection({ content }: any) {
                 dark:text-gray-300 font-normal text-lg md:text-xl  
                 mx-4 mt-5 md:ml-0 md:mr-4"
         >
-          <MarkupContent body={content.summary} />
+          <BlockContent body={content.summary} />
         </p>
       </div>
       <Image
@@ -87,7 +87,7 @@ function SkillSection({ tags, content }: any) {
           <span className="font-bold">{content.heading}</span>
         </h2>
         <div className="my-5 text-gray-600 dark:text-gray-300 font-normal text-lg md:text-xl">
-          <MarkupContent body={content.body} />
+          <BlockContent body={content.body} />
         </div>
       </div>
     </section>

@@ -27,7 +27,7 @@ export default function Post(props) {
             ))}
           </div>
           <div className=" mx-auto ">
-            <BlockContent body={body} />
+            <BlockContent body={body} source={title} />
           </div>
         </div>
       </article>
