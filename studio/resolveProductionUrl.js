@@ -5,12 +5,20 @@ const previewSecret = "what";
 const remoteUrl = `https://roewynumayam.com`;
 const localUrl = `http://localhost:3000`;
 
-function stripDraftId(str) {
-  return str.replace(/^drafts\./, "");
-}
-
 export default function resolveProductionUrl(document) {
-  const id = stripDraftId(document._id);
+  let route = '';
+  if (document.slug && document._type == 'codeSnippet') {
+    route = `/code-snippets/${document.slug.current}`;
+  }
+  else if (document.seoContent && document._type == 'project') {
+    route = `/projects/${document.seoContent.slug.current}`;
+  }
+  else if (document.seoContent && document._type == 'post') {
+    route = `/blog/${document.seoContent.slug.current}`;
+  }
+  else {
+    route = '/'
+  }
 
   const baseUrl =
     window.location.hostname === "localhost" ? localUrl : remoteUrl;
@@ -18,7 +26,7 @@ export default function resolveProductionUrl(document) {
   const previewUrl = new URL(baseUrl);
   previewUrl.pathname = `/api/preview`;
   previewUrl.searchParams.append(`secret`, previewSecret);
-  previewUrl.searchParams.append(`slug`, doc?.slug?.current ?? `/`);
+  previewUrl.searchParams.append(`slug`, route);
 
   return previewUrl.toString();
 }
