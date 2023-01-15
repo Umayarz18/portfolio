@@ -1,5 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable quotes */
-export const lightTheme = {
+export interface codeBlockStyleProps {
+  [key: string]: any;
+}
+
+export const lightTheme: codeBlockStyleProps = {
   'code[class*="language-"]': {
     color: "inherit",
     // eslint-disable-next-line quotes
@@ -105,6 +110,9 @@ export const lightTheme = {
   "hljs-variable": {
     color: "#e90",
   },
+  "hljs-title": {
+    color: "#fff",
+  },
   bold: {
     fontWeight: "bold",
   },
@@ -113,7 +121,7 @@ export const lightTheme = {
   },
 };
 
-export const darkTheme = {
+export const darkTheme: codeBlockStyleProps = {
   'code[class*="language-"]': {
     color: "inherit",
     background: "none",

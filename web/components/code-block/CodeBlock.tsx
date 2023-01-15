@@ -1,17 +1,31 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
-import SyntaxHighlighter from "react-syntax-highlighter";
 import { useTheme } from "next-themes";
 import { CodeIcon } from "../Icons";
-import { lightTheme, darkTheme } from "./style";
+import { lightTheme, darkTheme, codeBlockStyleProps } from "./style";
+import dynamic from "next/dynamic";
 
+const SyntaxHighlighter = dynamic(
+  () => import("react-syntax-highlighter").then((mod) => mod.default),
+  { ssr: false }
+);
 export const CodeBlock = (props: unknown) => {
   const [copySuccess, setCopySuccess] = useState("");
   const { theme } = useTheme();
-
+  const [codeBlockTheme, setCodeBlockTheme] = useState<codeBlockStyleProps>(
+    theme === "dark" ? darkTheme : lightTheme
+  );
   useEffect(() => {
     setTimeout(() => setCopySuccess(""), 2000);
   }, [copySuccess]);
+
+  useEffect(() => {
+    loadCodeBlockTheme();
+  }, [theme]);
+
+  async function loadCodeBlockTheme() {
+    setCodeBlockTheme(theme === "dark" ? darkTheme : lightTheme);
+  }
 
   const CodeButton = () => {
     function copyToClipboard() {
@@ -57,7 +71,7 @@ export const CodeBlock = (props: unknown) => {
         <SyntaxHighlighter
           wrapLongLines
           language={props["node"].language}
-          style={theme === "dark" ? darkTheme : lightTheme}
+          style={codeBlockTheme}
         >
           {props["node"].code}
         </SyntaxHighlighter>
