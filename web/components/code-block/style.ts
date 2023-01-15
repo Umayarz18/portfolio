@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+import { CSSProperties } from "react";
+
 /* eslint-disable quotes */
-export interface codeBlockStyleProps {
+export interface codeBlockStyleProps extends CSSProperties {
   [key: string]: any;
 }
 
@@ -9,13 +12,7 @@ export const lightTheme: codeBlockStyleProps = {
     color: "inherit",
     // eslint-disable-next-line quotes
     fontFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
-    fontSize: "1em",
-    textAlign: "left",
     whiteSpace: "pre",
-    wordSpacing: "normal",
-    wordBreak: "normal",
-    wordWrap: "normal",
-    lineHeight: "1.5",
     MozTabSize: "4",
     OTabSize: "4",
     tabSize: "4",
@@ -29,13 +26,7 @@ export const lightTheme: codeBlockStyleProps = {
     background: "none",
     // eslint-disable-next-line quotes
     fontFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
-    fontSize: "1em",
-    textAlign: "left",
     whiteSpace: "pre",
-    wordSpacing: "normal",
-    wordBreak: "normal",
-    wordWrap: "normal",
-    lineHeight: "1.5",
     MozTabSize: "4",
     OTabSize: "4",
     tabSize: "4",
@@ -43,7 +34,6 @@ export const lightTheme: codeBlockStyleProps = {
     MozHyphens: "none",
     msHyphens: "none",
     hyphens: "none",
-    padding: "1em",
     margin: "0 0",
     overflowX: "hidden",
     borderRadius: "0px 0px 1px 1px",
@@ -127,13 +117,7 @@ export const darkTheme: codeBlockStyleProps = {
     background: "none",
     // eslint-disable-next-line quotes
     fontFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
-    fontSize: "1em",
-    textAlign: "left",
     whiteSpace: "pre",
-    wordSpacing: "normal",
-    wordBreak: "normal",
-    wordWrap: "normal",
-    lineHeight: "1.5",
     MozTabSize: "4",
     OTabSize: "4",
     tabSize: "4",
@@ -147,7 +131,6 @@ export const darkTheme: codeBlockStyleProps = {
     background: "none",
     // eslint-disable-next-line quotes
     fontFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
-    fontSize: "1em",
     textAlign: "left",
     whiteSpace: "pre",
     wordSpacing: "normal",
@@ -161,7 +144,6 @@ export const darkTheme: codeBlockStyleProps = {
     MozHyphens: "none",
     msHyphens: "none",
     hyphens: "none",
-    padding: "1em",
     margin: "0 0",
     overflowX: "hidden",
     borderRadius: "0px 0px 1px 1px",
