@@ -1,6 +1,8 @@
-import BlockContent from "@sanity/block-content-to-react";
-import { config } from "../lib/config";
 import React, { CSSProperties } from "react";
+import BlockContent from "@sanity/block-content-to-react";
+import Image from "next/image";
+import { config } from "../lib/config";
+import { urlFor } from "../lib/sanity";
 import { CodeBlock } from "./code-block/CodeBlock";
 
 type MarkupContentProps = {
@@ -54,6 +56,21 @@ const serializers = (source) => {
         return (
           <div className="min-w-full lg:max-w-2xl">
             <iframe src={props.node.link} style={iframeStyles} />
+          </div>
+        );
+      },
+      image: (props) => {
+        return (
+          <div className="relative my-8">
+            <Image
+              height={400}
+              width={600}
+              sizes={""}
+              layout={"responsive"}
+              className=""
+              src={urlFor(props.node.asset).url()}
+              alt={props.node["altText"] ?? ""}
+            />
           </div>
         );
       },
