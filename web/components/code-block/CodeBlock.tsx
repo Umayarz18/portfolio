@@ -56,7 +56,7 @@ export const CodeBlock = (props: unknown) => {
     <div
       className="not-prose rounded border 
       border-gray-200 bg-gray-200 dark:border-gray-700 dark:bg-gray-800
-      text-sm lg:text-md max-w-xs md:max-w-xl lg:max-w-2xl mx-auto "
+      text-sm lg:text-md max-w-md sm:max-w-xl lg:max-w-2xl mx-auto "
     >
       {props["node"].filename && (
         <div
