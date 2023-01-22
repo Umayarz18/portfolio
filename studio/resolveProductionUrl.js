@@ -2,7 +2,7 @@
 const previewSecret = "what";
 
 // Replace `remoteUrl` with your deployed Next.js site
-const remoteUrl = `https://roewynumayam.com`;
+const remoteUrl = `https://main--roewyn-umayam.netlify.app`;
 const localUrl = `http://localhost:3000`;
 
 export default function resolveProductionUrl(document) {
